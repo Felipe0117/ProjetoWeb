@@ -17,14 +17,14 @@
             <nav class="imagem"></nav>
             <div class="login">
                 <h1>Login</h1>
-                <form action="logar" name="frmLogin">
+                <form action="logar" enctype="multipart/form-data" method="get">
                 <div class="teste">
-                    <i class="fa-solid fa-user"></i><input type="text" id="username" placeholder="Nome do usuário ">
+                    <i class="fa-solid fa-user"></i><input name="usuario" type="text" id="usuario" placeholder="Nome do usuário ">
                 </div>
                 <br>
                 <br>
                 <div class="teste">
-                    <i class="fa-solid fa-lock"></i><input type="text" id="password" placeholder="Senha">
+                    <i class="fa-solid fa-lock"></i><input name="senha" type="text" id="senha" placeholder="Senha">
                 </div>
                 <br>
                 <br>

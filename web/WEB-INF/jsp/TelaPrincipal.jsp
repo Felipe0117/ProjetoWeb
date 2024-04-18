@@ -20,7 +20,7 @@
         </div>
         <div class="menu2">
             <div><a href="#"><i class="fa-solid fa-camera"></i>Filmadoras</a></div>
-            <div><a href="#"><i class="fa-solid fa-fire-burner"></i>Eletrodomésticos</a></div>
+            <div><a href="#"><i class="fa-solid fa-gamepad"></i>Games</a></div>
             <div><a href="#"><i class="fa-solid fa-desktop"></i>Notebooks</a></div>
             <div><a href="#"><i class="fa-solid fa-gears"></i>Peças</a></div>
             <div><a href="#"><i class="fa-solid fa-computer-mouse"></i>Acessórios</a></div>

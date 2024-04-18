@@ -31,32 +31,32 @@
                 </div>
                 <br>
                 <br>
-                <i class="fa-solid fa-calendar-days"></i><input type="text" id="criarData" placeholder="Data de Nascimento">
+                    <i class="fa-solid fa-calendar-days"></i><input type="text" id="criarData" placeholder="Data de Nascimento">
                 </div>
                 <br>
                 <br>
                 <div class="teste">
-                <i class="fa-solid fa-lock"></i><input type="text" id="criarCPF" placeholder="CPF">
+                    <i class="fa-regular fa-address-card"></i><input type="text" id="criarCPF" placeholder="CPF">
                 </div>
                 <br>
                 <br>
                 <div class="teste">
-                <i class="fa-solid fa-lock"></i><input type="text" id="criarRua" placeholder="Rua">
+                    <i class="fa-solid fa-road"></i><input type="text" id="criarRua" placeholder="Rua">
                 </div>
                 <br>
                 <br>
                 <div class="teste">
-                <i class="fa-solid fa-lock"></i><input type="text" id="criarNum" placeholder="Número">
+                    <i class="fa-solid fa-location-dot"></i><input type="text" id="criarNum" placeholder="Número">
                 </div>
                 <br>
                 <br>
                 <div class="teste">
-                <i class="fa-solid fa-lock"></i><input type="text" id="criarCep" placeholder="CEP">
+                    <i class="fa-solid fa-map-location-dot"></i><input type="text" id="criarCep" placeholder="CEP">
                 </div>
                 <br>
                 <br>
                 <div class="teste">
-                <i class="fa-solid fa-lock"></i><input type="text" id="criarComplement" placeholder="Complemento">
+                    <i class="fa-solid fa-tree"></i><input type="text" id="criarComplement" placeholder="Complemento">
                 </div>
                 <br>
                 <br>

@@ -14,13 +14,21 @@ import java.sql.SQLException;
  * @author Senai
  */
 public class Conexao {
-    private static final String url = "jdbc:mysql://localhost:3306/mercadinho";
+    private static final String url = "jdbc:mysql://localhost:3306/mercadoWeb";
     private static final String usuario = "root";
     private static final String senha = "";
+    private static final String driver = "com.mysql.cj.jdbc.Driver";
     
     
     public static Connection conectar() throws SQLException {
-        return (Connection) DriverManager.getConnection(url, usuario, senha);
+       Connection con = null;
+       try{
+           Class.forName(driver);
+           con = DriverManager.getConnection(url, usuario, senha);
+       }catch (Exception e){
+           System.out.println(e);
+       }
+       return con;
     }
     
 }

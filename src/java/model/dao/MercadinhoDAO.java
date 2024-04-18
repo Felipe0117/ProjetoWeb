@@ -108,8 +108,7 @@ public class MercadinhoDAO {
             
             if(rs.next()) {
                 usuarioValido.setId_usuario(rs.getInt("id_usuario"));
-                usuarioValido.setUsuario(rs.getString("usuario"));
-                usuarioValido.setSenha(rs.getString("senha"));
+                System.out.println("DAO: " + usuarioValido.getId_usuario());
             }
             
             rs.close();
