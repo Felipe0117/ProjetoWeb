@@ -72,11 +72,11 @@ public class LoginServlet extends HttpServlet {
     
     protected void entrar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         usuario.setUsuario(request.getParameter("usuario"));
         usuario.setSenha(request.getParameter("senha"));
         PrintWriter tout = response.getWriter();
-        System.out.println(usuario.getUsuario());
-                System.out.println(usuario.getSenha());
+        
         if (usuario.getUsuario().trim().equals("") || usuario.getSenha().trim().equals("")) {
             tout.println("<script type=\"text/javascript\">");
             tout.println("alert('Por favor, preencha todos os campos.');");
@@ -90,7 +90,7 @@ public class LoginServlet extends HttpServlet {
                 response.sendRedirect("./Home");
             } else {
                  tout.println("<script type=\"text/javascript\">");
-            tout.println("alert('Login ou senha incoretos!.');");
+            tout.println("alert('Login ou senha incorretos!.');");
             tout.println("window.location.href = './Login';");
             tout.println("</script>");
             }

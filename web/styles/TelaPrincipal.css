@@ -15,48 +15,58 @@ header{
 }
 
 .menu1{
+    height: 150px;
     width: 100%;
-    background-color: #045cac;
+    background-color: black;
     display: grid;
-    grid-template-columns: 40% 20% 50%;
+    grid-template-columns: 30% 35% 20%;
 
 }
 
 .menu1 button{
-    background-color: #045cac;
-    border-color: transparent;
+    background-color: gray;
+    border: 1px solid white;
     border-radius: 10%;
+    color: black;
 }
 
 .menu1 button:hover{
-    background-color: #378fe2;
+    background-color: lightgray;
     
 
 }
 
 .menu1 .pesquisa{
-    margin-top: 3vh;
-    width: 25vw;
+    margin-top: 50px;
+    width: 40vw;
+
+}
+
+.menu1 .pesquisa i{
+    font-size: xx-large;
+    color: white;
 
 }
 
 .menu1 input{
-    height: 3vh;
-    width: 18vw;
+    height: 6vh;
+    width: 30vw;
     border-color:black ;
+    border-radius: 10px;
 }
 
-.senai{
-    background-image: url(./../assets/senai-logo-0.png);
-    height: 10vh;
-    width: 20vw;
+.logo{
+    background-image: url(./../assets/game\ time.jpg);
     background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat;
+    max-width: 40%;
+    max-height: 100%;
+    margin-left: 20%;
 }
 
 .itens{
-    margin-top: 4vh;
+    margin-top: 65px;
     
 }
 
@@ -69,7 +79,7 @@ body{
 }
 
 .caixa{
-    background-color: black;
+    background-color: gray;
     margin-top: 100vh;
     
 }
@@ -79,7 +89,7 @@ body{
 }
 
 .caixa button a:hover{
-    color: gray;
+    color: lightgray;
 }
 
 .caixa button{
@@ -109,7 +119,7 @@ body{
     .menu2{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    background-color: rgb(23, 23, 24);
+    background-color: #363636;
 }
 
     .menu2 a{
@@ -122,6 +132,11 @@ body{
     color: gray;
     
 }
-    
-   
 
+.meio{
+    margin-top: 20px;
+    display: flex;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    justify-content: space-around;
+    
+}

@@ -52,7 +52,6 @@ public class Mercadinho {
     private String senha;
     private String usuario;
     private String telefone;
-    private Date data_nascimento;
     private String cpf;
 
     public Mercadinho() {
@@ -92,7 +91,6 @@ public class Mercadinho {
         this.senha = senha;
         this.usuario = usuario;
         this.telefone = telefone;
-        this.data_nascimento = data_nascimento;
         this.cpf = cpf;
     }
 
@@ -358,14 +356,6 @@ public class Mercadinho {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
-    }
-
-    public Date getData_nascimento() {
-        return data_nascimento;
-    }
-
-    public void setData_nascimento(Date data_nascimento) {
-        this.data_nascimento = data_nascimento;
     }
 
     public String getCpf() {

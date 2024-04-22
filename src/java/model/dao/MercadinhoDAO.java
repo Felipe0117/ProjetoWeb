@@ -76,11 +76,10 @@ public class MercadinhoDAO {
             while (rs.next()) {
                 Mercadinho usuario = new Mercadinho();
                 usuario.setId_usuario(rs.getInt("id_usuario"));
-                usuario.setNome(rs.getString("nome_usuario"));
+                usuario.setNome_usuario(rs.getString("nome_usuario"));
                 usuario.setSenha(rs.getString("senha"));
                 usuario.setUsuario(rs.getString("usuario"));
                 usuario.setTelefone(rs.getString("telefone"));
-                usuario.setData_nascimento(rs.getDate("data_nascimento"));
                 usuario.setCpf(rs.getString("cpf"));
                 usuarios.add(usuario);
             }
@@ -127,13 +126,12 @@ public class MercadinhoDAO {
         try {
             Connection conexao = Conexao.conectar();
             PreparedStatement stmt = null;
-            stmt = conexao.prepareStatement("INSERT INTO usuarios (nome, senha, usuario, telefone, data_nascimento, cpf) VALUES (?, ?, ?, ?, ?, ?)");
-            stmt.setString(1, usuario.getNome());
+            stmt = conexao.prepareStatement("INSERT INTO usuarios (nome_usuario, senha, usuario, telefone, cpf) VALUES (?, ?, ?, ?, ?)");
+            stmt.setString(1, usuario.getNome_usuario());
             stmt.setString(3, usuario.getSenha());
             stmt.setString(4, usuario.getUsuario());
             stmt.setString(5, usuario.getTelefone());
-            stmt.setDate(6, usuario.getData_nascimento());
-            stmt.setString(7, usuario.getCpf());
+            stmt.setString(6, usuario.getCpf());
             stmt.executeUpdate();
             stmt.close();
             conexao.close();

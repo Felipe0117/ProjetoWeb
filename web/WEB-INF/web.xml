@@ -17,6 +17,10 @@
         <servlet-class>controller.HomeServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>CadastroServlet</servlet-name>
+        <servlet-class>controller.CadastroServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>controller.LoginServlet</servlet-class>
     </servlet>
@@ -51,6 +55,14 @@
     <servlet-mapping>
         <servlet-name>ProdutoServlet</servlet-name>
         <url-pattern>/Produto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CadastroServlet</servlet-name>
+        <url-pattern>/Cadastro</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CadastroServlet</servlet-name>
+        <url-pattern>/cadastrar</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

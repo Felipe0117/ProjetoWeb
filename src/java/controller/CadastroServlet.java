@@ -13,6 +13,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import mercadinho.bean.Mercadinho;
+import model.dao.MercadinhoDAO;
 
 /**
  *
@@ -20,6 +22,8 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "CadastroServlet", urlPatterns = {"/Cadastro"})
 public class CadastroServlet extends HttpServlet {
+    Mercadinho usuario = new Mercadinho();
+    MercadinhoDAO usuarios = new MercadinhoDAO();
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -63,8 +67,39 @@ public class CadastroServlet extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
+             throws ServletException, IOException {
+        String action = request.getServletPath();
+        if (action.equals("/cadastrar")) {
+            user(request, response);
+        } else {
+            processRequest(request, response);
+        }
+    }
+    
+    protected void user(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        PrintWriter out = response.getWriter();
+        usuario.setNome_usuario(request.getParameter("nome_usuario"));
+        usuario.setSenha(request.getParameter("senha"));
+        usuario.setUsuario(request.getParameter("user"));
+        usuario.setCpf(request.getParameter("cpf"));
+        usuario.setTelefone(request.getParameter("telefone"));
+       
+        if (usuario.getNome_usuario().trim().equals("")
+                || usuario.getSenha().trim().equals("")
+                || usuario.getUsuario().trim().equals("")
+                || usuario.getCpf().trim().equals("")
+                || usuario.getTelefone().trim().equals("")) {
+            out.println("<script type=\"text/javascript\">");
+            out.println("alert('Por favor, preencha todos os campos.');");
+            out.println("window.location.href = './CadastroServlet';");
+            out.println("</script>");
+        } else {
+            System.out.println("ooo");
+            usuarios.create(usuario);
+            response.sendRedirect("./Login");
+        }
+
     }
 
     /**
