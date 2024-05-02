@@ -17,17 +17,22 @@
             <br>
             <br>
             <div class="teste">
-                <i class="fa-solid fa-lock"></i><input name="senha" type="text" id="senha" placeholder="Senha">
+                <i class="fa-solid fa-lock"></i><input name="senha" type="password" id="senha" placeholder="Senha" required>
             </div>
             <br>
             <br>
             <div class="teste">
-                <i class="fa-solid fa-user-check"></i><input name="user" type="text" id="user" placeholder="Nome de Usuário">
+                <i class="fa-solid fa-user-check"></i><input name="user" type="text" id="user" placeholder="Nome de Usuário" required>
             </div>
             <br>
             <br>
             <div class="teste">
-                <i class="fa-solid fa-phone"></i><input name="telefone" type="text" id="telefone" placeholder="Telefone">
+                <i class="fa-solid fa-phone"></i><input name="telefone" type="tel" id="telefone" placeholder="Telefone">
+            </div>
+            <br>
+            <br>
+            <div class="teste">
+                <i class="fa-solid fa-calendar-days"></i><input name="data_nascimento" type="date" id="data_nascimento" placeholder="Data de Nascimento">
             </div>
             <br>
             <br>

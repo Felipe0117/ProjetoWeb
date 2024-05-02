@@ -7,6 +7,7 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Date;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,10 +21,11 @@ import model.dao.MercadinhoDAO;
  *
  * @author Senai
  */
-@WebServlet(name = "CadastroServlet", urlPatterns = {"/Cadastro"})
+@WebServlet(name = "CadastroServlet", urlPatterns = {"/Cadastro", "/cadastrar"})
 public class CadastroServlet extends HttpServlet {
     Mercadinho usuario = new Mercadinho();
     MercadinhoDAO usuarios = new MercadinhoDAO();
+    
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -82,8 +84,11 @@ public class CadastroServlet extends HttpServlet {
         usuario.setNome_usuario(request.getParameter("nome_usuario"));
         usuario.setSenha(request.getParameter("senha"));
         usuario.setUsuario(request.getParameter("user"));
-        usuario.setCpf(request.getParameter("cpf"));
         usuario.setTelefone(request.getParameter("telefone"));
+        usuario.setData_nascimento(Date.valueOf(request.getParameter("data_nascimento")));
+        usuario.setCpf(request.getParameter("cpf"));
+        
+        
        
         if (usuario.getNome_usuario().trim().equals("")
                 || usuario.getSenha().trim().equals("")
@@ -96,7 +101,7 @@ public class CadastroServlet extends HttpServlet {
             out.println("</script>");
         } else {
             System.out.println("ooo");
-            usuarios.create(usuario);
+            usuarios.create2(usuario);
             response.sendRedirect("./Login");
         }
 
