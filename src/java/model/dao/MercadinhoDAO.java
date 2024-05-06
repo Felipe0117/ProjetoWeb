@@ -142,13 +142,13 @@ public class MercadinhoDAO {
         }
     }
      
-     public List<Mercadinho> read3() {
+     public List<Mercadinho> listarProdutos() {
         List<Mercadinho> produtos = new ArrayList<>();
         try {
             Connection conexao = Conexao.conectar();
             PreparedStatement stmt = null;
             ResultSet rs = null;
-            stmt = conexao.prepareStatement("SELECT * FROM produtos");
+            stmt = conexao.prepareStatement("SELECT * FROM produtos LIMIT 10");
             rs = stmt.executeQuery();
             while (rs.next()) {
                 Mercadinho produto = new Mercadinho();
@@ -158,10 +158,8 @@ public class MercadinhoDAO {
                 Blob blob = rs.getBlob("imagem");
                 produto.setValor(rs.getFloat("valor"));
                 produto.setCategoriaId(rs.getInt("categoriaId"));
-                int blobLenght = (int) blob.length();
-                byte[] imagemByte = blob.getBytes(1, blobLenght);
-                blob.free();
-                produto.setImagem(imagemByte);
+                produto.setDescricao(rs.getString("descricao"));
+                produto.setImagem(rs.getBytes("imagem"));
                 produtos.add(produto);
             }
             rs.close();
@@ -172,6 +170,80 @@ public class MercadinhoDAO {
             erro.printStackTrace();
         }
         return produtos;
+    }
+     
+    public void create3(Mercadinho produto) {
+        try {
+            Connection conexao = Conexao.conectar();
+            PreparedStatement stmt = null;
+            stmt = conexao.prepareStatement("INSERT INTO produtos (nome, descricao, categoria_id, valor, imagem) VALUES (?, ?, ?, ?, ?)");
+            stmt.setString(1, produto.getNome_produto());
+            stmt.setString(2, produto.getDescricao());
+            stmt.setInt(3, produto.getCategoriaId());
+            stmt.setFloat(4, produto.getValor());
+            stmt.setBytes(5, produto.getImagem());
+            stmt.executeUpdate();
+            stmt.close();
+            conexao.close();
+        } catch (SQLException erro) {
+            erro.printStackTrace();
+        }
+    }
+    
+    public List<Mercadinho> buscaProdutos(String busca) {
+        List<Mercadinho> resultadoBusca = new ArrayList();
+
+        try {
+            Connection conexao = Conexao.conectar();
+            PreparedStatement stmt = null;
+            ResultSet rs = null;
+            
+            stmt = conexao.prepareStatement("SELECT * FROM produtos WHERE nome LIKE ? OR descricao LIKE ?");
+            stmt.setString(1, busca);
+            stmt.setString(2, busca);
+            
+            rs = stmt.executeQuery();
+            
+            while(rs.next()) {
+                Mercadinho prod = new Mercadinho();
+                prod.setIdProduto(rs.getInt("id_produto"));
+                prod.setNome(rs.getString("nome"));
+                prod.setCategoriaId(rs.getInt("categoria_id"));
+                prod.setDescricao(rs.getString("descricao"));
+                prod.setValor(rs.getFloat("valor"));
+                prod.setImagem(rs.getBytes("imagem"));
+                
+                resultadoBusca.add(prod);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return resultadoBusca;
+    }
+    
+    public List<Mercadinho> listarCategorias() {
+        List<Mercadinho> categorias = new ArrayList();
+        
+        try {
+            Connection conexao = Conexao.conectar();
+            PreparedStatement stmt = null;
+            ResultSet rs = null;
+            
+            stmt = conexao.prepareStatement("SELECT * FROM categorias");
+            rs = stmt.executeQuery();
+            
+            while(rs.next()) {
+                Mercadinho categoriaAtual = new Mercadinho();
+                categoriaAtual.setIdCategoria(rs.getInt("id_categoria"));
+                categoriaAtual.setNome(rs.getString("nome"));
+                
+                categorias.add(categoriaAtual);
+            }
+        } catch(SQLException e) {
+            
+        }
+        
+        return categorias;
     }
     
 }

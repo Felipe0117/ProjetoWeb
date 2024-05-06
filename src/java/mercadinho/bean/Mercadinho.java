@@ -46,6 +46,7 @@ public class Mercadinho {
     private Blob imgBlob;
     private float valor;
     private int categoriaId;
+    private String descricao;
     //////////////////////////////////////
     private int id_usuario;
     private String nome_usuario;
@@ -58,7 +59,7 @@ public class Mercadinho {
     public Mercadinho() {
     }
 
-    public Mercadinho(int idCategoria, String nome, int id_endereco, int usuario_id1, String rua, int numero, String cep, String complemento, int id_estoque, int produto_id2, int quantidad_estoque, int id_pedido, int usuario_id2, int usuario_id, String status_pagamento, String metodo_Pagamento, float valorTotal, Date data_hora, int id_pedido_produto, int pedido_id, int produto_id, float preco_unitario, int idProduto, String nome_produto, byte[] imagem, Blob imgBlob, float valor, int categoriaId, int id_usuario, String nome_usuario, String senha, String usuario, String telefone, Date data_nascimento, String cpf) {
+    public Mercadinho(int idCategoria, String nome, int id_endereco, int usuario_id1, String rua, int numero, String cep, String complemento, int id_estoque, int produto_id2, int quantidad_estoque, int id_pedido, int usuario_id2, int usuario_id, String status_pagamento, String metodo_Pagamento, float valorTotal, Date data_hora, int id_pedido_produto, int pedido_id, int produto_id, float preco_unitario, int idProduto, String nome_produto, byte[] imagem, Blob imgBlob, float valor, int categoriaId, int id_usuario, String nome_usuario, String senha, String usuario, String telefone, Date data_nascimento, String cpf, String descricao) {
         this.idCategoria = idCategoria;
         this.nome = nome;
         this.id_endereco = id_endereco;
@@ -94,6 +95,9 @@ public class Mercadinho {
         this.telefone = telefone;
         this.data_nascimento = data_nascimento;
         this.cpf = cpf;
+        this.descricao = descricao;
+        
+        
     }
 
     public int getIdCategoria() {
@@ -376,9 +380,12 @@ public class Mercadinho {
         this.cpf = cpf;
     }
     
+    public String getDescricao() {
+        return descricao;
+    }
 
-
-    
-    
-    
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+       
 }
