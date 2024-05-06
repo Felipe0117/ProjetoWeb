@@ -12,6 +12,16 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Tela de todos os produtos</h1>
+        <c:forEach items="${produtos}" var="produto">
+                <div class="card" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">${produto.nome}</h5>
+                      <p class="card-text">${produto.descricao}</p>
+                      <p class="card-text">${produto.valor}</p>
+                      <a href="#" class="btn btn-primary">Comprar</a>
+                    </div>
+                  </div>
+            </c:forEach>
     </body>
 </html>

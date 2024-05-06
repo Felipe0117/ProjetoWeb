@@ -153,11 +153,9 @@ public class MercadinhoDAO {
             while (rs.next()) {
                 Mercadinho produto = new Mercadinho();
                 produto.setIdProduto(rs.getInt("id_produto"));
-                produto.setNome_produto(rs.getString("nome_produto"));
-                produto.setImgBlob(rs.getBlob("imagem"));
-                Blob blob = rs.getBlob("imagem");
+                produto.setNome_produto(rs.getString("nome"));
                 produto.setValor(rs.getFloat("valor"));
-                produto.setCategoriaId(rs.getInt("categoriaId"));
+                produto.setCategoriaId(rs.getInt("categoria_id"));
                 produto.setDescricao(rs.getString("descricao"));
                 produto.setImagem(rs.getBytes("imagem"));
                 produtos.add(produto);
@@ -244,6 +242,36 @@ public class MercadinhoDAO {
         }
         
         return categorias;
+    }
+    
+    public List<Mercadinho> buscaCategoria (int categoria) {
+        List<Mercadinho> resultadoBusca = new ArrayList();
+
+        try {
+            Connection conexao = Conexao.conectar();
+            PreparedStatement stmt = null;
+            ResultSet rs = null;
+            
+            stmt = conexao.prepareStatement("SELECT * FROM produtos WHERE categoria_id = ?");
+            stmt.setInt(1, categoria);
+            
+            rs = stmt.executeQuery();
+            
+            while(rs.next()) {
+                Mercadinho prod = new Mercadinho();
+                prod.setIdProduto(rs.getInt("id_produto"));
+                prod.setNome(rs.getString("nome"));
+                prod.setCategoriaId(rs.getInt("categoria"));
+                prod.setDescricao(rs.getString("descricao"));
+                prod.setValor(rs.getFloat("valor"));
+                prod.setImagem(rs.getBytes("imagem"));
+                
+                resultadoBusca.add(prod);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return resultadoBusca;
     }
     
 }

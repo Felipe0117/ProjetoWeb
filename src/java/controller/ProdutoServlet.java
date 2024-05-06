@@ -34,7 +34,7 @@ public class ProdutoServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         MercadinhoDAO mercadinhoDao = new MercadinhoDAO();
-        List<Mercadinho> mercadinho = mercadinhoDao.read3();
+        List<Mercadinho> mercadinho = mercadinhoDao.listarProdutos();
         request.setAttribute("produtos", mercadinho);
         
         

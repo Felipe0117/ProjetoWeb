@@ -64,6 +64,18 @@
         <servlet-name>CadastroServlet</servlet-name>
         <url-pattern>/cadastrar</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProdutosServlet</servlet-name>
+        <url-pattern>/cadastrarProduto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProdutosServlet</servlet-name>
+        <url-pattern>/buscar-produtos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProdutosServlet</servlet-name>
+        <url-pattern>/cadastrar-produto</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
