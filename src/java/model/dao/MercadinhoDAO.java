@@ -76,7 +76,7 @@ public class MercadinhoDAO {
             while (rs.next()) {
                 Mercadinho usuario = new Mercadinho();
                 usuario.setId_usuario(rs.getInt("id_usuario"));
-                usuario.setNome_usuario(rs.getString("nome_usuario"));
+                usuario.setNome_usuario(rs.getString("nome"));
                 usuario.setSenha(rs.getString("senha"));
                 usuario.setUsuario(rs.getString("usuario"));
                 usuario.setTelefone(rs.getString("telefone"));
@@ -157,7 +157,7 @@ public class MercadinhoDAO {
                 produto.setValor(rs.getFloat("valor"));
                 produto.setCategoriaId(rs.getInt("categoria_id"));
                 produto.setDescricao(rs.getString("descricao"));
-                produto.setImagem(rs.getBytes("imagem"));
+                produto.setImagem(rs.getString("imagem"));
                 produtos.add(produto);
             }
             rs.close();
@@ -179,7 +179,7 @@ public class MercadinhoDAO {
             stmt.setString(2, produto.getDescricao());
             stmt.setInt(3, produto.getCategoriaId());
             stmt.setFloat(4, produto.getValor());
-            stmt.setBytes(5, produto.getImagem());
+            stmt.setString(5, produto.getImagem());
             stmt.executeUpdate();
             stmt.close();
             conexao.close();
@@ -209,7 +209,7 @@ public class MercadinhoDAO {
                 prod.setCategoriaId(rs.getInt("categoria_id"));
                 prod.setDescricao(rs.getString("descricao"));
                 prod.setValor(rs.getFloat("valor"));
-                prod.setImagem(rs.getBytes("imagem"));
+                prod.setImagem(rs.getString("imagem"));
                 
                 resultadoBusca.add(prod);
             }
@@ -261,10 +261,10 @@ public class MercadinhoDAO {
                 Mercadinho prod = new Mercadinho();
                 prod.setIdProduto(rs.getInt("id_produto"));
                 prod.setNome(rs.getString("nome"));
-                prod.setCategoriaId(rs.getInt("categoria"));
+                prod.setCategoriaId(rs.getInt("categoria_id"));
                 prod.setDescricao(rs.getString("descricao"));
                 prod.setValor(rs.getFloat("valor"));
-                prod.setImagem(rs.getBytes("imagem"));
+                prod.setImagem(rs.getString("imagem"));
                 
                 resultadoBusca.add(prod);
             }

@@ -42,8 +42,7 @@ public class Mercadinho {
     /////////////////////////////////////////
     private int idProduto;
     private String nome_produto;
-    private byte[] imagem;
-    private Blob imgBlob;
+    private String imagem;
     private float valor;
     private int categoriaId;
     private String descricao;
@@ -59,7 +58,7 @@ public class Mercadinho {
     public Mercadinho() {
     }
 
-    public Mercadinho(int idCategoria, String nome, int id_endereco, int usuario_id1, String rua, int numero, String cep, String complemento, int id_estoque, int produto_id2, int quantidad_estoque, int id_pedido, int usuario_id2, int usuario_id, String status_pagamento, String metodo_Pagamento, float valorTotal, Date data_hora, int id_pedido_produto, int pedido_id, int produto_id, float preco_unitario, int idProduto, String nome_produto, byte[] imagem, Blob imgBlob, float valor, int categoriaId, int id_usuario, String nome_usuario, String senha, String usuario, String telefone, Date data_nascimento, String cpf, String descricao) {
+    public Mercadinho(int idCategoria, String nome, int id_endereco, int usuario_id1, String rua, int numero, String cep, String complemento, int id_estoque, int produto_id2, int quantidad_estoque, int id_pedido, int usuario_id2, int usuario_id, String status_pagamento, String metodo_Pagamento, float valorTotal, Date data_hora, int id_pedido_produto, int pedido_id, int produto_id, float preco_unitario, int idProduto, String nome_produto, String imagem, float valor, int categoriaId, int id_usuario, String nome_usuario, String senha, String usuario, String telefone, Date data_nascimento, String cpf, String descricao) {
         this.idCategoria = idCategoria;
         this.nome = nome;
         this.id_endereco = id_endereco;
@@ -85,7 +84,6 @@ public class Mercadinho {
         this.idProduto = idProduto;
         this.nome_produto = nome_produto;
         this.imagem = imagem;
-        this.imgBlob = imgBlob;
         this.valor = valor;
         this.categoriaId = categoriaId;
         this.id_usuario = id_usuario;
@@ -292,20 +290,12 @@ public class Mercadinho {
         this.nome_produto = nome_produto;
     }
 
-    public byte[] getImagem() {
+    public String getImagem() {
         return imagem;
     }
 
-    public void setImagem(byte[] imagem) {
+    public void setImagem(String imagem) {
         this.imagem = imagem;
-    }
-
-    public Blob getImgBlob() {
-        return imgBlob;
-    }
-
-    public void setImgBlob(Blob imgBlob) {
-        this.imgBlob = imgBlob;
     }
 
     public float getValor() {

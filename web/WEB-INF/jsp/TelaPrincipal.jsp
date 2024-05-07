@@ -16,10 +16,21 @@
         <div class="menu1">
             <div class="logo"></div>
             <form class="d-flex" action="buscar-produtos" method="get">
-            <div class="pesquisa"><i class="fa-solid fa-magnifying-glass"></i><input type="text" id="taskPesquisa" placeholder="Pesquisa"></div>
+                <div class="pesquisa"><i class="fa-solid fa-magnifying-glass"></i><input type="text" id="taskPesquisa" name="busca" placeholder="Pesquisa"></div>
             <div class="itens"><button>Buscar</button></div>
             </form>
         </div>
+           <br>
+           <br>
+           <div class="container container-categorias">
+                    <c:forEach items="${categoria}" var="mercadinho" >
+                        <div class="categoria">
+                            <a href="./buscar-produtos?cat=${mercadinho.idCategoria}&busca=">${mercadinho.nome}</a>
+                        </div>
+                    </c:forEach>
+           </div>
+           <br>
+           <br>
         <div class="menu2">
             <div><a href="#"><i class="fa-solid fa-camera"></i>Filmadoras</a></div>
             <div><a href="#"><i class="fa-solid fa-gamepad"></i>Games</a></div>
@@ -60,9 +71,10 @@
     <section class="meio">
         <c:forEach items="${produtos}" var="produto">
                 <div class="card" style="width: 18rem;">
-                    <img src="..." class="card-img-top" alt="...">
+                    <img src="${produto.imagem}" class="card-img-top" alt="${produto.nome}">
                     <div class="card-body">
                       <h5 class="card-title">${produto.nome_produto}</h5>
+                      <p class="card-text categoria-text">Categoria: ${produto.categoriaId}</p>
                       <p class="card-text">${produto.descricao}</p>
                       <p class="card-text">${produto.valor}</p>
                       <a href="#" class="btn btn-primary">Comprar</a>
