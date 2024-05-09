@@ -36,7 +36,8 @@ public class HomeServlet extends HttpServlet {
         MercadinhoDAO mercadinhoDao = new MercadinhoDAO();
         List<Mercadinho> mercadinho = mercadinhoDao.listarProdutos();
         request.setAttribute("produtos", mercadinho);
-        
+        List<Mercadinho> mercadinho1 = mercadinhoDao.listarCategorias();
+        request.setAttribute("categoria", mercadinho1);
         
         String nextPage = "/WEB-INF/jsp/TelaPrincipal.jsp";
         

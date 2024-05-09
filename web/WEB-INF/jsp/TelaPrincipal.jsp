@@ -23,9 +23,9 @@
            <br>
            <br>
            <div class="container container-categorias">
-                    <c:forEach items="${categoria}" var="mercadinho" >
+                    <c:forEach items="${categoria}" var="mercadinho1" >
                         <div class="categoria">
-                            <a href="./buscar-produtos?cat=${mercadinho.idCategoria}&busca=">${mercadinho.nome}</a>
+                            <a href="./buscar-produtos?cat=${mercadinho1.idCategoria}&busca=">${mercadinho1.nome}</a>
                         </div>
                     </c:forEach>
            </div>

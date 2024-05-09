@@ -52,6 +52,8 @@ public class ProdutosServlet extends HttpServlet {
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
         } else if(url.equals("/Home")){
+            System.out.println("aqui");
+            System.out.println(mercadinho.get(0).getNome());
             List<Mercadinho> produtos = mercadinhoDao.listarProdutos();
             request.setAttribute("produtos", produtos);
             String nextPage = "/WEB-INF/jsp/TelaPrincipal.jsp";
