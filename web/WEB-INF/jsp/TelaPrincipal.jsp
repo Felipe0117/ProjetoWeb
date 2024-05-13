@@ -20,26 +20,17 @@
             <div class="itens"><button>Buscar</button></div>
             </form>
         </div>
-           <br>
-           <br>
+           <div class="menu2">
            <div class="container container-categorias">
+               <div class="ver">
                     <c:forEach items="${categoria}" var="mercadinho1" >
                         <div class="categoria">
                             <a href="./buscar-produtos?cat=${mercadinho1.idCategoria}&busca=">${mercadinho1.nome}</a>
                         </div>
                     </c:forEach>
+                </div>
            </div>
-           <br>
-           <br>
-        <div class="menu2">
-            <div><a href="#"><i class="fa-solid fa-camera"></i>Filmadoras</a></div>
-            <div><a href="#"><i class="fa-solid fa-gamepad"></i>Games</a></div>
-            <div><a href="#"><i class="fa-solid fa-desktop"></i>Notebooks</a></div>
-            <div><a href="#"><i class="fa-solid fa-gears"></i>Peças</a></div>
-            <div><a href="#"><i class="fa-solid fa-computer-mouse"></i>Acessórios</a></div>
-            <div><a href="#"><i class="fa-solid fa-tv"></i>TVs</a></div>
-            <div><a href="#"><i class="fa-solid fa-money-bill"></i>Promoções</a></div>
-        </div>
+           </div>
     </header>
     <main>
         <div id="carouselExampleIndicators" class="carousel slide">
@@ -74,9 +65,9 @@
                     <img src="${produto.imagem}" class="card-img-top" alt="${produto.nome}">
                     <div class="card-body">
                       <h5 class="card-title">${produto.nome_produto}</h5>
-                      <p class="card-text categoria-text">Categoria: ${produto.categoriaId}</p>
-                      <p class="card-text">${produto.descricao}</p>
-                      <p class="card-text">${produto.valor}</p>
+                      <br>
+                      <p class="card-text">R$ ${produto.valor}</p>
+                      
                       <a href="#" class="btn btn-primary">Comprar</a>
                     </div>
                   </div>
@@ -84,18 +75,18 @@
     </section>
     </main>
     <footer>
-        <div class="caixa">
-        <div class=""><button><a href="#"><i class="fa-solid fa-arrow-up"></i></a></button></div>
-        <div class="menu3">
-            <div><a href="#"><i class="fa-solid fa-camera"></i>Filmadoras</a></div>
-            <div><a href="#"><i class="fa-solid fa-fire-burner"></i>Eletrodomésticos</a></div>
-            <div><a href="#"><i class="fa-solid fa-desktop"></i>Notebooks</a></div>
-            <div><a href="#"><i class="fa-solid fa-gears"></i>Peças</a></div>
-            <div><a href="#"><i class="fa-solid fa-computer-mouse"></i>Acessórios</a></div>
-            <div><a href="#"><i class="fa-solid fa-tv"></i>TVs</a></div>
-            <div><a href="#"><i class="fa-solid fa-money-bill"></i>Promoções</a></div>
-        </div> 
-    </div>
+        <div class="menu2">
+           <div class="container container-categorias">
+               <div class="ver">
+                    <c:forEach items="${categoria}" var="mercadinho1" >
+                        <div class="categoria">
+                            <a href="./buscar-produtos?cat=${mercadinho1.idCategoria}&busca=">${mercadinho1.nome}</a>
+                        </div>
+                    </c:forEach>
+                </div>
+           </div>
+           </div>
+
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>       
     </body>

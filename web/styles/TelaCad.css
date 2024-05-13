@@ -10,16 +10,17 @@ body{
 }
 
 .container{
-    margin-top: 20px;
+    margin-top: 15vh;
     text-align: center;
     border: 1px solid rgb(212, 212, 212);
     overflow: hidden;
     width: 400px;
     padding: 20px;
-    box-shadow: 0 7px 10px 0 rgb(63, 63, 63);
+    box-shadow: 0 7px 10px 0 black;
     border-radius: 20px;
     background-color: lightgray;
     margin-bottom: 20px;
+    
 }
 
 .teste input{
