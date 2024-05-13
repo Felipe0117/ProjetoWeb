@@ -6,7 +6,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: gray;
+    background-color: #272727;
 }
 
 .container{
@@ -30,15 +30,16 @@ body{
 }
 
 .container button{
+    color: white;
     cursor: pointer;
-    background-color: gray;
-    width: 100px;
-    height: 25px;
-    border-radius: 20px;
+    background-color: black;
+    width: 15vw;
+    height: 7vh;
+    border-radius: 10px;
     border: 2px solid black;
 
 }
 
 .container button:hover{
-    background-color: lightgray;
+    opacity: 60%;
 }

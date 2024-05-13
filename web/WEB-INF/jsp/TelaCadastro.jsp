@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="./styles/TelaCadastro.css">
+        <link rel="stylesheet" href="./styles/TelaCad.css">
         <script src="https://kit.fontawesome.com/676974c9dc.js" crossorigin="anonymous"></script>
     </head>
     <body>
