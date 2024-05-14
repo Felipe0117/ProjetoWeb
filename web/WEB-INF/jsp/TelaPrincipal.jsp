@@ -19,6 +19,8 @@
                 <div class="pesquisa"><i class="fa-solid fa-magnifying-glass"></i><input type="text" id="taskPesquisa" name="busca" placeholder="Pesquisa"></div>
             <div class="itens"><button>Buscar</button></div>
             </form>
+            <button class="buttons"><i class="fa-solid fa-user"></i></button>
+            <button class="buttons"><i class="fa-solid fa-cart-shopping"></i></button>                            
         </div>
            <div class="menu2">
            <div class="container container-categorias">
@@ -86,7 +88,10 @@
                 </div>
            </div>
            </div>
-
+        <div class="rodapé">
+            <p>© 2024, Game Time Store</p>
+            <p id="tel">Telefone: (43) 2730-9352</p>
+        </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>       
     </body>

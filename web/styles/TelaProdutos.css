@@ -21,14 +21,8 @@ main{
     width: 100%;
     background-color: black;
     display: grid;
-    grid-template-columns: 30% 30% 25% 10%;
+    grid-template-columns: 30% 35% 20%;
 
-}
-
-.buttons{
-    margin-top: 65px;
-    width: 3vw;
-    height: 4vh;
 }
 
 .menu1 button{
@@ -76,7 +70,6 @@ main{
 .itens{
     margin-top: 65px;
     
-    
 }
 
 .itens button{
@@ -111,7 +104,6 @@ footer{
 
 
 .meio{
-    margin-top: 20px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     justify-content: space-evenly;
@@ -135,7 +127,8 @@ footer{
 }
 
 .meio .card{
-    margin-bottom: 2vh;
+    margin-top: 4vh;
+    margin-bottom: 27vh;
     left: 5vh;
 }
 
@@ -155,3 +148,4 @@ footer{
 .rodapé #tel{
     margin-left: 5vw
 }
+
