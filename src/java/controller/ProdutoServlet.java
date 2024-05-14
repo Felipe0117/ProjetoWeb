@@ -34,8 +34,11 @@ public class ProdutoServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         MercadinhoDAO mercadinhoDao = new MercadinhoDAO();
-        List<Mercadinho> mercadinho = mercadinhoDao.listarProdutos();
-        request.setAttribute("produtos", mercadinho);
+        int id_produto = Integer.parseInt(request.getParameter("id"));
+        
+        List<Mercadinho> produtos = mercadinhoDao.buscarProduto(id_produto);
+        
+        request.setAttribute("produtos", produtos);
         
         
         String nextPage = "/WEB-INF/jsp/TelaProduto.jsp";

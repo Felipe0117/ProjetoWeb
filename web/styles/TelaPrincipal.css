@@ -21,8 +21,12 @@ main{
     width: 100%;
     background-color: black;
     display: grid;
-    grid-template-columns: 30% 30% 25% 10%;
+    grid-template-columns: 2fr 1fr 2fr 1fr;
 
+}
+
+#um{
+   margin-left: 12vw;
 }
 
 .buttons{
@@ -32,21 +36,21 @@ main{
 }
 
 .menu1 button{
-    background-color: gray;
-    border: 1px solid white;
+    background-color: #272727;
     border-radius: 10%;
-    color: black;
+    color: white;
+    border: none;
 }
 
 .menu1 button:hover{
-    background-color: lightgray;
+    opacity: 70%;
     
 
 }
 
 .menu1 .pesquisa{
     margin-top: 50px;
-    width: 40vw;
+    width: 35vw;
 
 }
 

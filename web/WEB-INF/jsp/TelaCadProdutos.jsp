@@ -10,17 +10,20 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cadastro de Produtos</title>
+        <link rel="stylesheet" href="styles/TelaCadProdutos.css">
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     </head>
     <body>
+        <div class="tudo">
        <div class="container">
-        <h2>Cadastro de Produto</h2>
+        <h1>Cadastro de Produto</h1>
         <form action="cadastrarProduto" method="POST" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="nome_produto">Nome:</label>
                 <input type="text" class="form-control" id="nome" name="nome" required>
             </div>
-            <div class="form-group">
+            <section class="ambos">
+                <div class="form-group">
                 <label for="categoria">Categoria:</label>
                 <select class="form-control" id="mercadinho" name="mercadinho">
                     <option value="1">Placas-mãe</option>
@@ -30,6 +33,7 @@
                     <option value="5">Fontes de Alimentação</option>
                 </select>
             </div>
+            </section>
             <div class="form-group">
                 <label for="valor">Valor:</label>
                 <input type="number" step="0.01" class="form-control" id="valor" name="valor" required>
@@ -45,6 +49,7 @@
             <button type="submit" class="btn btn-primary">Cadastrar</button>
         </form>
     </div>
+     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

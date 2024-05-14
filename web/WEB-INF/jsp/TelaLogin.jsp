@@ -24,7 +24,7 @@
                 <br>
                 <br>
                 <div class="teste">
-                    <i class="fa-solid fa-lock"></i><input name="senha" type="text" id="senha" placeholder="Senha">
+                    <i class="fa-solid fa-lock"></i><input name="senha" type="password" id="senha" placeholder="Senha">
                 </div>
                 <br>
                 <br>

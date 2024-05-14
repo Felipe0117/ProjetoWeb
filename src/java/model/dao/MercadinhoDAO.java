@@ -219,6 +219,35 @@ public class MercadinhoDAO {
         return resultadoBusca;
     }
     
+    public List<Mercadinho> buscarProduto(int id_produto){
+            List<Mercadinho> produto = new ArrayList<>();
+            try{
+                Connection conexao = Conexao.conectar();
+                PreparedStatement stmt = null;
+                ResultSet rs = null;
+               
+                stmt = conexao.prepareStatement("SELECT * FROM produtos WHERE id_produto = ?");
+                stmt.setInt(1, id_produto);
+                rs = stmt.executeQuery();
+                while (rs.next()){
+                    Mercadinho produtos = new Mercadinho();
+                    produtos.setIdProduto(rs.getInt("id_produto"));                    
+                    produtos.setNome(rs.getString("nome"));
+                    produtos.setCategoriaId(rs.getInt("categoria_id"));
+                    produtos.setDescricao(rs.getString("descricao"));
+                    produtos.setValor(rs.getFloat("valor"));
+                    produtos.setImagem(rs.getString("imagem"));
+                    produto.add(produtos);
+                }
+                rs.close();
+                stmt.close();
+                conexao.close();
+            }catch(SQLException e){
+                e.printStackTrace();
+            }
+            return produto;
+        }
+    
     public List<Mercadinho> listarCategorias() {
         List<Mercadinho> categorias = new ArrayList();
         

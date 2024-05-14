@@ -1,0 +1,31 @@
+h1{
+    color: white;
+}
+
+.tudo{
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    
+   background-color: #272727; 
+}
+
+.form-group label{
+    color: white;
+}
+
+.section .ambos{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.form-group #mercadinho{
+    width: 30%;
+}
+
+.form-group #valor{
+    width: 20%;
+}
+
+
