@@ -23,7 +23,7 @@
                 <input type="text" class="form-control" id="nome" name="nome" required>
             </div>
             <section class="ambos">
-                <div class="form-group">
+                <div class="form-group" id="categoria">
                 <label for="categoria">Categoria:</label>
                 <select class="form-control" id="mercadinho" name="mercadinho">
                     <option value="1">Placas-mãe</option>
@@ -32,12 +32,12 @@
                     <option value="4">Placas de Vídeo</option>
                     <option value="5">Fontes de Alimentação</option>
                 </select>
-            </div>
-            </section>
-            <div class="form-group">
+            </div>           
+            <div class="form-group" id="mudarValor">
                 <label for="valor">Valor:</label>
                 <input type="number" step="0.01" class="form-control" id="valor" name="valor" required>
             </div>
+            </section>
             <div class="form-group">
                 <label for="descricao">Descrição:</label>
                 <textarea class="form-control" id="descricao" name="descricao" rows="3"></textarea>
