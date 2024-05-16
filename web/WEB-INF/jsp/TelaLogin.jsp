@@ -29,7 +29,6 @@
                 <br>
                 <br>
                 <button id="entrarTask" type="submit">Entrar</button>
-                <div><a href="./cadastrar-produto">Teste</a></div>
                 <div class="cadastro"><span>Não possui conta? </span><a href="./Cadastro"> Cadastre-se</a></div>
                 </form>
             </div>
