@@ -140,7 +140,8 @@ footer{
 
 .meio .card{
     margin-bottom: 2vh;
-    left: 5vh;
+    left: 2vw;
+
 }
 
 .rodapé{
@@ -158,4 +159,16 @@ footer{
 
 .rodapé #tel{
     margin-left: 5vw
+}
+
+.card-body a{
+    background-color: black;
+    color: white;
+    border: none;
+    margin-left: 28%;
+}
+
+.card-body a:hover{
+    background-color: black;
+    opacity: 60%;
 }

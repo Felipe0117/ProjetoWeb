@@ -22,6 +22,8 @@
                 <div class="pesquisa"><i class="fa-solid fa-magnifying-glass"></i><input type="text" id="taskPesquisa" name="busca" placeholder="Pesquisa"></div>
             <div class="itens"><button>Buscar</button></div>
             </form>
+            <div class="bot" id="um"><button id="oi" class="buttons"><i class="fa-solid fa-user"></i></button></div>
+            <div class="bot"><button class="buttons"><i class="fa-solid fa-cart-shopping"></i></button></div>
         </div>
            <div class="menu2">
            <div class="container container-categorias">
@@ -38,12 +40,11 @@
         <main>
             <section class="meio">
         <c:forEach items="${produtos}" var="produto">
-                <div class="card" style="width: 18rem;">
+                <div class="card" style="width: 14rem;">
                     <img src="${produto.imagem}" class="card-img-top" alt="${produto.nome}">
                     <div class="card-body">
                       <h5 class="card-title">${produto.nome}</h5>
-                      <p class="card-text">${produto.descricao}</p>
-                      <p class="card-text">${produto.valor}</p>
+                      <p class="card-text">R$ ${produto.valor}</p>
                       <a href="#" class="btn btn-primary">Comprar</a>
                     </div>
                   </div>

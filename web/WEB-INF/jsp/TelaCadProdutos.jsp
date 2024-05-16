@@ -26,11 +26,13 @@
                 <div class="form-group" id="categoria">
                 <label for="categoria">Categoria:</label>
                 <select class="form-control" id="mercadinho" name="mercadinho">
-                    <option value="1">Placas-mãe</option>
-                    <option value="2">Processadores</option>
-                    <option value="3">Memórias RAM</option>
-                    <option value="4">Placas de Vídeo</option>
-                    <option value="5">Fontes de Alimentação</option>
+                    <option value="1">Celulares</option>
+                    <option value="2">Monitores</option>
+                    <option value="3">Peças</option>
+                    <option value="4">Acessórios</option>
+                    <option value="5">Gabinetes</option>
+                    <option value="6">Cadeiras</option>
+                    <option value="7">Headsets</option>
                 </select>
             </div>           
             <div class="form-group" id="mudarValor">

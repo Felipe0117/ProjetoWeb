@@ -63,7 +63,7 @@
           </div>
     <section class="meio">
         <c:forEach items="${produtos}" var="produto">
-                <div class="card" style="width: 18rem;">
+                <div class="card" style="width: 14rem;">
                     <img src="${produto.imagem}" class="card-img-top" alt="${produto.nome}">
                     <div class="card-body">
                       <h5 class="card-title">${produto.nome_produto}</h5>

@@ -21,26 +21,36 @@ main{
     width: 100%;
     background-color: black;
     display: grid;
-    grid-template-columns: 30% 35% 20%;
+    grid-template-columns: 2fr 1fr 2fr 1fr;
 
+}
+
+#um{
+   margin-left: 12vw;
+}
+
+.buttons{
+    margin-top: 65px;
+    width: 3vw;
+    height: 4vh;
 }
 
 .menu1 button{
-    background-color: gray;
-    border: 1px solid white;
+    background-color: #272727;;
+    border: none;
     border-radius: 10%;
-    color: black;
+    color: white;
 }
 
 .menu1 button:hover{
-    background-color: lightgray;
+    opacity: 70%;
     
 
 }
 
 .menu1 .pesquisa{
     margin-top: 50px;
-    width: 40vw;
+    width: 35vw;
 
 }
 
@@ -147,5 +157,17 @@ footer{
 
 .rodapé #tel{
     margin-left: 5vw
+}
+
+.card-body a{
+    background-color: black;
+    color: white;
+    border: none;
+    margin-left: 28%;
+}
+
+.card-body a:hover{
+    background-color: black;
+    opacity: 60%;
 }
 
