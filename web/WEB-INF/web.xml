@@ -57,6 +57,10 @@
         <url-pattern>/Produto</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>ProdutoServlet</servlet-name>
+        <url-pattern>/ir_carrinho</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>CadastroServlet</servlet-name>
         <url-pattern>/Cadastro</url-pattern>
     </servlet-mapping>

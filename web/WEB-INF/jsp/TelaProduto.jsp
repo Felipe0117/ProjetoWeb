@@ -20,9 +20,19 @@
                       <br>
                       <p class="card-text">R$ ${produto.valor}</p>
                       
-                      <a href="./Produto?id=${produto.idProduto}" class="btn btn-primary" type="submit" value="comprar"Comprar>Comprar</a>
+                      <button type="submit" class="btn btn-comprar"  idProduto="${produto.idProduto}" imagem="${produto.imagem}" nome="${produto.nome}" descricao="${produto.descricao}"  valor="${produto.valor}"
+                              quantidade=1 id="comprar">Adicionar ao Carrinho</button>
                     </div>
                   </div>
         </c:forEach>
+        <form id="form-comprar" action="enviarItemCarrinho" method="post" enctype="multipart/form-data" style="display: none;">
+            <input type="hidden" name="idProduto" id="idProduto">
+            <input type="hidden" name="descricao" id="descricao">
+            <input type="hidden" name="nome" id="nome">
+            <input type="hidden" name="valor" id="valor">
+            <input type="file" name="imagem" id="imagem">
+            <input type="hidden" name="quantidade" id="quantidade">           
+        </form>
     </body>
+    <script src="./js/Carrinho.js"></script>
 </html>

@@ -20,7 +20,7 @@
             <div class="itens"><button>Buscar</button></div>
             </form>
             <div class="bot" id="um"><button id="oi" class="buttons"><a href="./cadastrar-produto"><i class="fa-solid fa-user"></i></a></button></div>
-            <div class="bot"><button class="buttons"><i class="fa-solid fa-cart-shopping"></i></button></div>                            
+            <div class="bot"><button class="buttons"><a href="./ir_carrinho"><i class="fa-solid fa-cart-shopping"></i></a></button></div>                            
         </div>
            <div class="menu2">
            <div class="container container-categorias">
