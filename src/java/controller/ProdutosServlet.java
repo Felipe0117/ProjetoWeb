@@ -52,8 +52,6 @@ public class ProdutosServlet extends HttpServlet {
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
         } else if(url.equals("/Home")){
-            System.out.println("aqui");
-            System.out.println(mercadinho.get(0).getNome());
             List<Mercadinho> produtos = mercadinhoDao.listarProdutos();
             request.setAttribute("produtos", produtos);
             String nextPage = "/WEB-INF/jsp/TelaPrincipal.jsp";
@@ -61,7 +59,6 @@ public class ProdutosServlet extends HttpServlet {
             dispatcher.forward(request, response);
         } else if (url.equals("/buscar-produtos")) {
             String busca = request.getParameter("busca") != null ? request.getParameter("busca") : "";
-            System.out.println("aqui:"+ busca);
             if(busca.equals("")) {
                 System.out.println("Produto não encontrado");
                 String categoria = request.getParameter("cat");
@@ -75,7 +72,13 @@ public class ProdutosServlet extends HttpServlet {
             String nextPage = "/WEB-INF/jsp/TelaProdutos.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
+        } else if (url.equals("/ir_carrinho")){
+            String nextPage = "/WEB-INF/jsp/TelaCarrinho.jsp";
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+            dispatcher.forward(request, response);
+                
         }
+        
         
         
         String nextPage = "/WEB-INF/jsp/TelaProdutos.jsp";

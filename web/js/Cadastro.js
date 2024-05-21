@@ -1,3 +1,4 @@
+/*Fiz com a ajuda do Lucas Justino*/
 function maskCPF(event) {
     let input = event.target;
     let value = input.value.replace(/\D/g, '');

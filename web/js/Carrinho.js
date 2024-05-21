@@ -1,3 +1,4 @@
+/*Matheus me passou e explicou as funcionalidades*/
 document.querySelectorAll('.btn-comprar').forEach(btn => {
     btn.addEventListener('click', function() {
         var idProduto = this.getAttribute('idProduto');

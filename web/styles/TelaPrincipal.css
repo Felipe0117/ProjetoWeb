@@ -29,23 +29,27 @@ main{
    margin-left: 12vw;
 }
 
-.buttons{
+
+.menu1 .buttons{
     margin-top: 65px;
-    width: 3vw;
-    height: 4vh;
+    display: inline-block;
+      padding: 10px 20px;
+      background-color: #272727;
+      color: white;
+      text-decoration: none; 
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
 }
 
-.menu1 button{
-    background-color: #272727;
-    border-radius: 10%;
-    color: white;
-    border: none;
+.menu1 .buttons:hover{
+    opacity: 70%;
+    
 }
 
 .menu1 button:hover{
     opacity: 70%;
     
-
 }
 
 .menu1 .pesquisa{
@@ -84,7 +88,12 @@ main{
 }
 
 .itens button{
+    background-color: #272727;
+    color: white;
     cursor: pointer;
+    border-color: transparent;
+    border-radius: 10px;
+    
 }
 
 .menu2{    

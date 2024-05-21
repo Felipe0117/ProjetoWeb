@@ -16,19 +16,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import mercadinho.bean.CarrinhoDTO;
-import mercadinho.bean.Mercadinho;
 import model.dao.CarrinhoDAO;
-import model.dao.MercadinhoDAO;
 
 /**
  *
  * @author Senai
  */
-@WebServlet (urlPatterns = {"/enviarItemCarrinho"})
+
 @MultipartConfig
-public class ProdutoServlet extends HttpServlet {
-              CarrinhoDTO carrinho = new CarrinhoDTO();
-              CarrinhoDAO carrinhos = new CarrinhoDAO();
+public class CarrinhoServlet extends HttpServlet {
+    
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -40,25 +38,15 @@ public class ProdutoServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        MercadinhoDAO mercadinhoDao = new MercadinhoDAO();
-        int id_produto = Integer.parseInt(request.getParameter("id"));
+        CarrinhoDAO carrinhos = new CarrinhoDAO();
         
-        List<Mercadinho> produtos = mercadinhoDao.buscarProduto(id_produto);
-        
-        request.setAttribute("produtos", produtos);
-        
-        
-        String url = request.getServletPath();
-        
-
-            String nextPage = "/WEB-INF/jsp/TelaProduto.jsp";
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
-            dispatcher.forward(request, response);
+        List<CarrinhoDTO> carro = carrinhos.leia();
+            request.setAttribute("carro", carro);
             
+        String nextPage = "/WEB-INF/jsp/TelaCarrinho.jsp";
         
-        
-        
-        
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+        dispatcher.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -87,32 +75,9 @@ public class ProdutoServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-                String action = request.getServletPath();
-            if(action.equals("/enviarItemCarrinho")){
-              produto(request, response);  
-            }else{
-                processRequest(request, response);
-            }
-                
+        processRequest(request, response);
     }
 
-    protected void produto(HttpServletRequest request, HttpServletResponse response)
-                throws ServletException, IOException {
-            CarrinhoDTO carrinho = new CarrinhoDTO();
-            PrintWriter out = response.getWriter();
-            carrinho.setNomeCarrinho(request.getParameter("nome_produto_carrinho"));
-            carrinho.setValorCarrinho(Float.parseFloat(request.getParameter("valor_produto_carrinho")));
-            carrinho.setDescricaoCarrinho(request.getParameter("descricao_produto_carrinho"));
-            carrinho.setQuantidadeCarrinho(Integer.parseInt(request.getParameter("quantidade_carrinho")));
-            carrinho.setProdutoId3(Integer.parseInt(request.getParameter("produto_id3")));
-            carrinho.setImagemCarrinho(request.getParameter("imagem_produto_carrinho"));
-            carrinhos.cadastrarCarrinho(carrinho);
-            out.println("<script type=\"text/javascript\">");
-            out.println("alert('Compra feita com sucesso.');");
-            out.println("window.location.href = './pages/TelaProduto.jsp';");
-            out.println("</script>");
-            response.sendRedirect("./Home");
-    }
     /**
      * Returns a short description of the servlet.
      *
@@ -122,6 +87,5 @@ public class ProdutoServlet extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
 
 }
