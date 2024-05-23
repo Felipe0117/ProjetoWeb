@@ -41,7 +41,7 @@
             </div>
             <br>
             <br>
-            <button id="criarTask" type="submit">Criar</button>
+            <button id="criarTask" type="submit" onclick="cadastro()">Criar</button>
             </form>
     </div>
             

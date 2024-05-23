@@ -22,8 +22,8 @@
                 <div class="pesquisa"><i class="fa-solid fa-magnifying-glass"></i><input type="text" id="taskPesquisa" name="busca" placeholder="Pesquisa"></div>
             <div class="itens"><button>Buscar</button></div>
             </form>
-            <div class="bot" id="um"><button id="oi" class="buttons"><i class="fa-solid fa-user"></i></button></div>
-            <div class="bot"><button class="buttons"><i class="fa-solid fa-cart-shopping"></i></button></div>
+            <div class="bot" id="um"><a class="buttons" href="./cadastrar-produto"><i class="fa-solid fa-user"></i></a></div>
+            <div class="bot"><a class="buttons" href="./ir_carrinho"><i class="fa-solid fa-cart-shopping"></i></a></div>
         </div>
            <div class="menu2">
            <div class="container container-categorias">
@@ -45,7 +45,7 @@
                     <div class="card-body">
                       <h5 class="card-title">${produto.nome}</h5>
                       <p class="card-text">R$ ${produto.valor}</p>
-                      <a href="#" class="btn btn-primary">Comprar</a>
+                      <a href="./Produto?id=${produto.idProduto}" class="btn btn-primary" type="submit" value="comprar">Comprar</a>
                     </div>
                   </div>
             </c:forEach>

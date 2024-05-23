@@ -13,7 +13,7 @@ header{
 }
 
 main{
-  background-color: #272727;  
+  background-color: white;  
 }
 
 .menu1{
@@ -117,66 +117,17 @@ main{
        
 }
 
-footer{
-    background-color: #272727;
-}
-
-
-.meio{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    justify-content: space-evenly;
-    position: relative;
-    align-items: center;
-    align-content: space-between;
-    
-    
-}
-
-.meio img{
-    height: 45%;
-    width: 100%;
-    background-size: cover; 
-    background-position: center; 
-    background-repeat: no-repeat;
-}
-
-.meio .card-body{
-    background-color: #D9D9D9;
-}
-
-.meio .card{
-    margin-top: 4vh;
-    margin-bottom: 27vh;
-    left: 5vh;
-}
-
-.rodapé{
-    background-color: black;
+.cartao{
     display: flex;
-    grid-template-columns: 1fr 1fr;
-    justify-content: center;
+    overflow: hidden;
+}
+
+.card .body{
+    width: 50%;
     
-    
 }
-
-.rodapé p{
-    color: white;
-}
-
-.rodapé #tel{
-    margin-left: 5vw
-}
-
-.card-body a{
-    background-color: black;
-    color: white;
-    border: none;
-    margin-left: 28%;
-}
-
-.card-body a:hover{
-    background-color: black;
-    opacity: 60%;
+.card .body1{
+    width: 50%;
+    display: flex;
 }
 

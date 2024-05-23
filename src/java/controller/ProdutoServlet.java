@@ -47,6 +47,9 @@ public class ProdutoServlet extends HttpServlet {
         
         request.setAttribute("produtos", produtos);
         
+        List<Mercadinho> mercadinho = mercadinhoDao.listarCategorias();
+        request.setAttribute("categoria", mercadinho);
+        
         
         String url = request.getServletPath();
         
