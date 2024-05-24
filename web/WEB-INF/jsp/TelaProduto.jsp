@@ -44,16 +44,18 @@
                     <div class="body1">
                         <img src="${produto.imagem}" class="produto" alt="${produto.nome}">
                     </div>
-                    <div class="body">
-                      <h5 class="title">${produto.nome}</h5>
-                      <p class="cartao-text">${produto.descricao}</p>
+                    <div class="corpo">
+                      <h5 class="titulo">${produto.nome}</h5>
+                      
                       <br>
-                      <p class="text">R$ ${produto.valor}</p>
+                      <p class="gui">Valor a vista:</p>
+                      <p class="valor">R$ ${produto.valor}</p>
                       
                       <button type="submit" class="btn btn-comprar"  idProduto="${produto.idProduto}" imagem="${produto.imagem}" nome="${produto.nome}" descricao="${produto.descricao}"  valor="${produto.valor}"
                               quantidade=1 id="comprar">Adicionar ao Carrinho</button>
                     </div>
                   </div>
+                   <p class="cartao-text">${produto.descricao}</p>           
         </c:forEach>
         <form id="form-comprar" action="enviarItemCarrinho" method="post" enctype="multipart/form-data" style="display: none;">
             <input type="hidden" name="idProduto" id="idProduto">
@@ -64,6 +66,23 @@
             <input type="hidden" name="quantidade" id="quantidade">           
         </form>
     </main>
+    <footer>
+        <div class="menu2">
+           <div class="container container-categorias">
+               <div class="ver">
+                    <c:forEach items="${categoria}" var="mercadinho1" >
+                        <div class="categoria">
+                            <a href="./buscar-produtos?cat=${mercadinho1.idCategoria}&busca=">${mercadinho1.nome}</a>
+                        </div>
+                    </c:forEach>
+                </div>
+           </div>
+           </div>
+        <div class="rodapé">
+            <p>© 2024, Game Time Store</p>
+            <p id="tel">Telefone: (43) 2730-9352</p>
+        </div>
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>       
 
     </body>
