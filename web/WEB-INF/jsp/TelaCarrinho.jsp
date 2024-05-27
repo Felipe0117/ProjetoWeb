@@ -9,20 +9,26 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="styles/TelaCarrinho.css">
+        <script src="https://kit.fontawesome.com/676974c9dc.js" crossorigin="anonymous"></script>
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Carrinho</h1>
         <div class="carrinho">
+            <h1><i class="fa-solid fa-cart-shopping"></i>Carrinho</h1>
             <c:forEach items="${carro}" var="carros">
-                <div class="card" style="width: 14rem;">
-                    <img src="${carros.imagemCarrinho}" class="card-img-top" alt="${carros.nomeCarrinho}">
-                    <div class="card-body">
-                      <h5 class="card-title">${carros.nomeCarrinho}</h5>
-                      <br>
-                      <p class="card-text">R$ ${carros.valorCarrinho}</p>
+                <div class="cartao">
+                    <img src="" class="cartao-img" alt="${carros.nomeCarrinho}">
+                    <div class="corpo">
+                        
+                            <h5 class="titulo">${carros.nomeCarrinho}</h5>
+                            <p class="valor">R$ ${carros.valorCarrinho}</p>
+                        
+
+                      
                                         
                     </div>
+                        <p class="quantidade">${carros.quantidadeCarrinho}</p>
                   </div>
             </c:forEach>
         </div>

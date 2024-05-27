@@ -55,7 +55,8 @@
                               quantidade=1 id="comprar">Adicionar ao Carrinho</button>
                     </div>
                   </div>
-                   <p class="cartao-text">${produto.descricao}</p>           
+                   <p class="desc">Descrição:</p>
+                   <p class="texto">${produto.descricao}</p>           
         </c:forEach>
         <form id="form-comprar" action="enviarItemCarrinho" method="post" enctype="multipart/form-data" style="display: none;">
             <input type="hidden" name="idProduto" id="idProduto">
