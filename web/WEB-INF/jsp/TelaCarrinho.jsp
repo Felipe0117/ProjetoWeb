@@ -19,7 +19,7 @@
         <div class="todos">
         <header>
             <div class="menu1">
-                <div class="logo"></div>
+                <div class="logo"><a href="./Home">HOME</a></div>
                     <form class="d-flex" action="buscar-produtos" method="get">
                         <div class="pesquisa"><i class="fa-solid fa-magnifying-glass"></i><input type="text" id="taskPesquisa" name="busca" placeholder="Pesquisa"></div>
                         <div class="itens"><button>Buscar</button></div>
@@ -41,6 +41,10 @@
         </header>
         <main>
             <h1><i class="fa-solid fa-cart-shopping"></i>Carrinho</h1>
+            <div class="carta">
+            <p class="valores">Quantidade</p>
+            <p class="valore">Total</p>
+            </div>
         <div class="carrinho">
             
             <c:forEach items="${carro}" var="carros">
@@ -60,7 +64,7 @@
                 <h2 class="palavra">Total:</h2>
             </div>
             <div class="CheckOut">
-                
+                <a href="./" class="btn btn-primary">Finalizar Compra</a>
             </div>
         </main>
         <footer>

@@ -186,3 +186,9 @@ footer{
     font-size: large;
     font-weight: 600;
 }
+
+.logo a{
+    margin-left: 3.2vw;
+    color: #EEDD82;
+    text-decoration: none;
+}

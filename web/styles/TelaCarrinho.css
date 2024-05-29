@@ -17,11 +17,10 @@ body{
 }
 
 .quant{
-    margin-left: 10vw;
     display: grid;
     text-align: center;
     align-items: center;
-    width: 20vw; 
+    width: 10vw; 
 }
 
 main{
@@ -59,6 +58,32 @@ main .total .palavra{
     width: 8vw;
     height: 13vh;
     margin-left: 2vw;
+}
+
+.CheckOut a{
+    background-color: black;
+    color: white;
+    border: none;
+    width: 25vw;
+    margin-left: 37%;
+    margin-top: 2vh;
+}
+
+.CheckOut a:hover{
+    background-color: black;
+    opacity: 60%;
+}
+
+.valores{
+    margin-left: 53.5vw;
+}
+
+.valore{
+    margin-left: 8vw;
+}
+
+.carta{
+    display: flex;
 }
 /*-------------------------------------------------------------*/
 
@@ -174,7 +199,7 @@ header{
     margin-top: 4vh;
 }
 
-.rodapé{
+footer .rodapé{
     background-color: black;
     display: flex;
     grid-template-columns: 1fr 1fr;
@@ -188,4 +213,10 @@ footer .rodapé p{
 
 footer .rodapé #tel{
     margin-left: 5vw
+}
+
+.logo a{
+    margin-left: 3.2vw;
+    color: #EEDD82;
+    text-decoration: none;
 }
