@@ -17,11 +17,12 @@ public class CarrinhoDTO {
     private String descricaoCarrinho;
     private int quantidadeCarrinho;
     private int produtoId3;
+    private float total;
 
     public CarrinhoDTO() {
     }
 
-    public CarrinhoDTO(int id_carrinho, String nomeCarrinho, float valorCarrinho, String imagemCarrinho, String descricaoCarrinho, int quantidadeCarrinho, int produtoId3) {
+    public CarrinhoDTO(int id_carrinho, String nomeCarrinho, float valorCarrinho, String imagemCarrinho, String descricaoCarrinho, int quantidadeCarrinho, int produtoId3, float total) {
         this.id_carrinho = id_carrinho;
         this.nomeCarrinho = nomeCarrinho;
         this.valorCarrinho = valorCarrinho;
@@ -29,6 +30,7 @@ public class CarrinhoDTO {
         this.descricaoCarrinho = descricaoCarrinho;
         this.quantidadeCarrinho = quantidadeCarrinho;
         this.produtoId3 = produtoId3;
+        this.total = total;
     }
 
     public int getId_carrinho() {
@@ -86,8 +88,14 @@ public class CarrinhoDTO {
     public void setProdutoId3(int produtoId3) {
         this.produtoId3 = produtoId3;
     }
-    
-    
-    
+
+    public float getTotal() {
+        return total;
+    }
+
+    public void setTotal(float total) {
+        this.total = total;
+    }
+
     
 }

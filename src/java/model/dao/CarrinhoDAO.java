@@ -66,4 +66,25 @@ public class CarrinhoDAO {
             e.printStackTrace();
         }
     }
+    
+    //  Luan me passou e explicou o codigo
+         public List<CarrinhoDTO> leiaTotal() {
+        List<CarrinhoDTO> Carrinho = new ArrayList<>();
+     try{
+         Connection conexao = Conexao.conectar();
+         PreparedStatement stmt = null;
+         ResultSet rs = null;
+         
+         stmt = conexao.prepareStatement("SELECT SUM(p.valor * c.quantidade_carrinho) AS total FROM produtos p INNER JOIN carrinho c ON p.id_produto = c.produto_id3");
+         rs = stmt.executeQuery();
+         if(rs.next()){
+             CarrinhoDTO objCarrinho = new CarrinhoDTO();
+             objCarrinho.setTotal(rs.getFloat("total"));
+             Carrinho.add(objCarrinho);
+         }
+     }catch(SQLException e){
+         e.printStackTrace();
+     }  
+        return Carrinho;
+    }
 }
