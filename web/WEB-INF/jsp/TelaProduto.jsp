@@ -18,7 +18,7 @@
     <body>
     <header>
         <div class="menu1">
-            <div class="logo"><a href="./Home">HOME</a></div>
+            <div class="logo"><a href="./Home"><img src="./assets/game time.jpg" class="d-block w-100" alt="..."></a></div>
             <form class="d-flex" action="buscar-produtos" method="get">
                 <div class="pesquisa"><i class="fa-solid fa-magnifying-glass"></i><input type="text" id="taskPesquisa" name="busca" placeholder="Pesquisa"></div>
             <div class="itens"><button>Buscar</button></div>
@@ -39,6 +39,7 @@
            </div>
     </header>
     <main>
+        <form action="enviarItemCarrinho" method="post" enctype="multipart/form-data">
         <c:forEach items="${produtos}" var="produto">
                 <div class="cartao">
                     <div class="body1">
@@ -46,25 +47,24 @@
                     </div>
                     <div class="corpo">
                       <h5 class="titulo">${produto.nome}</h5>
+                      <input type="number" name="quantidade" id="quantidade">
                       
                       <br>
                       <p class="gui">Valor a vista:</p>
                       <p class="valor">R$ ${produto.valor}</p>
                       
-                      <button type="submit" class="btn btn-comprar"  idProduto="${produto.idProduto}" imagem="${produto.imagem}" nome="${produto.nome}" descricao="${produto.descricao}"  valor="${produto.valor}"
-                              quantidade=1 id="comprar">Adicionar ao Carrinho</button>
+                      <button type="submit" class="btn btn-comprar" id="comprar">Adicionar ao Carrinho</button>
                     </div>
                   </div>
                    <p class="desc">Descrição:</p>
                    <p class="texto">${produto.descricao}</p>           
-        </c:forEach>
-        <form id="form-comprar" action="enviarItemCarrinho" method="post" enctype="multipart/form-data" style="display: none;">
-            <input type="hidden" name="idProduto" id="idProduto">
-            <input type="hidden" name="descricao" id="descricao">
-            <input type="hidden" name="nome" id="nome">
-            <input type="hidden" name="valor" id="valor">
-            <input type="file" name="imagem" id="imagem">
-            <input type="hidden" name="quantidade" id="quantidade">           
+             
+                   <input type="hidden" name="idProduto" id="idProduto" value="${produto.idProduto}">
+                   <input type="hidden" name="descricao" id="descricao" value="${produto.descricao}">
+                   <input type="hidden" name="nome" id="nome" value="${produto.nome}">
+                   <input type="hidden" name="valor" id="valor" value="${produto.valor}">
+                   <input type="hidden" name="imagem" id="imagem" value="${produto.imagem}">
+        </c:forEach>                 
         </form>
     </main>
     <footer>
@@ -87,5 +87,4 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>       
 
     </body>
-    <script src="./js/Carrinho.js"></script>
 </html>

@@ -75,7 +75,7 @@ public class CarrinhoDAO {
          PreparedStatement stmt = null;
          ResultSet rs = null;
          
-         stmt = conexao.prepareStatement("SELECT SUM(p.valor * c.quantidade_carrinho) AS total FROM produtos p INNER JOIN carrinho c ON p.id_produto = c.produto_id3");
+         stmt = conexao.prepareStatement("SELECT SUM(p.valor * c.quantidadecarrinho) AS total FROM produtos p INNER JOIN carrinho c ON p.id_produto = c.produto_id3");
          rs = stmt.executeQuery();
          if(rs.next()){
              CarrinhoDTO objCarrinho = new CarrinhoDTO();

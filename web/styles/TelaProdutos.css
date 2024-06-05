@@ -72,14 +72,18 @@ main{
     border-radius: 10px;
 }
 
-.logo{
-    background-image: url(./../assets/game\ time.jpg);
+.logo{   
     background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat;
-    max-width: 40%;
-    max-height: 100%;
+    max-width: 35%;
+    max-height: 85%;
     margin-left: 20%;
+}
+
+.logo .log{
+    height: 100% !important;
+    width: 90% !important;
 }
 
 .itens{
@@ -129,6 +133,7 @@ footer{
     position: relative;
     align-items: center;
     align-content: space-between;
+    height: 75vh;
     
     
 }
@@ -151,7 +156,7 @@ footer{
     left: 5vh;
 }
 
-.rodapé{
+.fim{
     background-color: black;
     display: flex;
     grid-template-columns: 1fr 1fr;
@@ -160,11 +165,11 @@ footer{
     
 }
 
-.rodapé p{
+.fim p{
     color: white;
 }
 
-.rodapé #tel{
+.fim #tel{
     margin-left: 5vw
 }
 

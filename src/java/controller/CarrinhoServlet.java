@@ -42,12 +42,15 @@ public class CarrinhoServlet extends HttpServlet {
             throws ServletException, IOException {
         CarrinhoDAO carrinhos = new CarrinhoDAO();
         MercadinhoDAO mercadinhoDao = new MercadinhoDAO();
+        CarrinhoDAO carrinho = new CarrinhoDAO();
         
         List<CarrinhoDTO> carro = carrinhos.leia();
             request.setAttribute("carro", carro);
             
             List<Mercadinho> mercadinho = mercadinhoDao.listarCategorias();
         request.setAttribute("categoria", mercadinho);
+        List<CarrinhoDTO> totalCarrinho = carrinho.leiaTotal();
+            request.setAttribute("totalCarrinho", totalCarrinho);
             
         String nextPage = "/WEB-INF/jsp/TelaCarrinho.jsp";
         

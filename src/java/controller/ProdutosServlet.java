@@ -21,7 +21,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
+import mercadinho.bean.CarrinhoDTO;
 import mercadinho.bean.Mercadinho;
+import model.dao.CarrinhoDAO;
 import model.dao.MercadinhoDAO;
 
 /**
@@ -54,7 +56,7 @@ public class ProdutosServlet extends HttpServlet {
         } else if(url.equals("/Home")){
             List<Mercadinho> produtos = mercadinhoDao.listarProdutos();
             request.setAttribute("produtos", produtos);
-            String nextPage = "/WEB-INF/jsp/TelaPrincipal.jsp";
+            String nextPage = "/WEB-INF/jsp/TelaPrincipal.jsp";            
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
         } else if (url.equals("/buscar-produtos")) {

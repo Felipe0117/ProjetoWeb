@@ -19,7 +19,7 @@
         <div class="todos">
         <header>
             <div class="menu1">
-                <div class="logo"><a href="./Home">HOME</a></div>
+                <div class="logo"><a href="./Home"><img src="./assets/game time.jpg" class="d-block w-100" alt="..."></a></div>
                     <form class="d-flex" action="buscar-produtos" method="get">
                         <div class="pesquisa"><i class="fa-solid fa-magnifying-glass"></i><input type="text" id="taskPesquisa" name="busca" placeholder="Pesquisa"></div>
                         <div class="itens"><button>Buscar</button></div>
@@ -60,9 +60,11 @@
                   </div>
             </c:forEach>
         </div>
+            <c:forEach items="${totalCarrinho}" var="totalCarrinhos">
             <div class="total">
-                <h2 class="palavra">Total:</h2>
+                <h2 class="palavra">Total: R$ ${totalCarrinhos.total}</h2>               
             </div>
+            </c:forEach>
             <div class="CheckOut">
                 <a href="./" class="btn btn-primary">Finalizar Compra</a>
             </div>

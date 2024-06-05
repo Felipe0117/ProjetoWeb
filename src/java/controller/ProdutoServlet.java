@@ -103,12 +103,13 @@ public class ProdutoServlet extends HttpServlet {
                 throws ServletException, IOException {
             CarrinhoDTO carrinho = new CarrinhoDTO();
             PrintWriter out = response.getWriter();
-            carrinho.setNomeCarrinho(request.getParameter("nome_produto_carrinho"));
-            carrinho.setValorCarrinho(Float.parseFloat(request.getParameter("valor_produto_carrinho")));
-            carrinho.setDescricaoCarrinho(request.getParameter("descricao_produto_carrinho"));
-            carrinho.setQuantidadeCarrinho(Integer.parseInt(request.getParameter("quantidade_carrinho")));
-            carrinho.setProdutoId3(Integer.parseInt(request.getParameter("produto_id3")));
-            carrinho.setImagemCarrinho(request.getParameter("imagem_produto_carrinho"));
+            
+            carrinho.setNomeCarrinho(request.getParameter("nome"));
+            carrinho.setValorCarrinho(Float.parseFloat(request.getParameter("valor")));
+            carrinho.setDescricaoCarrinho(request.getParameter("descricao"));
+            carrinho.setQuantidadeCarrinho(Integer.parseInt(request.getParameter("quantidade")));
+            carrinho.setProdutoId3(Integer.parseInt(request.getParameter("idProduto")));
+            carrinho.setImagemCarrinho(request.getParameter("imagem"));
             carrinhos.cadastrarCarrinho(carrinho);
             out.println("<script type=\"text/javascript\">");
             out.println("alert('Compra feita com sucesso.');");
