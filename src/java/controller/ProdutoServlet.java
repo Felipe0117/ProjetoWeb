@@ -113,9 +113,10 @@ public class ProdutoServlet extends HttpServlet {
             carrinhos.cadastrarCarrinho(carrinho);
             out.println("<script type=\"text/javascript\">");
             out.println("alert('Compra feita com sucesso.');");
-            out.println("window.location.href = './TelaProduto';");
+            out.println("window.location.href = './Home';");
             out.println("</script>");
-            response.sendRedirect("./Home");
+            
+            
     }
     /**
      * Returns a short description of the servlet.

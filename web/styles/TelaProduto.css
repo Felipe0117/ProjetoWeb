@@ -77,11 +77,11 @@ main{
     background-position: center; 
     background-repeat: no-repeat;
     max-width: 35%;
-    max-height: 81%;
+    max-height: 85%;
     margin-left: 20%;
 }
 
-.logo .w-100{
+.logo .log{
     height: 100% !important;
     width: 90%;
 }
@@ -238,6 +238,6 @@ footer{
 }
 
 .juntos input{
-   height: 6.4vh;
+   height: 4vh;
     
 }
