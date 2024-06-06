@@ -162,7 +162,7 @@ main{
 }
 
 .corpo .btn{
-    margin-top: 12vh;
+    margin-top: 4vh;
     background-color: black;
     color: white;
     width: 30vw;
@@ -227,3 +227,17 @@ footer{
     text-decoration: none;
 }
 
+.juntos{
+    display: flex;
+}
+
+.juntos p{
+    font-size: x-large;
+    margin-right: 1vw;
+    font-weight: bold;
+}
+
+.juntos input{
+   height: 6.4vh;
+    
+}

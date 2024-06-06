@@ -14,6 +14,7 @@ body{
     display: flex;
     height: 13vh;
     border-radius: 20px;
+    border: 1px solid black;
 }
 
 .quant{
@@ -51,12 +52,12 @@ main h1{
 
 main .total .palavra{
     margin-top: 2vh;
-    margin-left: 40%;
+    margin-left: 38%;
 }
 
 .cartao img{
-    width: 8vw;
-    height: 13vh;
+    width: 6vw;
+    height: 12vh;
     margin-left: 2vw;
 }
 
@@ -75,7 +76,7 @@ main .total .palavra{
 }
 
 .valores{
-    margin-left: 53.5vw;
+    margin-left: 51vw;
 }
 
 .valore{

@@ -47,8 +47,12 @@
                     </div>
                     <div class="corpo">
                       <h5 class="titulo">${produto.nome}</h5>
-                      <input type="number" name="quantidade" id="quantidade">
-                      
+                      <br>
+                      <br>
+                      <div class="juntos">
+                          <p class="quant">Quantidade:</p>
+                          <input type="number" min="1" max="5" name="quantidade" id="quantidade">                                                               
+                     </div>
                       <br>
                       <p class="gui">Valor a vista:</p>
                       <p class="valor">R$ ${produto.valor}</p>
