@@ -111,10 +111,27 @@ public class ProdutoServlet extends HttpServlet {
             carrinho.setProdutoId3(Integer.parseInt(request.getParameter("idProduto")));
             carrinho.setImagemCarrinho(request.getParameter("imagem"));
             carrinhos.cadastrarCarrinho(carrinho);
-            out.println("<script type=\"text/javascript\">");
-            out.println("alert('Compra feita com sucesso.');");
-            out.println("window.location.href = './Home';");
-            out.println("</script>");
+        out.println("<script type=\"text/javascript\">");
+        out.println("  function showAlert() {");
+        out.println("    const alertPlaceholder = document.getElementById('alertPlaceholder');");
+        out.println("    const alertHTML = `");
+        out.println("      <div class=\"alert alert-warning alert-dismissible fade show\" role=\"alert\">");
+        out.println("        <strong>Holy guacamole!</strong> You should check in on some of those fields below.");
+        out.println("        <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button>");
+        out.println("      </div>`;");
+        out.println("    alertPlaceholder.innerHTML = alertHTML;");
+        out.println("  }");
+        out.println("  document.addEventListener('DOMContentLoaded', showAlert);");
+        out.println("  document.addEventListener('click', function(event) {");
+        out.println("    if (event.target && event.target.matches('.btn-close')) {");
+        out.println("      const alert = event.target.closest('.alert');");
+        out.println("      if (alert) {");
+        out.println("        alert.remove();");
+        out.println("      }");
+        out.println("    }");
+        out.println("  });");
+        out.println("window.location.href = './Home';");
+        out.println("</script>");
             
             
     }
