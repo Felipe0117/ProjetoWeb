@@ -43,10 +43,10 @@
         <c:forEach items="${produtos}" var="produto">
                 <div class="cartao">
                     <div class="body1">
-                        <img src="${produto.imagem}" class="produto" alt="${produto.nome}">
+                        <img src="${produto.imagem}" class="produto" alt="${produto.nome_produto}">
                     </div>
                     <div class="corpo">
-                      <h5 class="titulo">${produto.nome}</h5>
+                      <h5 class="titulo">${produto.nome_produto}</h5>
                       <br>
                       <br>
                       <div class="juntos">
@@ -65,7 +65,7 @@
              
                    <input type="hidden" name="idProduto" id="idProduto" value="${produto.idProduto}">
                    <input type="hidden" name="descricao" id="descricao" value="${produto.descricao}">
-                   <input type="hidden" name="nome" id="nome" value="${produto.nome}">
+                   <input type="hidden" name="nome" id="nome" value="${produto.nome_produto}">
                    <input type="hidden" name="valor" id="valor" value="${produto.valor}">
                    <input type="hidden" name="imagem" id="imagem" value="${produto.imagem}">
         </c:forEach>                 

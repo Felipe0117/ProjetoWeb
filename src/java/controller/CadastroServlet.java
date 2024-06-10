@@ -14,8 +14,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import mercadinho.bean.Mercadinho;
-import model.dao.MercadinhoDAO;
+import mercadinho.bean.UsuarioDTO;
+import model.dao.UsuariosDAO;
 
 /**
  *
@@ -23,8 +23,8 @@ import model.dao.MercadinhoDAO;
  */
 @WebServlet(name = "CadastroServlet", urlPatterns = {"/Cadastro", "/cadastrar"})
 public class CadastroServlet extends HttpServlet {
-    Mercadinho usuario = new Mercadinho();
-    MercadinhoDAO usuarios = new MercadinhoDAO();
+    UsuarioDTO usuario = new UsuarioDTO();
+    UsuariosDAO usuarios = new UsuariosDAO();
     
 
     /**

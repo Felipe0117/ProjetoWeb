@@ -13,8 +13,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import mercadinho.bean.Mercadinho;
-import model.dao.MercadinhoDAO;
+import mercadinho.bean.CategoriaDTO;
+import mercadinho.bean.ProdutoDTO;
+import model.dao.CategoriasDAO;
+import model.dao.ProdutosDAO;
 
 /**
  *
@@ -33,10 +35,11 @@ public class HomeServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        MercadinhoDAO mercadinhoDao = new MercadinhoDAO();
-        List<Mercadinho> mercadinho = mercadinhoDao.listarProdutos();
+        CategoriasDAO produtosDao = new CategoriasDAO();
+        ProdutosDAO mercadinhoDao = new ProdutosDAO();
+        List<ProdutoDTO> mercadinho = mercadinhoDao.listarProdutos();
         request.setAttribute("produtos", mercadinho);
-        List<Mercadinho> mercadinho1 = mercadinhoDao.listarCategorias();
+        List<CategoriaDTO> mercadinho1 = produtosDao.listarCategorias();
         request.setAttribute("categoria", mercadinho1);
         
         String nextPage = "/WEB-INF/jsp/TelaPrincipal.jsp";

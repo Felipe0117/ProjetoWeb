@@ -22,9 +22,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 import mercadinho.bean.CarrinhoDTO;
-import mercadinho.bean.Mercadinho;
+import mercadinho.bean.CategoriaDTO;
+import mercadinho.bean.ProdutoDTO;
 import model.dao.CarrinhoDAO;
-import model.dao.MercadinhoDAO;
+import model.dao.CategoriasDAO;
+import model.dao.ProdutosDAO;
 
 /**
  *
@@ -45,16 +47,17 @@ public class ProdutosServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        MercadinhoDAO mercadinhoDao = new MercadinhoDAO();
-        List<Mercadinho> mercadinho = mercadinhoDao.listarCategorias();
+        CategoriasDAO mercadinhoDao = new CategoriasDAO();
+        ProdutosDAO produtosDao = new ProdutosDAO();
+        List<CategoriaDTO> mercadinho = mercadinhoDao.listarCategorias();
         request.setAttribute("categoria", mercadinho);
         String url = request.getServletPath();
         if(url.equals("/cadastrar-produto")) {
             String nextPage = "/WEB-INF/jsp/TelaCadProdutos.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
-        } else if(url.equals("/Home")){
-            List<Mercadinho> produtos = mercadinhoDao.listarProdutos();
+        } else if(url.equals("/Home")){            
+            List<ProdutoDTO> produtos = produtosDao.listarProdutos();
             request.setAttribute("produtos", produtos);
             String nextPage = "/WEB-INF/jsp/TelaPrincipal.jsp";            
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
@@ -64,11 +67,11 @@ public class ProdutosServlet extends HttpServlet {
             if(busca.equals("")) {
                 System.out.println("Produto não encontrado");
                 String categoria = request.getParameter("cat");
-                List<Mercadinho> produtos = mercadinhoDao.buscaCategoria(Integer.parseInt(categoria));
+                List<ProdutoDTO> produtos = produtosDao.buscaCategoria(Integer.parseInt(categoria));
                 request.setAttribute("produtos", produtos);
             } else {
                 busca = "%"+busca+"%";
-                List<Mercadinho> produtos = mercadinhoDao.buscaProdutos(busca);
+                List<ProdutoDTO> produtos = produtosDao.buscaProdutos(busca);
                 request.setAttribute("produtos", produtos);
             }
             String nextPage = "/WEB-INF/jsp/TelaProdutos.jsp";
@@ -115,7 +118,7 @@ public class ProdutosServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Mercadinho newProduto = new Mercadinho();
+        ProdutoDTO newProduto = new ProdutoDTO();
 
         newProduto.setNome_produto(request.getParameter("nome"));
         newProduto.setCategoriaId(Integer.parseInt(request.getParameter("mercadinho")));
@@ -144,7 +147,7 @@ public class ProdutosServlet extends HttpServlet {
         newProduto.setImagem(null);
     }
         
-        MercadinhoDAO produtosD = new MercadinhoDAO();
+        ProdutosDAO produtosD = new ProdutosDAO();
         produtosD.create3(newProduto);
         response.sendRedirect("./Home");
     }

@@ -13,16 +13,16 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import mercadinho.bean.Mercadinho;
-import model.dao.MercadinhoDAO;
+import mercadinho.bean.UsuarioDTO;
+import model.dao.UsuariosDAO;
 
 /**
  *
  * @author Senai
  */
 public class LoginServlet extends HttpServlet {
-    Mercadinho usuario = new Mercadinho();
-    MercadinhoDAO usuarios = new MercadinhoDAO();
+    UsuarioDTO usuario = new UsuarioDTO();
+    UsuariosDAO usuarios = new UsuariosDAO();
 
 
     /**
@@ -36,8 +36,8 @@ public class LoginServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        MercadinhoDAO usuarios= new MercadinhoDAO();
-        List<Mercadinho> usuario = usuarios.read2();
+        UsuariosDAO usuarios= new UsuariosDAO();
+        List<UsuarioDTO> usuario = usuarios.read2();
         
         request.setAttribute("usuarios", usuario);
         
@@ -85,7 +85,7 @@ public class LoginServlet extends HttpServlet {
            
            
         } else {
-            Mercadinho user = usuarios.validaUser(usuario);
+            UsuarioDTO user = usuarios.validaUser(usuario);
             if(user.getId_usuario()> 0) {
                 response.sendRedirect("./Home");
             } else {

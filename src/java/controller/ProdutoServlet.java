@@ -16,9 +16,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import mercadinho.bean.CarrinhoDTO;
-import mercadinho.bean.Mercadinho;
+import mercadinho.bean.CategoriaDTO;
+import mercadinho.bean.ProdutoDTO;
 import model.dao.CarrinhoDAO;
-import model.dao.MercadinhoDAO;
+import model.dao.CategoriasDAO;
+import model.dao.ProdutosDAO;
 
 /**
  *
@@ -40,14 +42,15 @@ public class ProdutoServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        MercadinhoDAO mercadinhoDao = new MercadinhoDAO();
+        CategoriasDAO produtosDao = new CategoriasDAO();
+        ProdutosDAO mercadinhoDao = new ProdutosDAO();
         int id_produto = Integer.parseInt(request.getParameter("id"));
         
-        List<Mercadinho> produtos = mercadinhoDao.buscarProduto(id_produto);
+        List<ProdutoDTO> produtos = mercadinhoDao.buscarProduto(id_produto);
         
         request.setAttribute("produtos", produtos);
         
-        List<Mercadinho> mercadinho = mercadinhoDao.listarCategorias();
+        List<CategoriaDTO> mercadinho = produtosDao.listarCategorias();
         request.setAttribute("categoria", mercadinho);
         
         
