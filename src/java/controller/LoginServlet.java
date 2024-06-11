@@ -10,6 +10,7 @@ import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -36,11 +37,15 @@ public class LoginServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        UsuariosDAO usuarios= new UsuariosDAO();
-        List<UsuarioDTO> usuario = usuarios.read2();
-        
-        request.setAttribute("usuarios", usuario);
-        
+        Cookie[] cookies = request.getCookies();
+        for (Cookie cookie : cookies) {
+            if (cookie.getName().equals("continuarCookie")) {
+
+                usuario = usuarios.leia(Integer.parseInt(cookie.getValue()));
+                request.setAttribute("usuario", usuario);
+            }
+        }
+
         
         String nextPage = "/WEB-INF/jsp/TelaLogin.jsp";
         
@@ -76,26 +81,30 @@ public class LoginServlet extends HttpServlet {
         usuario.setUsuario(request.getParameter("usuario"));
         usuario.setSenha(request.getParameter("senha"));
         PrintWriter tout = response.getWriter();
-        
+        int idUsuario = usuarios.validaUser(usuario);
         if (usuario.getUsuario().trim().equals("") || usuario.getSenha().trim().equals("")) {
             tout.println("<script type=\"text/javascript\">");
             tout.println("alert('Por favor, preencha todos os campos.');");
             tout.println("window.location.href = './Login';");
             tout.println("</script>");
-           
-           
-        } else {
-            UsuarioDTO user = usuarios.validaUser(usuario);
-            if(user.getId_usuario()> 0) {
-                response.sendRedirect("./Home");
-            } else {
-                 tout.println("<script type=\"text/javascript\">");
-            tout.println("alert('Login ou senha incorretos!.');");
-            tout.println("window.location.href = './Login';");
-            tout.println("</script>");
             }
+           if (idUsuario > 0) {
+                System.out.println("primeiro:"+idUsuario);
+                Cookie cookie = new Cookie("continuarCookie", Integer.toString(idUsuario));
+                response.addCookie(cookie);
+                if (idUsuario == 1) {
+                    response.sendRedirect("./cadastrar-produto");
+                } else {
+                    response.sendRedirect("./Home");
+                }
+            } else {
+                tout.println("<script type=\"text/javascript\">");
+                tout.println("alert('login não encontrado.');");
+                tout.println("window.location.href = './loginCliente';");
+                tout.println("</script>");
+            }
+           
 
-        }
     }
 
     /**

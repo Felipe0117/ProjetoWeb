@@ -10,13 +10,16 @@ import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import mercadinho.bean.CategoriaDTO;
 import mercadinho.bean.ProdutoDTO;
+import mercadinho.bean.UsuarioDTO;
 import model.dao.CategoriasDAO;
 import model.dao.ProdutosDAO;
+import model.dao.UsuariosDAO;
 
 /**
  *
@@ -37,6 +40,17 @@ public class HomeServlet extends HttpServlet {
             throws ServletException, IOException {
         CategoriasDAO produtosDao = new CategoriasDAO();
         ProdutosDAO mercadinhoDao = new ProdutosDAO();
+            UsuarioDTO usuario = new UsuarioDTO();
+    UsuariosDAO usuarios = new UsuariosDAO();
+        Cookie[] cookies = request.getCookies();
+        for (Cookie cookie : cookies) {
+            if (cookie.getName().equals("continuarCookie")) {
+
+                usuario = usuarios.leia(Integer.parseInt(cookie.getValue()));
+                request.setAttribute("usuario", usuario);
+            }
+        }
+        
         List<ProdutoDTO> mercadinho = mercadinhoDao.listarProdutos();
         request.setAttribute("produtos", mercadinho);
         List<CategoriaDTO> mercadinho1 = produtosDao.listarCategorias();

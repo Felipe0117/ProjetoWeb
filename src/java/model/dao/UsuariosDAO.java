@@ -49,8 +49,8 @@ public class UsuariosDAO {
         return usuarios;
     }
     
-    public UsuarioDTO validaUser(UsuarioDTO user) {
-        UsuarioDTO usuarioValido = new UsuarioDTO();
+    public int validaUser(UsuarioDTO user) {
+        int idUsuario = 0;
         try {
             Connection con = Conexao.conectar();
             PreparedStatement stmt = null;
@@ -62,20 +62,16 @@ public class UsuariosDAO {
             rs = stmt.executeQuery();
             
             if(rs.next()) {
-                usuarioValido.setId_usuario(rs.getInt("id_usuario"));
-                System.out.println("DAO: " + usuarioValido.getId_usuario());
-            }
+                System.out.println(rs.getInt("id_usuario"));
+                idUsuario = rs.getInt("id_usuario");            }
             
             rs.close();
             stmt.close();
             con.close();
         } catch (SQLException e) {
-            e.printStackTrace();
-            usuarioValido.setId_usuario(0);
-            usuarioValido.setUsuario("");
-            usuarioValido.setSenha("");
+            e.printStackTrace();            
         }
-        return usuarioValido;
+        return idUsuario;
     }
     
     public void create2(UsuarioDTO usuario) {
@@ -95,5 +91,39 @@ public class UsuariosDAO {
         } catch (SQLException erro) {
             erro.printStackTrace();
         }
+    }
+    
+    public UsuarioDTO leia(int idUsuarioCookie) {
+        UsuarioDTO objUsuario = new UsuarioDTO();
+       int idUsuario = 0;
+        try {
+            Connection conexao = Conexao.conectar();
+            PreparedStatement stmt = null;
+            ResultSet rs = null;
+
+            stmt = conexao.prepareStatement("SELECT * FROM usuarios WHERE id_usuario = ?");
+            stmt.setInt(1, idUsuarioCookie);
+            rs = stmt.executeQuery();
+            if (rs.next()) {
+                System.out.println("aquii id cookie usuario");
+                System.out.println(idUsuario = rs.getInt("id_usuario"));
+
+                objUsuario.setId_usuario(rs.getInt("id_usuario"));
+                objUsuario.setNome_usuario(rs.getString("nome"));
+                objUsuario.setUsuario(rs.getString("usuario"));
+                objUsuario.setSenha(rs.getString("senha"));
+                objUsuario.setTelefone(rs.getString("telefone"));
+                objUsuario.setCpf(rs.getString("cpf"));
+
+            }
+
+            rs.close();
+            stmt.close();
+            conexao.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return objUsuario;
     }
 }

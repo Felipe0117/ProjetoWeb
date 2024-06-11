@@ -33,6 +33,7 @@
                 </div>
            </div>
            </div>
+           <p>Login ${usuario.nome_usuario}</p>
            <div class="container mt-5">
             <div id="alertPlaceholder"></div>
         </div>
