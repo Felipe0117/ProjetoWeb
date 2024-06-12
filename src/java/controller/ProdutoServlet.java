@@ -12,6 +12,7 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -26,11 +27,13 @@ import model.dao.ProdutosDAO;
  *
  * @author Senai
  */
-@WebServlet (urlPatterns = {"/enviarItemCarrinho"})
+@WebServlet(urlPatterns = {"/enviarItemCarrinho"})
 @MultipartConfig
 public class ProdutoServlet extends HttpServlet {
-              CarrinhoDTO carrinho = new CarrinhoDTO();
-              CarrinhoDAO carrinhos = new CarrinhoDAO();
+
+    CarrinhoDTO carrinho = new CarrinhoDTO();
+    CarrinhoDAO carrinhos = new CarrinhoDAO();
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -45,26 +48,20 @@ public class ProdutoServlet extends HttpServlet {
         CategoriasDAO produtosDao = new CategoriasDAO();
         ProdutosDAO mercadinhoDao = new ProdutosDAO();
         int id_produto = Integer.parseInt(request.getParameter("id"));
-        
+
         List<ProdutoDTO> produtos = mercadinhoDao.buscarProduto(id_produto);
-        
+
         request.setAttribute("produtos", produtos);
-        
+
         List<CategoriaDTO> mercadinho = produtosDao.listarCategorias();
         request.setAttribute("categoria", mercadinho);
-        
-        
-        String url = request.getServletPath();
-        
 
-            String nextPage = "/WEB-INF/jsp/TelaProduto.jsp";
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
-            dispatcher.forward(request, response);
-            
-        
-        
-        
-        
+        String url = request.getServletPath();
+
+        String nextPage = "/WEB-INF/jsp/TelaProduto.jsp";
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+        dispatcher.forward(request, response);
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -93,51 +90,48 @@ public class ProdutoServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-                String action = request.getServletPath();
-            if(action.equals("/enviarItemCarrinho")){
-              produto(request, response);  
-            }else{
-                processRequest(request, response);
+        String action = request.getServletPath();
+        Cookie[] cookies = request.getCookies();
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                if (cookie.getName().equals("continuarCookie")) {
+                    if (action.equals("/enviarItemCarrinho")) {
+                        produto(request, response);
+                    }
+                }PrintWriter out = response.getWriter();
+            out.println("<script type=\"text/javascript\">");
+            out.println("alert('Para adicionar produto ao carrinho você tem que estar logado');");
+            out.println("window.location.href = './Login';");
+            out.println("</script>");
             }
-                
+
+        } else {
+            
+            processRequest(request, response);
+        }
+
     }
 
     protected void produto(HttpServletRequest request, HttpServletResponse response)
-                throws ServletException, IOException {
-            CarrinhoDTO carrinho = new CarrinhoDTO();
-            PrintWriter out = response.getWriter();
-            
-            carrinho.setNomeCarrinho(request.getParameter("nome"));
-            carrinho.setValorCarrinho(Float.parseFloat(request.getParameter("valor")));
-            carrinho.setDescricaoCarrinho(request.getParameter("descricao"));
-            carrinho.setQuantidadeCarrinho(Integer.parseInt(request.getParameter("quantidade")));
-            carrinho.setProdutoId3(Integer.parseInt(request.getParameter("idProduto")));
-            carrinho.setImagemCarrinho(request.getParameter("imagem"));
-            carrinhos.cadastrarCarrinho(carrinho);
-        out.println("<script type=\"text/javascript\">");
-        out.println("  function showAlert() {");
-        out.println("    const alertPlaceholder = document.getElementById('alertPlaceholder');");
-        out.println("    const alertHTML = `");
-        out.println("      <div class=\"alert alert-warning alert-dismissible fade show\" role=\"alert\">");
-        out.println("        <strong>Holy guacamole!</strong> You should check in on some of those fields below.");
-        out.println("        <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button>");
-        out.println("      </div>`;");
-        out.println("    alertPlaceholder.innerHTML = alertHTML;");
-        out.println("  }");
-        out.println("  document.addEventListener('DOMContentLoaded', showAlert);");
-        out.println("  document.addEventListener('click', function(event) {");
-        out.println("    if (event.target && event.target.matches('.btn-close')) {");
-        out.println("      const alert = event.target.closest('.alert');");
-        out.println("      if (alert) {");
-        out.println("        alert.remove();");
-        out.println("      }");
-        out.println("    }");
-        out.println("  });");
-        out.println("window.location.href = './Home';");
-        out.println("</script>");
-            
-            
+            throws ServletException, IOException {
+        CarrinhoDTO carrinho = new CarrinhoDTO();
+        PrintWriter out = response.getWriter();
+
+        carrinho.setNomeCarrinho(request.getParameter("nome"));
+        carrinho.setValorCarrinho(Float.parseFloat(request.getParameter("valor")));
+        carrinho.setDescricaoCarrinho(request.getParameter("descricao"));
+        carrinho.setQuantidadeCarrinho(Integer.parseInt(request.getParameter("quantidade")));
+        carrinho.setProdutoId3(Integer.parseInt(request.getParameter("idProduto")));
+        carrinho.setImagemCarrinho(request.getParameter("imagem"));
+        carrinhos.cadastrarCarrinho(carrinho);
+            out.println("<script type=\"text/javascript\">");
+            out.println("alert('Sucesso');");
+            out.println("window.location.href = './Home';");
+            out.println("</script>");
+        
+
     }
+
     /**
      * Returns a short description of the servlet.
      *
@@ -147,6 +141,5 @@ public class ProdutoServlet extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
 
 }

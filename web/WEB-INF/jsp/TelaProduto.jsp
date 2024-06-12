@@ -12,7 +12,8 @@
         <link rel="stylesheet" href="styles/TelaProduto.css">
         <script src="https://kit.fontawesome.com/676974c9dc.js" crossorigin="anonymous"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
+        <script src="sweetalert2.min.js"></script>
+        <link rel="stylesheet" href="sweetalert2.min.css">
         <title>JSP Page</title>
     </head>
     <body>
@@ -51,7 +52,7 @@
                       <br>
                       <div class="juntos">
                           <p class="quant">Quantidade:</p>
-                          <input type="number" min="1" max="5" name="quantidade" id="quantidade">                                                               
+                          <input type="number" min="1" max="5" value="1"name="quantidade" id="quantidade">                                                               
                      </div>
                       <br>
                       <p class="gui">Valor a vista:</p>
@@ -90,4 +91,6 @@
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>       
     </body>
+    <script src="./js/Alertas.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </html>
