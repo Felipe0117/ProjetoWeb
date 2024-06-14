@@ -56,13 +56,12 @@ public class UsuariosDAO {
             PreparedStatement stmt = null;
             ResultSet rs = null;
             
-            stmt = con.prepareStatement("SELECT * FROM usuarios WHERE usuario = ? AND senha = ?");
+            stmt = con.prepareStatement("SELECT id_usuario FROM usuarios WHERE usuario = ? AND senha = ?");
             stmt.setString(1, user.getUsuario());
             stmt.setString(2, user.getSenha());
             rs = stmt.executeQuery();
             
             if(rs.next()) {
-                System.out.println(rs.getInt("id_usuario"));
                 idUsuario = rs.getInt("id_usuario");            }
             
             rs.close();

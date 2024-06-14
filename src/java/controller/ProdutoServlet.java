@@ -98,12 +98,12 @@ public class ProdutoServlet extends HttpServlet {
                     if (action.equals("/enviarItemCarrinho")) {
                         produto(request, response);
                     }
-                }PrintWriter out = response.getWriter();
+                }
+            }PrintWriter out = response.getWriter();
             out.println("<script type=\"text/javascript\">");
             out.println("alert('Para adicionar produto ao carrinho você tem que estar logado');");
             out.println("window.location.href = './Login';");
             out.println("</script>");
-            }
 
         } else {
             

@@ -67,7 +67,6 @@
             </c:forEach>
             <div class="CheckOut">
                 <form action="irCheckOut" method="post" enctype="multipart/form-data">
-                    <a href="./TelaCheckOut.jsp">Ir</a>
                     <button class="comprar" type="submit" class="btn btn-comprar">Finalizar Compra</button>
                 </form>
             </div>

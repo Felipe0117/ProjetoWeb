@@ -30,6 +30,7 @@ public class CarrinhoDAO {
          rs = stmt.executeQuery();
          while(rs.next()){
              CarrinhoDTO objCarrinho = new CarrinhoDTO();
+             System.out.println("Cheguei aquiiiiiii");
              objCarrinho.setId_carrinho(rs.getInt("id_carrinho"));
              objCarrinho.setNomeCarrinho(rs.getString("nome_produto_carrinho"));
              objCarrinho.setValorCarrinho(rs.getFloat("valor_produto_carrinho"));

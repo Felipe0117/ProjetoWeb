@@ -11,8 +11,6 @@ import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -25,36 +23,29 @@ import model.dao.CategoriasDAO;
  *
  * @author Senai
  */
-@WebServlet(urlPatterns = {"/irCheckOut"})
 @MultipartConfig
-public class CarrinhoServlet extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+public class CheckOutServlet extends HttpServlet {
+
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        CarrinhoDAO carrinhos = new CarrinhoDAO();
+               CarrinhoDAO carrinhos = new CarrinhoDAO();
         CategoriasDAO mercadinhoDao = new CategoriasDAO();
-
-        List<CarrinhoDTO> carro = carrinhos.leia();
-        request.setAttribute("carro", carro);
-
-        List<CategoriaDTO> mercadinho = mercadinhoDao.listarCategorias();
+        
+        List<CarrinhoDTO> carros = carrinhos.leia();
+            request.setAttribute("carro", carros);
+            
+            List<CategoriaDTO> mercadinho = mercadinhoDao.listarCategorias();
         request.setAttribute("categoria", mercadinho);
         List<CarrinhoDTO> totalCarrinho = carrinhos.leiaTotal();
-        request.setAttribute("totalCarrinho", totalCarrinho);
-
-        String nextPage = "/WEB-INF/jsp/TelaCarrinho.jsp";
-
+            request.setAttribute("totalCarrinho", totalCarrinho);
+            
+            String nextPage = "/WEB-INF/jsp/TelaCheckOut.jsp";
+        
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
         dispatcher.forward(request, response);
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -83,11 +74,7 @@ public class CarrinhoServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String action = request.getServletPath();
-        if (action.equals("/irCheckOut")) {
-            response.sendRedirect("./CheckOutServlet");
-        }
-
+        processRequest(request, response);
     }
 
     /**
