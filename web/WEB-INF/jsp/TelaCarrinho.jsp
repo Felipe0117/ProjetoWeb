@@ -66,7 +66,10 @@
             </div>
             </c:forEach>
             <div class="CheckOut">
-                <a href="./" class="btn btn-primary">Finalizar Compra</a>
+                <form action="irCheckOut" method="post" enctype="multipart/form-data">
+                    <a href="./TelaCheckOut.jsp">Ir</a>
+                    <button class="comprar" type="submit" class="btn btn-comprar">Finalizar Compra</button>
+                </form>
             </div>
         </main>
         <footer>

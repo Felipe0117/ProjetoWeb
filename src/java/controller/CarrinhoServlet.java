@@ -12,6 +12,7 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,7 +25,7 @@ import model.dao.CategoriasDAO;
  *
  * @author Senai
  */
-
+@WebServlet(urlPatterns = {"/irCheckOut"})
 @MultipartConfig
 public class CarrinhoServlet extends HttpServlet {
     
@@ -84,7 +85,28 @@ public class CarrinhoServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+            String action = request.getServletPath();
+        Cookie[] cookies = request.getCookies();
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                if (cookie.getName().equals("continuarCookie")) {
+                    if (action.equals("/irCheckOut")) {
+                        String nextPage = "/WEB-INF/jsp/TelaCheckOut.jsp";            
+                        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+                        dispatcher.forward(request, response);
+                    }
+                }
+            }PrintWriter out = response.getWriter();
+            out.println("<script type=\"text/javascript\">");
+            out.println("alert('Você precisa estar logado na sua conta');");
+            out.println("window.location.href = './Login';");
+            out.println("</script>");
+
+        } else {
+            
+            processRequest(request, response);
+        }
+        
     }
 
     /**

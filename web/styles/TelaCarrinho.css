@@ -61,16 +61,18 @@ main .total .palavra{
     margin-left: 2vw;
 }
 
-.CheckOut a{
+.comprar{
     background-color: black;
     color: white;
     border: none;
+    height: 5vh;
     width: 25vw;
     margin-left: 37%;
     margin-top: 2vh;
+    border-radius: 4px;
 }
 
-.CheckOut a:hover{
+.comprar:hover{
     background-color: black;
     opacity: 60%;
 }
