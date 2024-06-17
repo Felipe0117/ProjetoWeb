@@ -19,9 +19,11 @@ import javax.servlet.http.HttpServletResponse;
 import mercadinho.bean.CarrinhoDTO;
 import mercadinho.bean.CategoriaDTO;
 import mercadinho.bean.ProdutoDTO;
+import mercadinho.bean.UsuarioDTO;
 import model.dao.CarrinhoDAO;
 import model.dao.CategoriasDAO;
 import model.dao.ProdutosDAO;
+import model.dao.UsuariosDAO;
 
 /**
  *
@@ -49,6 +51,17 @@ public class ProdutoServlet extends HttpServlet {
         ProdutosDAO mercadinhoDao = new ProdutosDAO();
         int id_produto = Integer.parseInt(request.getParameter("id"));
 
+        UsuarioDTO usuario = new UsuarioDTO();
+    UsuariosDAO usuarios = new UsuariosDAO();
+        Cookie[] cookies = request.getCookies();
+        for (Cookie cookie : cookies) {
+            if (cookie.getName().equals("continuarCookie")) {
+
+                usuario = usuarios.leia(Integer.parseInt(cookie.getValue()));
+                request.setAttribute("usuario", usuario);
+            }
+        }
+        
         List<ProdutoDTO> produtos = mercadinhoDao.buscarProduto(id_produto);
 
         request.setAttribute("produtos", produtos);
@@ -96,6 +109,7 @@ public class ProdutoServlet extends HttpServlet {
             for (Cookie cookie : cookies) {
                 if (cookie.getName().equals("continuarCookie")) {
                     if (action.equals("/enviarItemCarrinho")) {
+                        
                         produto(request, response);
                     }
                 }
@@ -114,6 +128,16 @@ public class ProdutoServlet extends HttpServlet {
 
     protected void produto(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        UsuarioDTO usuario = new UsuarioDTO();
+    UsuariosDAO usuarios = new UsuariosDAO();
+        Cookie[] cookies = request.getCookies();
+        for (Cookie cookie : cookies) {
+            if (cookie.getName().equals("continuarCookie")) {
+
+                usuario = usuarios.leia(Integer.parseInt(cookie.getValue()));
+                request.setAttribute("usuario", usuario);
+            }
+        }
         CarrinhoDTO carrinho = new CarrinhoDTO();
         PrintWriter out = response.getWriter();
 
@@ -123,6 +147,7 @@ public class ProdutoServlet extends HttpServlet {
         carrinho.setQuantidadeCarrinho(Integer.parseInt(request.getParameter("quantidade")));
         carrinho.setProdutoId3(Integer.parseInt(request.getParameter("idProduto")));
         carrinho.setImagemCarrinho(request.getParameter("imagem"));
+        carrinho.setUsuarioId3(usuario.getId_usuario());
         carrinhos.cadastrarCarrinho(carrinho);
             out.println("<script type=\"text/javascript\">");
             out.println("alert('Sucesso');");
@@ -131,7 +156,6 @@ public class ProdutoServlet extends HttpServlet {
         
 
     }
-
     /**
      * Returns a short description of the servlet.
      *

@@ -38,6 +38,7 @@
                 </div>
            </div>
            </div>
+         <p>Login ${usuario.nome_usuario}</p>
     </header>
     <main>
         <form action="enviarItemCarrinho" method="post" enctype="multipart/form-data">

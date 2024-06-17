@@ -100,7 +100,7 @@ public class LoginServlet extends HttpServlet {
             } else {
                 tout.println("<script type=\"text/javascript\">");
                 tout.println("alert('login não encontrado.');");
-                tout.println("window.location.href = './loginCliente';");
+                tout.println("window.location.href = './Login';");
                 tout.println("</script>");
             }
            
