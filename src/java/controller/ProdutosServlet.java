@@ -91,7 +91,7 @@ public class ProdutosServlet extends HttpServlet {
             String nextPage = "/WEB-INF/jsp/TelaProdutos.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
-        } else if (url.equals("/ir_carrinho")){
+        } else if (url.equals("/ir_carrinho")){          
             String nextPage = "/WEB-INF/jsp/TelaCarrinho.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);

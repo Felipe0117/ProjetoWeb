@@ -18,8 +18,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import mercadinho.bean.CarrinhoDTO;
 import mercadinho.bean.CategoriaDTO;
+import mercadinho.bean.UsuarioDTO;
 import model.dao.CarrinhoDAO;
 import model.dao.CategoriasDAO;
+import model.dao.UsuariosDAO;
 
 /**
  *
@@ -28,7 +30,8 @@ import model.dao.CategoriasDAO;
 @WebServlet(urlPatterns = {"/irCheckOut"})
 @MultipartConfig
 public class CarrinhoServlet extends HttpServlet {
-
+        UsuarioDTO usuario = new UsuarioDTO();
+        UsuariosDAO usuarios = new UsuariosDAO();
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -42,14 +45,25 @@ public class CarrinhoServlet extends HttpServlet {
             throws ServletException, IOException {
         CarrinhoDAO carrinhos = new CarrinhoDAO();
         CategoriasDAO mercadinhoDao = new CategoriasDAO();
+                Cookie[] cookies = request.getCookies();
+for (Cookie cookie : cookies) {
+            if (cookie.getName().equals("continuarCookie")) {
 
-        List<CarrinhoDTO> carro = carrinhos.leia();
-        request.setAttribute("carro", carro);
+                usuario = usuarios.leia(Integer.parseInt(cookie.getValue()));
+                request.setAttribute("usuario", usuario);
+                int idUsuario = Integer.parseInt(cookie.getValue());
+                List<CarrinhoDTO> carro = carrinhos.leia2(idUsuario);
+                request.setAttribute("carro", carro);
+                List<CarrinhoDTO> totalCarrinho = carrinhos.leiaTotal(idUsuario);
+        request.setAttribute("totalCarrinho", totalCarrinho);
+            }
+        }    
+        
 
         List<CategoriaDTO> mercadinho = mercadinhoDao.listarCategorias();
         request.setAttribute("categoria", mercadinho);
-        List<CarrinhoDTO> totalCarrinho = carrinhos.leiaTotal();
-        request.setAttribute("totalCarrinho", totalCarrinho);
+        
+
 
         String nextPage = "/WEB-INF/jsp/TelaCarrinho.jsp";
 

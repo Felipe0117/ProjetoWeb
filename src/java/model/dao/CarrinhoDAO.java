@@ -38,7 +38,7 @@ public class CarrinhoDAO {
              objCarrinho.setDescricaoCarrinho(rs.getString("descricao_produto_carrinho"));
              objCarrinho.setQuantidadeCarrinho(rs.getInt("quantidadecarrinho"));
              objCarrinho.setProdutoId3(rs.getInt("produto_id3"));
-      //       objCarrinho.setUsuarioId3(rs.getInt("usuario_id3"));
+             objCarrinho.setUsuarioId3(rs.getInt("usuario_id3"));
              Carrinho.add(objCarrinho);
          }
      }catch(SQLException e){
@@ -46,6 +46,37 @@ public class CarrinhoDAO {
      }  
         return Carrinho;
     }
+    
+    public List<CarrinhoDTO> leia2(int idUsuario) {
+        List<CarrinhoDTO> Carrinho = new ArrayList<>();
+     try{
+         Connection conexao = Conexao.conectar();
+         PreparedStatement stmt = null;
+         ResultSet rs = null;
+         
+         stmt = conexao.prepareStatement("SELECT * FROM carrinho WHERE usuario_id3 = ?");
+         
+         stmt.setInt(1, idUsuario);
+         rs = stmt.executeQuery();
+         while(rs.next()){
+             CarrinhoDTO objCarrinho = new CarrinhoDTO();
+             System.out.println("Cheguei aquiiiiiii");
+             objCarrinho.setId_carrinho(rs.getInt("id_carrinho"));
+             objCarrinho.setNomeCarrinho(rs.getString("nome_produto_carrinho"));
+             objCarrinho.setValorCarrinho(rs.getFloat("valor_produto_carrinho"));
+             objCarrinho.setImagemCarrinho(rs.getString("imagem_produto_carrinho"));
+             objCarrinho.setDescricaoCarrinho(rs.getString("descricao_produto_carrinho"));
+             objCarrinho.setQuantidadeCarrinho(rs.getInt("quantidadecarrinho"));
+             objCarrinho.setProdutoId3(rs.getInt("produto_id3"));
+             objCarrinho.setUsuarioId3(rs.getInt("usuario_id3"));
+             Carrinho.add(objCarrinho);
+         }
+     }catch(SQLException e){
+         e.printStackTrace();
+     }  
+        return Carrinho;
+    }
+    
     public void cadastrarCarrinho(CarrinhoDTO c){
         try{
             Connection conexao = Conexao.conectar();
@@ -69,17 +100,19 @@ public class CarrinhoDAO {
     }
     
     //  Luan me passou e explicou o codigo
-         public List<CarrinhoDTO> leiaTotal() {
+         public List<CarrinhoDTO> leiaTotal(int idUsuario) {
         List<CarrinhoDTO> Carrinho = new ArrayList<>();
      try{
          Connection conexao = Conexao.conectar();
          PreparedStatement stmt = null;
          ResultSet rs = null;
          
-         stmt = conexao.prepareStatement("SELECT SUM(p.valor * c.quantidadecarrinho) AS total FROM produtos p INNER JOIN carrinho c ON p.id_produto = c.produto_id3");
+         stmt = conexao.prepareStatement("SELECT SUM(c.valor_produto_carrinho * c.quantidadecarrinho) AS total FROM carrinho c WHERE c.usuario_id3 = ?");
+         stmt.setInt(1, idUsuario);
          rs = stmt.executeQuery();
          if(rs.next()){
              CarrinhoDTO objCarrinho = new CarrinhoDTO();
+             System.out.println("");
              objCarrinho.setTotal(rs.getFloat("total"));
              Carrinho.add(objCarrinho);
          }
