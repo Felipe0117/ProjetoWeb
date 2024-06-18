@@ -1,0 +1,225 @@
+body{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #9C9C9C;
+}
+
+.cartao{
+    margin-left: 15%;
+    margin-top: 5vh;
+    background-color: white;
+    width: 70%;
+    display: flex;
+    height: 13vh;
+    border-radius: 20px;
+    border: 1px solid black;
+}
+
+.quant{
+    display: grid;
+    text-align: center;
+    align-items: center;
+    width: 10vw; 
+}
+
+main{
+    background-color: #9C9C9C;
+    height: 71vh;
+}
+
+.todos{
+    background-color: #9C9C9C;
+    display: grid;
+}
+
+.carrinho{
+    overflow-x: auto;
+    width: 90%;
+    height: 55%;
+}
+
+.cartao .corpo{
+    margin-left: 3vw;
+    width: 25vw;
+}
+
+main h1{
+    margin-top: 2vh;
+    margin-left: 5vw;
+}
+
+main .total .palavra{
+    margin-top: 2vh;
+    margin-left: 42%;
+}
+
+.cartao img{
+    width: 6vw;
+    height: 12vh;
+    margin-left: 2vw;
+}
+
+.comprar{
+    background-color: black;
+    color: white;
+    border: none;
+    height: 5vh;
+    width: 25vw;
+    margin-left: 37%;
+    margin-top: 2vh;
+    border-radius: 4px;
+}
+
+.comprar:hover{
+    background-color: black;
+    opacity: 60%;
+}
+
+.valores{
+    margin-left: 51vw;
+}
+
+.valore{
+    margin-left: 8vw;
+}
+
+.carta{
+    display: flex;
+}
+/*-------------------------------------------------------------*/
+
+header{
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    background-color: #9C9C9C;
+}
+
+.menu1{
+    height: 150px;
+    width: 100%;
+    background-color: black;
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr 1fr;
+
+}
+
+#um{
+   margin-left: 12vw;
+}
+
+.menu1 .buttons{
+    margin-top: 65px;
+    display: inline-block;
+      padding: 10px 20px;
+      background-color: #272727;
+      color: white;
+      text-decoration: none; 
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+}
+
+.menu1 button:hover{
+    opacity: 70%;
+    
+
+}
+
+.menu1 .buttons:hover{
+    opacity: 70%;
+    
+
+}
+
+.menu1 .pesquisa{
+    margin-top: 54px;
+    width: 35vw;
+
+}
+
+.menu1 .pesquisa i{
+    font-size: xx-large;
+    color: white;
+
+}
+
+.menu1 input{
+    height: 6vh;
+    width: 30vw;
+    border-color:black ;
+    border-radius: 10px;
+}
+
+.logo{   
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    max-width: 35%;
+    max-height: 85%;
+    margin-left: 20%;
+}
+
+.logo .img_log{
+    height: 100% !important;
+    width: 90%;
+}
+
+
+.itens{
+    margin-top: 65px;
+    
+}
+
+.itens button{
+    background-color: #272727;
+    color: white;
+    cursor: pointer;
+    border-color: transparent;
+    border-radius: 10px;
+}
+
+.menu2{    
+    background-color: #363636;
+}
+
+.menu2 a{
+    margin-left: 4vw;
+    color: aliceblue;
+    text-decoration: none;
+}
+
+.menu2 a:hover{
+    color: gray;
+    
+}
+
+.ver{
+    display: flex;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    justify-content: space-around;
+       
+}
+
+.todos footer{
+    margin-top: 4vh;
+}
+
+footer .final{
+    background-color: black;
+    display: flex;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    
+}
+
+footer .final p{
+    color: white;
+}
+
+footer .final #tel{
+    margin-left: 5vw
+}
+
