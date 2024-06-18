@@ -1,0 +1,243 @@
+body{
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: #272727;
+}
+
+header{
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+}
+
+main{
+  background-color: white;  
+}
+
+.menu1{
+    height: 150px;
+    width: 100%;
+    background-color: black;
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr 1fr;
+
+}
+
+#um{
+   margin-left: 12vw;
+}
+
+.menu1 .buttons{
+    margin-top: 65px;
+    display: inline-block;
+      padding: 10px 20px;
+      background-color: #272727;
+      color: white;
+      text-decoration: none; 
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+}
+
+.menu1 button:hover{
+    opacity: 70%;
+    
+
+}
+
+.menu1 .buttons:hover{
+    opacity: 70%;
+    
+
+}
+
+.menu1 .pesquisa{
+    margin-top: 54px;
+    width: 35vw;
+
+}
+
+.menu1 .pesquisa i{
+    font-size: xx-large;
+    color: white;
+
+}
+
+.menu1 input{
+    height: 6vh;
+    width: 30vw;
+    border-color:black ;
+    border-radius: 10px;
+}
+
+.logo{   
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    max-width: 35%;
+    max-height: 85%;
+    margin-left: 20%;
+}
+
+.logo .log{
+    height: 100% !important;
+    width: 90%;
+}
+
+
+.itens{
+    margin-top: 65px;
+    
+}
+
+.itens button{
+    background-color: #272727;
+    color: white;
+    cursor: pointer;
+    border-color: transparent;
+    border-radius: 10px;
+}
+
+.menu2{    
+    background-color: #363636;
+}
+
+.menu2 a{
+    margin-left: 4vw;
+    color: aliceblue;
+    text-decoration: none;
+}
+
+.menu2 a:hover{
+    color: gray;
+    
+}
+
+.ver{
+    display: flex;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    justify-content: space-around;
+       
+}
+
+.cartao{
+    display: flex;
+    overflow: hidden;
+}
+
+.card .body{
+    width: 50%;
+    
+}
+.card .body1{
+    width: 50%;
+}
+
+.body1 img{
+    margin-top: 8vh;
+    margin-left: 5vw;
+    width: 29vw;
+    height: 58vh;
+    border: 2px solid black;
+    border-radius: 7px;
+}
+
+.corpo{
+    margin-left: 15vw;
+    margin-top: 15vh;
+    
+}
+
+.corpo .titulo{
+    font-size: 38px;
+    color: black;
+}
+
+.corpo .valor{
+    font-size: 35px;
+    font-weight: bold;
+    color: black;
+}
+
+.corpo .btn{
+    margin-top: 4vh;
+    background-color: black;
+    color: white;
+    width: 30vw;
+    
+}
+
+.corpo .btn:hover{
+    opacity: 70%;  
+    background-color: black;
+    color: white;
+  
+    
+}
+
+.cartao-text{
+  margin-left: 5vw;
+  margin-top: 1vh;
+}
+
+footer{
+    background-color: #272727;
+}
+
+.rodapé{
+    background-color: black;
+    display: flex;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    
+    
+}
+
+.rodapé p{
+    color: white;
+}
+
+.rodapé #tel{
+    margin-left: 5vw
+}
+
+.gui{
+    margin-bottom: 1px;
+}
+
+.desc{
+    margin-left: 5vw;
+    margin-top: 5vh;
+    font-size: 30px;
+    font-weight: bold;
+    color: black;
+       
+}
+
+.texto{
+    margin-right: 5vw;
+    margin-left: 5vw;
+}
+
+.logo a{
+    margin-left: 3.2vw;
+    color: #EEDD82;
+    text-decoration: none;
+}
+
+.juntos{
+    display: flex;
+}
+
+.juntos p{
+    font-size: x-large;
+    margin-right: 1vw;
+    font-weight: bold;
+}
+
+.juntos input{
+   height: 4vh;
+    
+}

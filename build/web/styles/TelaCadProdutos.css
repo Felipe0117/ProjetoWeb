@@ -1,0 +1,48 @@
+h1{
+    color: white;
+}
+
+.tudo{
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    
+   background-color: #272727; 
+}
+
+.form-group label{
+    color: white;
+}
+
+#categoria{
+    width: 30vw; 
+}
+
+section{
+    display: grid !important; 
+    grid-template-columns: 50% 50%;
+    gap: 2vw;
+    
+}
+
+
+#mudarValor{
+    width: 20vw;
+}
+
+button{
+    margin-left: 38% !important;
+    width: 20vw;
+    background-color: black !important;
+    color: white !important;
+    border: none !important;
+    
+}
+
+button:hover{
+    opacity: 60%;
+    
+}
+
+

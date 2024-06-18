@@ -1,0 +1,193 @@
+body{
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: #272727;
+}
+
+header{
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+}
+
+main{
+  background-color: #272727;  
+}
+
+.menu1{
+    height: 150px;
+    width: 100%;
+    background-color: black;
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr 1fr;
+
+}
+
+#um{
+   margin-left: 12vw;
+}
+
+.menu1 .buttons{
+    margin-top: 65px;
+    display: inline-block;
+      padding: 10px 20px;
+      background-color: #272727;
+      color: white;
+      text-decoration: none; 
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+}
+
+.menu1 button:hover{
+    opacity: 70%;
+    
+
+}
+
+.menu1 .buttons:hover{
+    opacity: 70%;
+    
+
+}
+
+.menu1 .pesquisa{
+    margin-top: 54px;
+    width: 35vw;
+
+}
+
+.menu1 .pesquisa i{
+    font-size: xx-large;
+    color: white;
+
+}
+
+.menu1 input{
+    height: 6vh;
+    width: 30vw;
+    border-color:black ;
+    border-radius: 10px;
+}
+
+.logo{   
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    max-width: 35%;
+    max-height: 85%;
+    margin-left: 20%;
+}
+
+.logo .log{
+    height: 100% !important;
+    width: 90% !important;
+}
+
+.itens{
+    margin-top: 65px;
+    
+}
+
+.itens button{
+    background-color: #272727;
+    color: white;
+    cursor: pointer;
+    border-color: transparent;
+    border-radius: 10px;
+}
+
+.menu2{    
+    background-color: #363636;
+}
+
+.menu2 a{
+    margin-left: 4vw;
+    color: aliceblue;
+    text-decoration: none;
+}
+
+.menu2 a:hover{
+    color: gray;
+    
+}
+
+.ver{
+    display: flex;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    justify-content: space-around;
+       
+}
+
+footer{
+    background-color: #272727;
+}
+
+
+.meio{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    justify-content: space-evenly;
+    position: relative;
+    align-items: center;
+    align-content: space-between;
+    height: 75vh;
+    
+    
+}
+
+.meio img{
+    height: 45%;
+    width: 100%;
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+}
+
+.meio .card-body{
+    background-color: #D9D9D9;
+}
+
+.meio .card{
+    margin-top: 4vh;
+    margin-bottom: 27vh;
+    left: 5vh;
+}
+
+.fim{
+    background-color: black;
+    display: flex;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    
+    
+}
+
+.fim p{
+    color: white;
+}
+
+.fim #tel{
+    margin-left: 5vw
+}
+
+.card-body a{
+    background-color: black;
+    color: white;
+    border: none;
+    margin-left: 28%;
+}
+
+.card-body a:hover{
+    background-color: black;
+    opacity: 60%;
+}
+
+.logo a{
+    margin-left: 3.2vw;
+    color: #EEDD82;
+    text-decoration: none;
+}
+
