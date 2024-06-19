@@ -75,7 +75,7 @@
                             </span>
                         </label>
                         <label>
-                            <input checked="" class="radio-input" type="radio" name="engine" value="debito">
+                            <input class="radio-input" type="radio" name="engine" value="debito">
                             <span class="radio-tile">
                                 <span class="radio-icon">
                                     <i class="fa-regular fa-credit-card"></i>

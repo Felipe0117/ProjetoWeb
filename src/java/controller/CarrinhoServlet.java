@@ -46,13 +46,13 @@ public class CarrinhoServlet extends HttpServlet {
         CarrinhoDAO carrinhos = new CarrinhoDAO();
         CategoriasDAO mercadinhoDao = new CategoriasDAO();
                 Cookie[] cookies = request.getCookies();
-for (Cookie cookie : cookies) {
-            if (cookie.getName().equals("continuarCookie")) {
+                    for (Cookie cookie : cookies) { //armazena todos os cookies no array "cookies"
+                       if (cookie.getName().equals("continuarCookie")) { //verifica se o cookie atual é o "continuarCookie"
 
-                usuario = usuarios.leia(Integer.parseInt(cookie.getValue()));
-                request.setAttribute("usuario", usuario);
-                int idUsuario = Integer.parseInt(cookie.getValue());
-                List<CarrinhoDTO> carro = carrinhos.leia2(idUsuario);
+                usuario = usuarios.leia(Integer.parseInt(cookie.getValue())); //armazena as informações do usuário com base no cookie atual 
+                request.setAttribute("usuario", usuario); //armazena as informações presentes em "usuario" para que possa ser utilizada quando uma requisição for chamada
+                int idUsuario = Integer.parseInt(cookie.getValue()); //armazena os valores obtidos no cookie para a variável idUsuario
+                List<CarrinhoDTO> carro = carrinhos.leia2(idUsuario); //lista as informações do carrinho relacionadas ao idUsuario
                 request.setAttribute("carro", carro);
                 List<CarrinhoDTO> totalCarrinho = carrinhos.leiaTotal(idUsuario);
         request.setAttribute("totalCarrinho", totalCarrinho);
