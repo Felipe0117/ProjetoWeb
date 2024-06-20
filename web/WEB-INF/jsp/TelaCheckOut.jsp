@@ -14,6 +14,7 @@
         </header>
         <main>
             <section class="tudo">
+                <form action="adicionarItemHist" method="post" enctype="multipart/form-data">
                 <div class="compra">
                     <h2><i class="fa-solid fa-bag-shopping"></i>Itens</h2>
                     <div class="carrinho">
@@ -30,9 +31,19 @@
                                     <p class="quantidade">${carros.quantidadeCarrinho}</p>
                                 </div>
                             </div>
+                                <input type="hidden" name="idProduto" value="${carros.produtoId3}">
+                                <input type="hidden" name="descricao" value="${carros.descricaoCarrinho}">
+                                <input type="hidden" name="quantidade" value="${carros.quantidadeCarrinho}">
+                                <input type="hidden" name="imagem" value="${carros.imagemCarrinho}">
+                                <input type="hidden" name="valor" value="${carros.valorCarrinho}">
+                                <input type="hidden" name="nomeHist" value="${carros.nomeCarrinho}">
+                                <input type="hidden" name="id_usuario" value="${usuario.id_usuario}">
+                                      
                         </c:forEach>
                     </div>
                 </div>
+                <button class="finalizar" type="submit">Finalizar Compra</button> 
+                </form>
                 <form action="modEndereco" method="post" enctype="multipart/form-data">
                     <div class="endereco">
                         <c:forEach items="${enderecoAtual}" var="enderecosAtual">
@@ -93,7 +104,7 @@
                             </span>
                         </label>
                     </div>
-                    <form action="addItemProdPedidos" method="post" enctype="multipart/form-data">
+                    
                     <section class="opcao">                      
                             <div id="credito" class="content-div">
                                 <p>Número do Cartão:</p>
@@ -131,11 +142,8 @@
                             <div id="pix" class="content-div">
                                 <p>Conteúdo para Pix</p>
                             </div> 
-                    </section>
-                        
-                        <button class="finalizar" type="submit">Finalizar Compra</button>
-                        </form>
-                </div>               
+                    </section>                        
+                </div>
             </section>                   
     </main>
     <footer>

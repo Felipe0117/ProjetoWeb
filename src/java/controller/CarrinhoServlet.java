@@ -21,17 +21,21 @@ import mercadinho.bean.CategoriaDTO;
 import mercadinho.bean.UsuarioDTO;
 import model.dao.CarrinhoDAO;
 import model.dao.CategoriasDAO;
+import model.dao.ProdutosDAO;
 import model.dao.UsuariosDAO;
 
 /**
  *
  * @author Senai
  */
-@WebServlet(urlPatterns = {"/irCheckOut"})
+@WebServlet(urlPatterns = {"/irCheckOut", "/ExcluirItem"})
 @MultipartConfig
 public class CarrinhoServlet extends HttpServlet {
         UsuarioDTO usuario = new UsuarioDTO();
         UsuariosDAO usuarios = new UsuariosDAO();
+        CarrinhoDAO carrinho = new CarrinhoDAO();
+        CarrinhoDTO carrinhodto = new CarrinhoDTO();
+        ProdutosDAO prod = new ProdutosDAO();
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -100,6 +104,14 @@ public class CarrinhoServlet extends HttpServlet {
         String action = request.getServletPath();
         if (action.equals("/irCheckOut")) {
             response.sendRedirect("./CheckOutServlet");
+        }else if(action.equals("/ExcluirItem")){
+            System.out.println("aqu0");
+            int idCarro = Integer.parseInt(request.getParameter("idCarrinho"));
+            int quantCarrinho = Integer.parseInt(request.getParameter("quantidadeCarrinho"));
+            int produtoId = Integer.parseInt(request.getParameter("idProduto"));
+            carrinho.delProdCarrinho(idCarro);
+            prod.aumentarProduto(produtoId, quantCarrinho);
+            
         }
 
     }

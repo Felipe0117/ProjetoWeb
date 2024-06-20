@@ -36,6 +36,7 @@ public class ProdutoServlet extends HttpServlet {
     CarrinhoDTO carrinho = new CarrinhoDTO();
     CarrinhoDAO carrinhos = new CarrinhoDAO();
 
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -103,14 +104,27 @@ public class ProdutoServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+            ProdutoDTO produto = new ProdutoDTO();
+            ProdutosDAO produtos = new ProdutosDAO();
         String action = request.getServletPath();
         Cookie[] cookies = request.getCookies();
         if (cookies != null) {
             for (Cookie cookie : cookies) {
                 if (cookie.getName().equals("continuarCookie")) {
                     if (action.equals("/enviarItemCarrinho")) {
-                        
-                        produto(request, response);
+                        int quantUsuario = Integer.parseInt(request.getParameter("quantidade"));
+                        int produtoId = Integer.parseInt(request.getParameter("idProduto"));
+                        int quantidadeEstoque = produtos.verEstoque(produtoId);
+                            if(quantidadeEstoque >= quantUsuario){
+                             produtos.retirarProduto(quantUsuario, produtoId);
+                             produto(request, response);
+                            }else{
+                                PrintWriter out = response.getWriter();
+                               out.println("<script type=\"text/javascript\">");
+                               out.println("alert('Quantidade do produto indisponível');");
+                               out.println("window.location.href = './Home';");
+                               out.println("</script>"); 
+                            }                                       
                     }
                 }
             }PrintWriter out = response.getWriter();

@@ -121,4 +121,20 @@ public class CarrinhoDAO {
      }  
         return Carrinho;
     }
+         
+      public void delProdCarrinho(int idCarrinho){
+        try{
+        Connection conexao = Conexao.conectar();
+        PreparedStatement stmt = null;
+            stmt = conexao.prepareStatement("DELETE FROM carrinho WHERE id_carrinho = ?");
+            stmt.setInt(1, idCarrinho);
+           
+            stmt.executeUpdate();
+            stmt.close();
+            conexao.close();
+        }catch(Exception e){
+        e.printStackTrace();
+        }
+    }
+         
 }

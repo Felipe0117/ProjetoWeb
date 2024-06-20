@@ -57,6 +57,14 @@
                     <div class="quant">
                         <p class="quantidade">${carros.quantidadeCarrinho}</p>
                     </div>
+                    <form action="ExcluirItem" method="post">
+                        <button type="button" class="button" onclick="excluirItem(${carros.id_carrinho}, ${carros.quantidadeCarrinho}, ${carros.produtoId3})">
+                            <p>Excluir</p>
+                        </button>
+                            <input type="hidden" name="idCarro" value="${carros.id_carrinho}">
+                            <input type="hidden" name="idProd" value="${carros.produtoId3}">
+                            <input type="hidden" name="quantCarro" value="${carros.quantidadeCarrinho}">
+                    </form>
                   </div>
             </c:forEach>
         </div>
@@ -90,6 +98,6 @@
         </footer>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>       
-
+        <script src="./js/AlterarCarrinho.js"></script>
     </body>
 </html>
