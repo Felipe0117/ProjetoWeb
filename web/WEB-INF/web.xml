@@ -89,10 +89,6 @@
         <url-pattern>/cadastrar-produto</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ProdutosServlet</servlet-name>
-        <url-pattern>/ir_dados</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>CarrinhoServlet</servlet-name>
         <url-pattern>/ir_carrinho</url-pattern>
     </servlet-mapping>
@@ -102,7 +98,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>DadosServlet</servlet-name>
-        <url-pattern>/DadosServlet</url-pattern>
+        <url-pattern>/ir_dados</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -57,13 +57,11 @@
                     <div class="quant">
                         <p class="quantidade">${carros.quantidadeCarrinho}</p>
                     </div>
-                    <form action="ExcluirItem" method="post">
-                        <button type="button" class="button" onclick="excluirItem(${carros.id_carrinho}, ${carros.quantidadeCarrinho}, ${carros.produtoId3})">
+                    <form action="ExcluirItem" method="post" enctype="multipart/form-data">
+                        <button type="submit" class="button">
                             <p>Excluir</p>
                         </button>
                             <input type="hidden" name="idCarrinho" value="${carros.id_carrinho}">
-                            <input type="hidden" name="idProduto" value="${carros.produtoId3}">
-                            <input type="hidden" name="quantidadeCarrinho" value="${carros.quantidadeCarrinho}">
                     </form>
                   </div>
             </c:forEach>

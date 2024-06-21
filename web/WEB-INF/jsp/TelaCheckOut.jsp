@@ -108,11 +108,11 @@
                     <section class="opcao">                      
                             <div id="credito" class="content-div">
                                 <p>Número do Cartão:</p>
-                                <input name="cartao" type="number" id="cartao" required>
+                                <input name="cartao" type="text" id="cart"  minlength="19" pattern="([0-9]{4}).([0-9]{4}).([0-9]{4}).([0-9]{4})" required>
                                 <div class="org">
                                     <div class="cvcs">
                                         <p>CVC:</p>
-                                        <input name="cvc" type="number" id="cvc" required>
+                                        <input name="cvc" id="cvc" type="number" id="cvc" pattern="([0-9]{3})" required>
                                     </div>
                                     <div class="val">
                                         <p>Data de Validade:</p>
@@ -126,9 +126,9 @@
                                 <p>Número do Cartão:</p>
                                 <input name="cartao" type="number" id="cartao" required>
                                 <div class="org">
-                                    <div class="cvcs">
+                                    <div class="cvcs" >
                                         <p>CVC:</p>
-                                        <input name="cvc" type="number" id="cvc" required>
+                                        <input name="cvc" id="cvc" type="number" id="cvc" required>
                                     </div>
                                     <div class="val">
                                         <p>Data de Validade:</p>
@@ -155,5 +155,9 @@
 
 </body>
 <script src="./js/Pagamento.js" type="text/javascript"></script>
+        <script src="https://kit.fontawesome.com/560340c572.js" crossorigin="anonymous"></script>
+            <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
+    <script src="./js/mask.js"></script
 
 </html>

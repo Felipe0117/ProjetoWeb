@@ -107,10 +107,8 @@ public class CarrinhoServlet extends HttpServlet {
         }else if(action.equals("/ExcluirItem")){
             System.out.println("aqu0");
             int idCarrinho = Integer.parseInt(request.getParameter("idCarrinho"));
-            int quantidadeCarrinho = Integer.parseInt(request.getParameter("quantidadeCarrinho"));
-            int idProduto = Integer.parseInt(request.getParameter("idProduto"));
             carrinho.delProdCarrinho(idCarrinho);
-            prod.aumentarProduto(idProduto, quantidadeCarrinho);
+            response.sendRedirect("./ir_carrinho");
             
         }
 
