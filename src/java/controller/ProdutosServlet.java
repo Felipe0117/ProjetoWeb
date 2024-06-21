@@ -96,6 +96,10 @@ public class ProdutosServlet extends HttpServlet {
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
                 
+        } else if (url.equals("/ir_dados")){
+            String nextPage = "/WEB-INF/jsp/TelaDados.jsp";
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+            dispatcher.forward(request, response);
         }
         
         

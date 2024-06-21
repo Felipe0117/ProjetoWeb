@@ -49,7 +49,7 @@ public class HistoricoDAO {
          Connection conexao = Conexao.conectar();
          PreparedStatement stmt = null;
          ResultSet rs = null;
-         
+          System.out.println("Chegou mn");
         stmt = conexao.prepareStatement("SELECT * FROM historico WHERE usuario_id4 = ?");
         stmt.setInt(1, idUsuario);
         rs = stmt.executeQuery();

@@ -196,12 +196,9 @@ public class ProdutosDAO {
    
     if(rs.next()){
         int quantAtual = rs.getInt("estoque");
-        System.out.println("quantidadeDesejada "+quantUsuario);
-        System.out.println("quantidadeAtual "+quantAtual);
         if(quantAtual >= quantUsuario){
            
             int novaQuant = quantAtual - quantUsuario;
-            System.out.println("chego aqui no deletarProdutoQuantidade "+ novaQuant);
         stmt = conexao.prepareStatement("UPDATE produtos SET estoque = ? WHERE id_produto = ?");
         stmt.setInt(1, novaQuant);
         stmt.setInt(2, produtoId);
