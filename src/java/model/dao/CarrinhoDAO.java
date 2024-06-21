@@ -126,6 +126,7 @@ public class CarrinhoDAO {
         try{
         Connection conexao = Conexao.conectar();
         PreparedStatement stmt = null;
+            System.out.println("1");
             stmt = conexao.prepareStatement("DELETE FROM carrinho WHERE id_carrinho = ?");
             stmt.setInt(1, idCarrinho);
            

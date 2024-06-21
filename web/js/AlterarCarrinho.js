@@ -1,8 +1,8 @@
  function excluirItem(idCarrinho, quantidadeCarrinho, produtoId3) {
     if (confirm("Deseja excluir este item do carrinho?")) {
-        fetch('ExcluirItemCarrinho', {
+        fetch('ExcluirItem', {
             method: 'POST',
-            body: `idCarrinho=${idCarrinho}&quantidadeCarrinho=${quantidadeCarrinho}&idProduto=${produtoId3}`
+            body: `idCarrinho=${idCarrinho}&quantidadeCarrinho=${quantidadeCarrinho}&idProduto=${produtoId3}`           
         })
     }
 }

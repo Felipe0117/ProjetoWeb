@@ -61,9 +61,9 @@
                         <button type="button" class="button" onclick="excluirItem(${carros.id_carrinho}, ${carros.quantidadeCarrinho}, ${carros.produtoId3})">
                             <p>Excluir</p>
                         </button>
-                            <input type="hidden" name="idCarro" value="${carros.id_carrinho}">
-                            <input type="hidden" name="idProd" value="${carros.produtoId3}">
-                            <input type="hidden" name="quantCarro" value="${carros.quantidadeCarrinho}">
+                            <input type="hidden" name="idCarrinho" value="${carros.id_carrinho}">
+                            <input type="hidden" name="idProduto" value="${carros.produtoId3}">
+                            <input type="hidden" name="quantidadeCarrinho" value="${carros.quantidadeCarrinho}">
                     </form>
                   </div>
             </c:forEach>

@@ -106,11 +106,11 @@ public class CarrinhoServlet extends HttpServlet {
             response.sendRedirect("./CheckOutServlet");
         }else if(action.equals("/ExcluirItem")){
             System.out.println("aqu0");
-            int idCarro = Integer.parseInt(request.getParameter("idCarrinho"));
-            int quantCarrinho = Integer.parseInt(request.getParameter("quantidadeCarrinho"));
-            int produtoId = Integer.parseInt(request.getParameter("idProduto"));
-            carrinho.delProdCarrinho(idCarro);
-            prod.aumentarProduto(produtoId, quantCarrinho);
+            int idCarrinho = Integer.parseInt(request.getParameter("idCarrinho"));
+            int quantidadeCarrinho = Integer.parseInt(request.getParameter("quantidadeCarrinho"));
+            int idProduto = Integer.parseInt(request.getParameter("idProduto"));
+            carrinho.delProdCarrinho(idCarrinho);
+            prod.aumentarProduto(idProduto, quantidadeCarrinho);
             
         }
 
