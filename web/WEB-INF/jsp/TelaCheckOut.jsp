@@ -42,7 +42,7 @@
                         </c:forEach>
                     </div>
                 </div>
-                <button class="finalizar" type="submit">Finalizar Compra</button> 
+                <button class="terminar" type="submit" onclick="validarInputs()">Finalizar Compra</button> 
                 </form>
                 <form action="modEndereco" method="post" enctype="multipart/form-data">
                     <div class="endereco">
@@ -108,35 +108,35 @@
                     <section class="opcao">                      
                             <div id="credito" class="content-div">
                                 <p>Número do Cartão:</p>
-                                <input name="cartao" type="text" id="cart"  minlength="19" pattern="([0-9]{4}).([0-9]{4}).([0-9]{4}).([0-9]{4})" required>
+                                <input name="cartao" type="text" id="cart"  minlength="19" pattern="([0-9]{4}).([0-9]{4}).([0-9]{4}).([0-9]{4})" value="cartao" required>
                                 <div class="org">
                                     <div class="cvcs">
                                         <p>CVC:</p>
-                                        <input name="cvc" id="cvc" type="number" id="cvc" pattern="([0-9]{3})" required>
+                                        <input name="cvc" id="cvc" type="number" id="cvc" pattern="([0-9]{3})" value="cvc" required>
                                     </div>
                                     <div class="val">
                                         <p>Data de Validade:</p>
-                                        <input name="data_validade" type="date" id="data_validade" required>
+                                        <input name="data_validade" type="date" id="data_validade" value="dv" required>
                                     </div>
                                 </div>
                                 <p>Nome do Titular:</p>
-                                <input name="nome" type="text" id="nome" required>
+                                <input name="nome" type="text" id="nome" value="nome" required>
                             </div>
                             <div id="debito" class="content-div">
                                 <p>Número do Cartão:</p>
-                                <input name="cartao" type="number" id="cartao" required>
+                                <input name="cartao" type="number" id="cartao" minlength="19" pattern="([0-9]{4}).([0-9]{4}).([0-9]{4}).([0-9]{4})" value="cartao2" required>
                                 <div class="org">
                                     <div class="cvcs" >
                                         <p>CVC:</p>
-                                        <input name="cvc" id="cvc" type="number" id="cvc" required>
+                                        <input name="cvc" id="cvc2" type="number" pattern="([0-9]{3})" id="cvc2" value="cvc2" required>
                                     </div>
                                     <div class="val">
                                         <p>Data de Validade:</p>
-                                        <input name="data_validade" type="date" id="data_validade" required>
+                                        <input name="data_validade" type="date" id="data_validade" value="dv2" required>
                                     </div>
                                 </div>
                                 <p>Nome do Titular:</p>
-                                <input name="nome" type="text" id="nome" required>
+                                <input name="nome" type="text" id="nome" value="nome2" required>
                             </div>
 
                             <div id="pix" class="content-div">
@@ -154,10 +154,10 @@
     </footer>
 
 </body>
-<script src="./js/Pagamento.js" type="text/javascript"></script>
+<script src="./js/Pagamento.js"></script>
         <script src="https://kit.fontawesome.com/560340c572.js" crossorigin="anonymous"></script>
             <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
-    <script src="./js/mask.js"></script
+    <script src="./js/mask.js"></script>
 
 </html>

@@ -39,7 +39,7 @@ public class CheckOutServlet extends HttpServlet {
      UsuarioDTO usuario = new UsuarioDTO();
         UsuariosDAO usuarios = new UsuariosDAO();
         CarrinhoDAO carrinhos = new CarrinhoDAO();
-        CategoriasDAO mercadinhoDao = new CategoriasDAO();
+        CarrinhoDTO carrinho = new CarrinhoDTO();
         EnderecoDTO enderecos = new EnderecoDTO();
         EnderecosDAO endereco = new EnderecosDAO();
         HistoricoDTO historico = new HistoricoDTO();
@@ -148,13 +148,28 @@ public class CheckOutServlet extends HttpServlet {
           if(cookies != null){
         for (Cookie cookie : cookies) {
             if (cookie.getName().equals("continuarCookie")) {
-                System.out.println("cheguei ");
+                String NumCart = request.getParameter("cartao");
+                String Cvc = request.getParameter("cvc");
+                String Dv = request.getParameter("dv");
+                String Nome = request.getParameter("nome");
+                String NumCart2 = request.getParameter("cartao2");
+                String Cvc2 = request.getParameter("cvc2");
+                String Dv2 = request.getParameter("dv2");
+                String Nome2 = request.getParameter("nome2");
+                
+                if (NumCart == null || Cvc == null || Dv == null || Nome == null || NumCart2 == null || Cvc2 == null || Dv2 == null || Nome2 == null ) {
+            out.println("<script type=\"text/javascript\">");
+            out.println("alert('Preencha as informações de pagamento');");
+            out.println("window.location.href = './CheckOutServlet';");
+            out.println("</script>");
+        }else{
            hist(request, response);    
 
             }
         }
           }          
          }      
+    }
     }
    
             protected void hist(HttpServletRequest request, HttpServletResponse response)
@@ -181,6 +196,13 @@ public class CheckOutServlet extends HttpServlet {
             
             
             }
+            carrinhos.deletarCarrinho();
+            
+            out.println("<script type=\"text/javascript\">");
+            out.println("alert('Informações adicionadas com sucesso');");
+            out.println("window.location.href = './Home';");
+            out.println("</script>");
+            
 
     }
    

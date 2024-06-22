@@ -1,7 +1,7 @@
 const CepInput = (event) => {
     let input = event.target; // Pega o que esta no input em que está o onkeyup="CepMascara(event)"
     input.value = CepMascara(input.value); // Aplica a CepMascara ao valor do campo de entrada
-}
+};
 
 
 

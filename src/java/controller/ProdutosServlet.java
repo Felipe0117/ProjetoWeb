@@ -134,7 +134,7 @@ public class ProdutosServlet extends HttpServlet {
         newProduto.setCategoriaId(Integer.parseInt(request.getParameter("mercadinho")));
         newProduto.setDescricao(request.getParameter("descricao"));
         newProduto.setValor(Float.parseFloat(request.getParameter("valor")));
-
+        newProduto.setEstoque(Integer.parseInt(request.getParameter("estoque")));
         Part filePart = request.getPart("imagem");
         String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
         if (fileName != null && !fileName.isEmpty()) {

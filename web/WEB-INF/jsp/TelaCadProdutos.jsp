@@ -44,6 +44,10 @@
                 <label for="descricao">Descrição:</label>
                 <textarea class="form-control" id="descricao" name="descricao" rows="3"></textarea>
             </div>
+            <div class="form-group" id="estoque">
+                <label for="descricao">Estoque</label>
+                <input type="number" step="0.01" class="form-control" id="estoque" name="estoque" required>
+            </div>
             <div class="form-group">
                 <label for="imagem">Imagem do Produto:</label>
                 <input type="file" class="form-control-file" id="imagem" name="imagem">
