@@ -19,7 +19,7 @@
                 <div class="pesquisa"><i class="fa-solid fa-magnifying-glass"></i><input type="text" id="taskPesquisa" name="busca" placeholder="Pesquisa"></div>
             <div class="itens"><button>Buscar</button></div>
             </form>
-            <div class="bot" id="um"><a class="buttons" href="./cadastrar-produto"><i class="fa-solid fa-user"></i></a></div>
+            <div class="bot" id="um"><a class="buttons" href="./ir_dados?id=${usuario.id_usuario}"><i class="fa-solid fa-user"></i></a></div>
             <div class="bot"><a class="buttons" href="./ir_carrinho"><i class="fa-solid fa-cart-shopping"></i></a></div>                            
         </div>
            <div class="menu2">
@@ -34,9 +34,6 @@
            </div>
            </div>
            <p>Login ${usuario.nome_usuario}</p>
-           <div class="container mt-5">
-            <div id="alertPlaceholder"></div>
-        </div>
     </header>
     <main>
         <div id="carouselExampleIndicators" class="carousel slide">

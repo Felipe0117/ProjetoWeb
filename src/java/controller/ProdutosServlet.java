@@ -53,7 +53,7 @@ public class ProdutosServlet extends HttpServlet {
         CategoriasDAO mercadinhoDao = new CategoriasDAO();
         ProdutosDAO produtosDao = new ProdutosDAO();
         UsuarioDTO usuario = new UsuarioDTO();
-    UsuariosDAO usuarios = new UsuariosDAO();
+        UsuariosDAO usuarios = new UsuariosDAO();
         Cookie[] cookies = request.getCookies();
         for (Cookie cookie : cookies) {
             if (cookie.getName().equals("continuarCookie")) {
@@ -62,46 +62,42 @@ public class ProdutosServlet extends HttpServlet {
                 request.setAttribute("usuario", usuario);
             }
         }
-        
+
         List<CategoriaDTO> mercadinho = mercadinhoDao.listarCategorias();
         request.setAttribute("categoria", mercadinho);
         String url = request.getServletPath();
-        if(url.equals("/cadastrar-produto")) {
+        if (url.equals("/cadastrar-produto")) {
             String nextPage = "/WEB-INF/jsp/TelaCadProdutos.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
-        } else if(url.equals("/Home")){            
+        } else if (url.equals("/Home")) {
             List<ProdutoDTO> produtos = produtosDao.listarProdutos();
             request.setAttribute("produtos", produtos);
-            String nextPage = "/WEB-INF/jsp/TelaPrincipal.jsp";            
+            String nextPage = "/WEB-INF/jsp/TelaPrincipal.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
         } else if (url.equals("/buscar-produtos")) {
             String busca = request.getParameter("busca") != null ? request.getParameter("busca") : "";
-            if(busca.equals("")) {
+            if (busca.equals("")) {
                 System.out.println("Produto não encontrado");
                 String categoria = request.getParameter("cat");
                 List<ProdutoDTO> produtos = produtosDao.buscaCategoria(Integer.parseInt(categoria));
                 request.setAttribute("produtos", produtos);
             } else {
-                busca = "%"+busca+"%";
+                busca = "%" + busca + "%";
                 List<ProdutoDTO> produtos = produtosDao.buscaProdutos(busca);
                 request.setAttribute("produtos", produtos);
             }
             String nextPage = "/WEB-INF/jsp/TelaProdutos.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
-        } else if (url.equals("/ir_carrinho")){          
+        } else if (url.equals("/ir_carrinho")) {
             String nextPage = "/WEB-INF/jsp/TelaCarrinho.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
-                
+
         }
-        
-        
-        
         String nextPage = "/WEB-INF/jsp/TelaProdutos.jsp";
-        
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
         dispatcher.forward(request, response);
     }
@@ -138,29 +134,29 @@ public class ProdutosServlet extends HttpServlet {
         newProduto.setCategoriaId(Integer.parseInt(request.getParameter("mercadinho")));
         newProduto.setDescricao(request.getParameter("descricao"));
         newProduto.setValor(Float.parseFloat(request.getParameter("valor")));
-        
+        newProduto.setEstoque(Integer.parseInt(request.getParameter("estoque")));
         Part filePart = request.getPart("imagem");
         String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
         if (fileName != null && !fileName.isEmpty()) {
-        String basePath = getServletContext().getRealPath("/") + "assets"; // Caminho para a pasta assets
-        File uploads = new File(basePath);
-        if (!uploads.exists()) {
-            uploads.mkdirs(); // Cria o diretório se não existir
-        }
-        File file = new File(uploads, fileName);
+            String basePath = getServletContext().getRealPath("/") + "assets"; // Caminho para a pasta assets
+            File uploads = new File(basePath);
+            if (!uploads.exists()) {
+                uploads.mkdirs(); // Cria o diretório se não existir
+            }
+            File file = new File(uploads, fileName);
 
-        try (InputStream input = filePart.getInputStream()) {
-            Files.copy(input, file.toPath(), StandardCopyOption.REPLACE_EXISTING);
-        } catch (Exception e) {
-            e.printStackTrace(); // Trate as exceções de forma adequada
+            try (InputStream input = filePart.getInputStream()) {
+                Files.copy(input, file.toPath(), StandardCopyOption.REPLACE_EXISTING);
+            } catch (Exception e) {
+                e.printStackTrace(); // Trate as exceções de forma adequada
+            }
+
+            // Configurando apenas o caminho relativo da imagem no banco de dados
+            newProduto.setImagem("assets/" + fileName);
+        } else {
+            newProduto.setImagem(null);
         }
 
-        // Configurando apenas o caminho relativo da imagem no banco de dados
-        newProduto.setImagem("assets/" + fileName);
-    } else {
-        newProduto.setImagem(null);
-    }
-        
         ProdutosDAO produtosD = new ProdutosDAO();
         produtosD.create3(newProduto);
         response.sendRedirect("./Home");

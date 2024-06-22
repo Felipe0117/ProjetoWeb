@@ -40,6 +40,10 @@
         <servlet-name>CheckOutServlet</servlet-name>
         <servlet-class>controller.CheckOutServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DadosServlet</servlet-name>
+        <servlet-class>controller.DadosServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>*.htm</url-pattern>
@@ -91,6 +95,10 @@
     <servlet-mapping>
         <servlet-name>CheckOutServlet</servlet-name>
         <url-pattern>/CheckOutServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DadosServlet</servlet-name>
+        <url-pattern>/ir_dados</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

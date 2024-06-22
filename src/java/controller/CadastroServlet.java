@@ -81,7 +81,7 @@ public class CadastroServlet extends HttpServlet {
     protected void user(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         PrintWriter out = response.getWriter();
-        usuario.setNome_usuario(request.getParameter("nome_usuario"));
+        usuario.setNome_usuario(request.getParameter("nome_usuario"));//a variável Nome_usuario receberá o conteúdo do input "nome_usuario"
         usuario.setSenha(request.getParameter("senha"));
         usuario.setUsuario(request.getParameter("user"));
         usuario.setTelefone(request.getParameter("telefone"));
@@ -90,17 +90,17 @@ public class CadastroServlet extends HttpServlet {
         
         
        
-        if (usuario.getNome_usuario().trim().equals("")
+        if (usuario.getNome_usuario().trim().equals("")//função que impede que algum dos valores do cadastro seja nulo
                 || usuario.getSenha().trim().equals("")
                 || usuario.getUsuario().trim().equals("")
                 || usuario.getCpf().trim().equals("")
                 || usuario.getTelefone().trim().equals("")) {
-            out.println("<script type=\"text/javascript\">");
+            out.println("<script type=\"text/javascript\">");//código destinado a printar um aviso na tela o usuário
             out.println("alert('Por favor, preencha todos os campos.');");
             out.println("window.location.href = './CadastroServlet';");
             out.println("</script>");
         } else {
-            System.out.println("ooo");
+            System.out.println("...");
             usuarios.create2(usuario);
             response.sendRedirect("./Login");
         }

@@ -157,4 +157,104 @@ public class ProdutosDAO {
         return resultadoBusca;
     }
     
+    public int verEstoque(int produtoId) {
+    int estoque = 0;
+    try {
+        Connection conexao = Conexao.conectar();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+       
+        stmt = conexao.prepareStatement("SELECT estoque FROM produtos WHERE id_produto = ?");
+        stmt.setInt(1, produtoId);
+
+        rs = stmt.executeQuery();
+        if (rs.next()) {
+            estoque = rs.getInt("estoque");
+        }
+       
+        rs.close();
+        stmt.close();
+        conexao.close();
+       
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+   
+    return estoque;
 }
+
+    public int retirarProduto(int quantUsuario, int produtoId){
+   
+    try{    
+    Connection conexao = Conexao.conectar();
+    PreparedStatement stmt = null;
+    ResultSet rs = null;
+   
+    stmt = conexao.prepareStatement("SELECT estoque FROM produtos WHERE id_produto = ?");
+    stmt.setInt(1, produtoId);
+    rs = stmt.executeQuery();
+   
+    if(rs.next()){
+        int quantAtual = rs.getInt("estoque");
+        if(quantAtual >= quantUsuario){
+           
+            int novaQuant = quantAtual - quantUsuario;
+        stmt = conexao.prepareStatement("UPDATE produtos SET estoque = ? WHERE id_produto = ?");
+        stmt.setInt(1, novaQuant);
+        stmt.setInt(2, produtoId);
+        stmt.executeUpdate();
+       
+          rs.close();
+        stmt.close();
+        conexao.close();    
+        quantAtual = 0;
+        quantUsuario = 0;
+        novaQuant = 0;
+        }
+       
+    }
+   
+    } catch (SQLException e){
+        e.printStackTrace();
+    }
+    return 0;
+}
+    
+    public int aumentarProduto(int produtoId, int quantCarrinho){
+    try{    
+    Connection conexao = Conexao.conectar();
+    PreparedStatement stmt = null;
+    ResultSet rs = null;
+
+    stmt = conexao.prepareStatement("SELECT estoque FROM produtos WHERE id_produto = ?");
+    stmt.setInt(1, produtoId);
+    rs = stmt.executeQuery();
+   
+    if(rs.next()){
+        int quantAtual = rs.getInt("quantidade");
+       
+            int novaQuant = quantAtual + quantCarrinho;
+
+        stmt = conexao.prepareStatement("UPDATE produtos SET estoque = ? WHERE id_produto = ?");
+
+
+        stmt.setInt(1, novaQuant);
+        stmt.setInt(2, produtoId);
+        stmt.executeUpdate();
+       
+        rs.close();
+        stmt.close();
+        conexao.close();      
+        quantAtual = 0;
+        quantCarrinho = 0;
+        novaQuant = 0;
+    }
+   
+    } catch (SQLException e){
+        e.printStackTrace();
+    }
+return 0;
+} 
+    
+}
+

@@ -9,6 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="./styles/TelaLogin.css">
         <script src="https://kit.fontawesome.com/676974c9dc.js" crossorigin="anonymous"></script>
     </head>
@@ -32,6 +33,7 @@
                 <div class="cadastro"><span>Não possui conta? </span><a href="./Cadastro"> Cadastre-se</a></div>
                 </form>
             </div>
+            <nav class="imagem2"></nav>
         </div>
     </body>
     <script src="./js/login.js"></script>

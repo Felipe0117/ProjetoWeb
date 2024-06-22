@@ -270,9 +270,8 @@ main{
     color: white;
 }
 
-.finalizar{
-    margin-left: 72%;
-    margin-top: 7vh;
+.terminar{
+    margin-right: 10%;
     margin-bottom: 5vh;
     background-color: black;
     color: white;
@@ -283,7 +282,7 @@ main{
     cursor: pointer;
 }
 
-.finalizar:hover{
+.terminar:hover{
     opacity: 60%;
 }
 

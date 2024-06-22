@@ -20,10 +20,12 @@ import javax.servlet.http.HttpServletResponse;
 import mercadinho.bean.CarrinhoDTO;
 import mercadinho.bean.CategoriaDTO;
 import mercadinho.bean.EnderecoDTO;
+import mercadinho.bean.HistoricoDTO;
 import mercadinho.bean.UsuarioDTO;
 import model.dao.CarrinhoDAO;
 import model.dao.CategoriasDAO;
 import model.dao.EnderecosDAO;
+import model.dao.HistoricoDAO;
 import model.dao.UsuariosDAO;
 
 /**
@@ -31,15 +33,17 @@ import model.dao.UsuariosDAO;
 
  * @author Senai
  */
-@WebServlet(urlPatterns = {"/checkout", "/modEndereco"})
+@WebServlet(urlPatterns = {"/checkout", "/modEndereco", "/adicionarItemHist"})
 @MultipartConfig
 public class CheckOutServlet extends HttpServlet {
      UsuarioDTO usuario = new UsuarioDTO();
         UsuariosDAO usuarios = new UsuariosDAO();
         CarrinhoDAO carrinhos = new CarrinhoDAO();
-        CategoriasDAO mercadinhoDao = new CategoriasDAO();
+        CarrinhoDTO carrinho = new CarrinhoDTO();
         EnderecoDTO enderecos = new EnderecoDTO();
         EnderecosDAO endereco = new EnderecosDAO();
+        HistoricoDTO historico = new HistoricoDTO();
+        HistoricoDAO historicos = new HistoricoDAO();
 
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -140,41 +144,67 @@ public class CheckOutServlet extends HttpServlet {
         }
         }  
                }/*Aqui para cima é somente para o cep, daquip para baixo é para adicionar os produtos aos pedidos*/
-     /*  if(url.equals("/AdicionarItemProdutosPedidos")){
+       if(url.equals("/adicionarItemHist")){
           if(cookies != null){
         for (Cookie cookie : cookies) {
-            if (cookie.getName().equals("continuarLogin")) {
-           int idUsuario = Integer.parseInt(cookie.getValue());
-                System.out.println("cheguei ");
-           produtoPedidos(request, response);    
+            if (cookie.getName().equals("continuarCookie")) {
+                String NumCart = request.getParameter("cartao");
+                String Cvc = request.getParameter("cvc");
+                String Dv = request.getParameter("dv");
+                String Nome = request.getParameter("nome");
+                String NumCart2 = request.getParameter("cartao2");
+                String Cvc2 = request.getParameter("cvc2");
+                String Dv2 = request.getParameter("dv2");
+                String Nome2 = request.getParameter("nome2");
+                
+                if (NumCart == null || Cvc == null || Dv == null || Nome == null || NumCart2 == null || Cvc2 == null || Dv2 == null || Nome2 == null ) {
+            out.println("<script type=\"text/javascript\">");
+            out.println("alert('Preencha as informações de pagamento');");
+            out.println("window.location.href = './CheckOutServlet';");
+            out.println("</script>");
+        }else{
+           hist(request, response);    
 
             }
         }
           }          
-         }   */     
+         }      
+    }
     }
    
-            /*protected void produtoPedidos(HttpServletRequest request, HttpServletResponse response)
+            protected void hist(HttpServletRequest request, HttpServletResponse response)
                 throws ServletException, IOException {
             PrintWriter out = response.getWriter();
-                System.out.println("Nome produtos produto pedidos "+request.getParameter("nome_produto"));
-                System.out.println("numero categoria id: "+ Integer.parseInt(request.getParameter("categoria")));
-            pedidosProdutosDto.setNome_produtos_pedidos(request.getParameter("nomeCarrinho"));
-            pedidosProdutosDto.setValor_pedidos_produtos(Float.parseFloat(request.getParameter("valor")));
-            pedidosProdutosDto.setDescricao_pedidos_produtos(request.getParameter("descricao"));
-            pedidosProdutosDto.setTamanho_id4(Integer.parseInt(request.getParameter("tamanho")));
-            pedidosProdutosDto.setQuantidade_pedidos_produtos(Integer.parseInt(request.getParameter("quantidade")));
-            pedidosProdutosDto.setProduto_id4(Integer.parseInt(request.getParameter("produtoId")));
-            pedidosProdutosDto.setImagem_pedidos_produtos(request.getParameter("imagem"));
- //           pedidosProdutosDto.setCategoria_id4(Integer.parseInt(request.getParameter("categoria")));
-            pedidosProdutosDto.setUsuario_id4(Integer.parseInt(request.getParameter("id_usuario")));
-            pedidosProdutosDao.cadastrarPedidosProdutos(pedidosProdutosDto);
-          out.println("<script type=\"text/javascript\">");
-            out.println("alert('Produtos adicionado aos pedidos com sucesso');");
-            out.println("window.location.href = './menu';");
+            
+            String [] nomeHist = request.getParameterValues("nomeHist");
+            String [] valor = request.getParameterValues("valor");
+            String [] descricao = request.getParameterValues("descricao");
+            String [] quantidade = request.getParameterValues("quantidade");
+            String [] idProduto = request.getParameterValues("idProduto");
+            String [] imagem = request.getParameterValues("imagem");
+            int idUsuario = Integer.parseInt(request.getParameter("id_usuario"));
+            
+            for (int i = 0; i < nomeHist.length; i++){
+            historico.setNome_historico(nomeHist[i]);
+            historico.setValor_historico(Float.parseFloat(valor[i]));
+            historico.setDescricao_historico(descricao[i]);
+            historico.setQuantidade_historico(Integer.parseInt(quantidade[i]));
+            historico.setProduto_id4(Integer.parseInt(idProduto[i]));
+            historico.setImagem_historico(imagem[i]);
+            historico.setUsuario_id4(idUsuario);
+            historicos.cadastrarHistorico(historico);
+            
+            
+            }
+            carrinhos.deletarCarrinho();
+            
+            out.println("<script type=\"text/javascript\">");
+            out.println("alert('Informações adicionadas com sucesso');");
+            out.println("window.location.href = './Home';");
             out.println("</script>");
+            
 
-    }*/
+    }
    
           protected void inserirEndereco(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {

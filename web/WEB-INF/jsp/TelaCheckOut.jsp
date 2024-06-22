@@ -14,6 +14,7 @@
         </header>
         <main>
             <section class="tudo">
+                <form action="adicionarItemHist" method="post" enctype="multipart/form-data">
                 <div class="compra">
                     <h2><i class="fa-solid fa-bag-shopping"></i>Itens</h2>
                     <div class="carrinho">
@@ -30,9 +31,19 @@
                                     <p class="quantidade">${carros.quantidadeCarrinho}</p>
                                 </div>
                             </div>
+                                <input type="hidden" name="idProduto" value="${carros.produtoId3}">
+                                <input type="hidden" name="descricao" value="${carros.descricaoCarrinho}">
+                                <input type="hidden" name="quantidade" value="${carros.quantidadeCarrinho}">
+                                <input type="hidden" name="imagem" value="${carros.imagemCarrinho}">
+                                <input type="hidden" name="valor" value="${carros.valorCarrinho}">
+                                <input type="hidden" name="nomeHist" value="${carros.nomeCarrinho}">
+                                <input type="hidden" name="id_usuario" value="${usuario.id_usuario}">
+                                      
                         </c:forEach>
                     </div>
                 </div>
+                <button class="terminar" type="submit" onclick="validarInputs()">Finalizar Compra</button> 
+                </form>
                 <form action="modEndereco" method="post" enctype="multipart/form-data">
                     <div class="endereco">
                         <c:forEach items="${enderecoAtual}" var="enderecosAtual">
@@ -75,7 +86,7 @@
                             </span>
                         </label>
                         <label>
-                            <input checked="" class="radio-input" type="radio" name="engine" value="debito">
+                            <input class="radio-input" type="radio" name="engine" value="debito">
                             <span class="radio-tile">
                                 <span class="radio-icon">
                                     <i class="fa-regular fa-credit-card"></i>
@@ -93,49 +104,46 @@
                             </span>
                         </label>
                     </div>
-                    <form action="addItemProdPedidos" method="post" enctype="multipart/form-data">
+                    
                     <section class="opcao">                      
                             <div id="credito" class="content-div">
                                 <p>Número do Cartão:</p>
-                                <input name="cartao" type="number" id="cartao" required>
+                                <input name="cartao" type="text" id="cart"  minlength="19" pattern="([0-9]{4}).([0-9]{4}).([0-9]{4}).([0-9]{4})" value="cartao" required>
                                 <div class="org">
                                     <div class="cvcs">
                                         <p>CVC:</p>
-                                        <input name="cvc" type="number" id="cvc" required>
+                                        <input name="cvc" id="cvc" type="number" id="cvc" pattern="([0-9]{3})" value="cvc" required>
                                     </div>
                                     <div class="val">
                                         <p>Data de Validade:</p>
-                                        <input name="data_validade" type="date" id="data_validade" required>
+                                        <input name="data_validade" type="date" id="data_validade" value="dv" required>
                                     </div>
                                 </div>
                                 <p>Nome do Titular:</p>
-                                <input name="nome" type="text" id="nome" required>
+                                <input name="nome" type="text" id="nome" value="nome" required>
                             </div>
                             <div id="debito" class="content-div">
                                 <p>Número do Cartão:</p>
-                                <input name="cartao" type="number" id="cartao" required>
+                                <input name="cartao" type="number" id="cartao" minlength="19" pattern="([0-9]{4}).([0-9]{4}).([0-9]{4}).([0-9]{4})" value="cartao2" required>
                                 <div class="org">
-                                    <div class="cvcs">
+                                    <div class="cvcs" >
                                         <p>CVC:</p>
-                                        <input name="cvc" type="number" id="cvc" required>
+                                        <input name="cvc" id="cvc2" type="number" pattern="([0-9]{3})" id="cvc2" value="cvc2" required>
                                     </div>
                                     <div class="val">
                                         <p>Data de Validade:</p>
-                                        <input name="data_validade" type="date" id="data_validade" required>
+                                        <input name="data_validade" type="date" id="data_validade" value="dv2" required>
                                     </div>
                                 </div>
                                 <p>Nome do Titular:</p>
-                                <input name="nome" type="text" id="nome" required>
+                                <input name="nome" type="text" id="nome" value="nome2" required>
                             </div>
 
                             <div id="pix" class="content-div">
                                 <p>Conteúdo para Pix</p>
                             </div> 
-                    </section>
-                        
-                        <button class="finalizar" type="submit">Finalizar Compra</button>
-                        </form>
-                </div>               
+                    </section>                        
+                </div>
             </section>                   
     </main>
     <footer>
@@ -146,6 +154,10 @@
     </footer>
 
 </body>
-<script src="./js/Pagamento.js" type="text/javascript"></script>
+<script src="./js/Pagamento.js"></script>
+        <script src="https://kit.fontawesome.com/560340c572.js" crossorigin="anonymous"></script>
+            <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
+    <script src="./js/mask.js"></script>
 
 </html>

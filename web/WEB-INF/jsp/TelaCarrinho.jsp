@@ -57,6 +57,12 @@
                     <div class="quant">
                         <p class="quantidade">${carros.quantidadeCarrinho}</p>
                     </div>
+                    <form action="ExcluirItem" method="post" enctype="multipart/form-data">
+                        <button type="submit" class="button">
+                            <p>Excluir</p>
+                        </button>
+                            <input type="hidden" name="idCarrinho" value="${carros.id_carrinho}">
+                    </form>
                   </div>
             </c:forEach>
         </div>
@@ -90,6 +96,6 @@
         </footer>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>       
-
+        <script src="./js/AlterarCarrinho.js"></script>
     </body>
 </html>
