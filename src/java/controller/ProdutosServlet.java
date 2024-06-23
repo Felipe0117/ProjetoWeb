@@ -79,7 +79,6 @@ public class ProdutosServlet extends HttpServlet {
         } else if (url.equals("/buscar-produtos")) {
             String busca = request.getParameter("busca") != null ? request.getParameter("busca") : "";
             if (busca.equals("")) {
-                System.out.println("Produto não encontrado");
                 String categoria = request.getParameter("cat");
                 List<ProdutoDTO> produtos = produtosDao.buscaCategoria(Integer.parseInt(categoria));
                 request.setAttribute("produtos", produtos);
