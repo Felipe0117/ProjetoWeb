@@ -24,7 +24,7 @@
                         <div class="pesquisa"><i class="fa-solid fa-magnifying-glass"></i><input type="text" id="taskPesquisa" name="busca" placeholder="Pesquisa"></div>
                         <div class="itens"><button>Buscar</button></div>
                     </form>
-                <div class="bot" id="um"><a class="buttons" href="./cadastrar-produto"><i class="fa-solid fa-user"></i></a></div>
+                <div class="bot" id="um"><a class="buttons" href="./ir_dados?id=${usuario.id_usuario}"><i class="fa-solid fa-user"></i></a></div>
                 <div class="bot"><a class="buttons" href="./ir_carrinho"><i class="fa-solid fa-cart-shopping"></i></a></div>
             </div>
            <div class="menu2">
@@ -43,7 +43,6 @@
             <h1><i class="fa-solid fa-cart-shopping"></i>Carrinho</h1>
             <div class="carta">
             <p class="valores">Quantidade</p>
-            <p class="valore">Total</p>
             </div>
         <div class="carrinho">
             
@@ -58,9 +57,9 @@
                         <p class="quantidade">${carros.quantidadeCarrinho}</p>
                     </div>
                     <form action="ExcluirItem" method="post" enctype="multipart/form-data">
-                        <button type="submit" class="button">
-                            <p>Excluir</p>
-                        </button>
+                        <div class="retirar">
+                        <button class="excluir" type="submit"  ><p>Excluir</p></button>
+                        </div>
                             <input type="hidden" name="idCarrinho" value="${carros.id_carrinho}">
                     </form>
                   </div>

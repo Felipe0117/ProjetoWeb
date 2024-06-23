@@ -44,6 +44,10 @@
         <servlet-name>DadosServlet</servlet-name>
         <servlet-class>controller.DadosServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>FinalServlet</servlet-name>
+        <servlet-class>controller.FinalServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>*.htm</url-pattern>
@@ -99,6 +103,10 @@
     <servlet-mapping>
         <servlet-name>DadosServlet</servlet-name>
         <url-pattern>/ir_dados</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FinalServlet</servlet-name>
+        <url-pattern>/FinalServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -270,9 +270,9 @@ main{
     color: white;
 }
 
-.terminar{
-    margin-right: 10%;
-    margin-bottom: 5vh;
+div #botao1{
+    margin-left: 5vw;
+    margin-bottom: 9vh;
     background-color: black;
     color: white;
     border: none;
@@ -282,7 +282,7 @@ main{
     cursor: pointer;
 }
 
-.terminar:hover{
+div #botao1:hover{
     opacity: 60%;
 }
 

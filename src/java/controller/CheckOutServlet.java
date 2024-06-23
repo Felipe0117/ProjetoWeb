@@ -148,7 +148,8 @@ public class CheckOutServlet extends HttpServlet {
           if(cookies != null){
         for (Cookie cookie : cookies) {
             if (cookie.getName().equals("continuarCookie")) {
-                String NumCart = request.getParameter("cartao");
+                hist(request, response);
+               /* String NumCart = request.getParameter("cartao");
                 String Cvc = request.getParameter("cvc");
                 String Dv = request.getParameter("dv");
                 String Nome = request.getParameter("nome");
@@ -165,7 +166,7 @@ public class CheckOutServlet extends HttpServlet {
         }else{
            hist(request, response);    
 
-            }
+            }*/
         }
           }          
          }      
@@ -199,8 +200,7 @@ public class CheckOutServlet extends HttpServlet {
             carrinhos.deletarCarrinho();
             
             out.println("<script type=\"text/javascript\">");
-            out.println("alert('Informações adicionadas com sucesso');");
-            out.println("window.location.href = './Home';");
+            out.println("window.location.href = './FinalServlet';");
             out.println("</script>");
             
 

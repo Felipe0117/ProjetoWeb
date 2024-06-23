@@ -13,37 +13,7 @@
             <h1><i class="fa-solid fa-tag"></i>Finalizar Compra</h1>
         </header>
         <main>
-            <section class="tudo">
-                <form action="adicionarItemHist" method="post" enctype="multipart/form-data">
-                <div class="compra">
-                    <h2><i class="fa-solid fa-bag-shopping"></i>Itens</h2>
-                    <div class="carrinho">
-                        <c:forEach items="${carro}" var="carros">
-                            <div class="prod">
-
-                                <img src="${carros.imagemCarrinho}" class="cartao-img" alt="${carros.imagemCarrinho}">
-                                <div class="corpo">
-                                    <h5 class="titulos">${carros.nomeCarrinho}</h5>
-                                    <p class="valor">R$ ${carros.valorCarrinho}</p>
-                                </div>
-
-                                <div class="quant">
-                                    <p class="quantidade">${carros.quantidadeCarrinho}</p>
-                                </div>
-                            </div>
-                                <input type="hidden" name="idProduto" value="${carros.produtoId3}">
-                                <input type="hidden" name="descricao" value="${carros.descricaoCarrinho}">
-                                <input type="hidden" name="quantidade" value="${carros.quantidadeCarrinho}">
-                                <input type="hidden" name="imagem" value="${carros.imagemCarrinho}">
-                                <input type="hidden" name="valor" value="${carros.valorCarrinho}">
-                                <input type="hidden" name="nomeHist" value="${carros.nomeCarrinho}">
-                                <input type="hidden" name="id_usuario" value="${usuario.id_usuario}">
-                                      
-                        </c:forEach>
-                    </div>
-                </div>
-                <button class="terminar" type="submit" onclick="validarInputs()">Finalizar Compra</button> 
-                </form>
+            <section class="tudo">               
                 <form action="modEndereco" method="post" enctype="multipart/form-data">
                     <div class="endereco">
                         <c:forEach items="${enderecoAtual}" var="enderecosAtual">
@@ -144,6 +114,38 @@
                             </div> 
                     </section>                        
                 </div>
+                <form action="adicionarItemHist" method="post" enctype="multipart/form-data">
+                <div class="compra">
+                    <h2><i class="fa-solid fa-bag-shopping"></i>Itens</h2>
+                    <div class="carrinho">
+                        <c:forEach items="${carro}" var="carros">
+                            <div class="prod">
+
+                                <img src="${carros.imagemCarrinho}" class="cartao-img" alt="${carros.imagemCarrinho}">
+                                <div class="corpo">
+                                    <h5 class="titulos">${carros.nomeCarrinho}</h5>
+                                    <p class="valor">R$ ${carros.valorCarrinho}</p>
+                                </div>
+
+                                <div class="quant">
+                                    <p class="quantidade">${carros.quantidadeCarrinho}</p>
+                                </div>
+                            </div>
+                                <input type="hidden" name="idProduto" value="${carros.produtoId3}">
+                                <input type="hidden" name="descricao" value="${carros.descricaoCarrinho}">
+                                <input type="hidden" name="quantidade" value="${carros.quantidadeCarrinho}">
+                                <input type="hidden" name="imagem" value="${carros.imagemCarrinho}">
+                                <input type="hidden" name="valor" value="${carros.valorCarrinho}">
+                                <input type="hidden" name="nomeHist" value="${carros.nomeCarrinho}">
+                                <input type="hidden" name="id_usuario" value="${usuario.id_usuario}">
+                                      
+                        </c:forEach>
+                    </div>
+                </div>
+                <div class="mudar">
+                <button id="botao1" type="submit" onclick="validarInputs()">Finalizar Compra</button> 
+                </div>
+                </form>
             </section>                   
     </main>
     <footer>
@@ -154,6 +156,7 @@
     </footer>
 
 </body>
+
 <script src="./js/Pagamento.js"></script>
         <script src="https://kit.fontawesome.com/560340c572.js" crossorigin="anonymous"></script>
             <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>

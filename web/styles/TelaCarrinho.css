@@ -88,6 +88,23 @@ main .total .palavra{
 .carta{
     display: flex;
 }
+
+.retirar .excluir{
+    margin-left: 5vw;
+    background-color: black;
+    color: white;
+    border: none;
+    height: 5vh;
+    width: 6vw;
+    margin-top: 3vh;
+    border-radius: 4px;
+    
+}
+
+.retirar .excluir:hover{
+    opacity: 60%;
+    
+}
 /*-------------------------------------------------------------*/
 
 header{
