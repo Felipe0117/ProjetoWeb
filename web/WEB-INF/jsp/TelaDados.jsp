@@ -29,7 +29,7 @@
             <div class="bot" id="um"><a class="buttons" href="./ir_dados?id=${usuario.id_usuario}"><i class="fa-solid fa-user"></i></a></div>
             <div class="bot" id="dois"><a class="buttons" href="./ir_carrinho"><i class="fa-solid fa-cart-shopping"></i></a></div>                            
         </div>
-           <div id="botao1" ><button onclick="menuShow()"><i class="fa-solid fa-bars"></i></button></div>
+            <div id="botao1" class="cats" ><button onclick="menuShow()"><i class="fa-solid fa-bars"></i></button></div>
            <div class="menu2">
            <div class="container container-categorias">
                <div class="ver">
@@ -86,9 +86,9 @@
                     </div>
                 </div>                    
             </section>
-                <div class="bot">
-                    <a id="btn1" href="./Home">Sair do site</a>
-                    <a id="btn2" href="./Home">Menu do Admin</a>
+                <div class="bota">
+                    <div><a id="btn1" href="./Home">Sair do site</a></div>
+                    <div><a id="btn2" href="./Home">Menu do Admin</a></div>
                 </div>
         </main>
         <footer>

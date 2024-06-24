@@ -77,7 +77,7 @@ main{
     background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat;
-    max-width: 35%;
+    max-width: 40%;
     max-height: 85%;
     margin-left: 20%;
 }
@@ -215,13 +215,280 @@ footer{
     width: 25vw;
 }
 
-.bot #btn1{
-    height: 10vh;
-    width: 20vw;
+.bota{
+    display: flex;
+}
+
+.bota div{
+    text-align: center;
+    height: 5vh;
+    width: 16vw;
     background-color: #272727;
+    cursor: pointer;
+    border-color: transparent;
+    border-radius: 4px;
+    margin-bottom: 2vh;
+    margin-left: 22vw;
+}
+
+.bota a{
+    margin-top: 3vh;
+    text-decoration: none;
+    color: white;
+}
+
+#botao1{
+    display: none;
+}
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px){
+    body{
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: #D9D9D9;
+}
+
+header{
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
+
+.menu1{
+    height: 80px;
+    width: 100%;
+    background-color: black;
+    display: grid;
+    grid-template-columns: 1fr 2fr ;
+
+}
+
+.logo{   
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    max-width: 80%;
+    max-height: 89%;
+    margin-left: 10%;
+}
+
+.logo .w-100{
+    height: 100% !important;
+    width: 90% !important;
+}
+
+.menu1 .pesquisa{
+    margin-top: 3vh;
+
+}
+
+.menu1 .pesquisa i{
+    font-size: large;
+    color: white;
+
+}
+
+.menu1 input{
+    height: 6vh;
+    width: 40vw;
+    border-color:black ;
+    border-radius: 10px;
+}
+
+.itens{
+    margin-top: 3.8vh;
+    
+    
+}
+
+.itens button{
+    margin-left: 2vw;
+    background-color: #313131;
     color: white;
     cursor: pointer;
     border-color: transparent;
     border-radius: 10px;
+    
 }
+
+.menu1 .buttons{
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #272727;
+      color: white;
+      text-decoration: none; 
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
 }
+
+#um{
+    background-color: black;
+    margin-left: 18vw;
+}
+
+#dois{
+   background-color: black;
+   margin-left: 33vw; 
+}
+
+
+#menuBaixo{
+    display: none;
+}
+
+ .menu2{
+        margin-top: 7vh;
+        display: none;
+        flex-direction: column;
+        padding-bottom: 1rem ;
+        background-color: black;
+        transition: .3s
+        
+}
+
+.menu2 a:hover{
+    color: gray;
+    
+}
+.cats{
+    margin-top: 10vh;
+}
+
+.cats button{
+    width: 100%;
+    border: none;
+    background-color: #272727;
+    color: white;
+    transition: 1s
+}
+    
+.menu2 a{
+        display: block;
+        padding-top: 1.2rem;
+        margin-left: 1rem;
+        color: white;
+        text-decoration: none;
+        
+}
+
+.open{
+        display: block;
+}
+
+.tudo{
+    display: grid;
+    background-color: #D9D9D9;
+}
+
+.negrito{
+    font-weight: bold;
+    margin-left: 1vw;
+}
+
+
+.usuario{
+    margin-top: 10vh;
+    margin-left: 25vw !important;
+    width: 50vw;
+    background-color: white;
+    margin-left: 10vw;
+    border: 1px solid black;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 5vh;
+}
+
+.dados{
+    margin-left: 5vw;
+    display: flex;
+}
+
+.hist h2{
+    margin-left: 12vw;
+}
+
+.hist .sub{
+    margin-left: 46vw;
+}
+
+.hist{
+    margin-left: 15vw;
+}
+
+.cartao img{
+    width: 17vw;
+    height: 10vh;
+    margin-left: 2vw;
+}
+
+.cartao{
+    margin-top: 5vh;
+    background-color: white;
+    width: 90%;
+    display: flex;
+    height: 13vh;
+    border-radius: 20px;
+    border: 1px solid black;
+}
+
+.cartao h5{
+    font-size: medium;
+}
+
+.quant{
+    display: grid;
+    text-align: center;
+    align-items: center;
+    width: 10vw; 
+}
+
+.carrinho{
+    overflow-x: auto;
+    width: 90%;
+    height: 50%;
+}
+
+.cartao .corpo{
+    margin-left: 3vw;
+    width: 25vw;
+}
+
+.bota{
+    display: flex;
+    background-color: #D9D9D9;
+}
+
+.bota div{
+    text-align: center;
+    height: 5vh;
+    width: 35vw;
+    background-color: #272727;
+    cursor: pointer;
+    border-color: transparent;
+    border-radius: 4px;
+    margin-bottom: 2vh;
+    margin-left: 10vw;
+}
+
+.bota a{
+    margin-top: 3vh;
+    text-decoration: none;
+    color: white;
+}
+
+.rodapé{
+    background-color: black;
+    text-align: center;
+}
+
+.rodapé p{
+    color: white;
+}
+
+}
+

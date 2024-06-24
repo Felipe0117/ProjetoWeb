@@ -1,4 +1,5 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -124,7 +125,7 @@
                                 <img src="${carros.imagemCarrinho}" class="cartao-img" alt="${carros.imagemCarrinho}">
                                 <div class="corpo">
                                     <h5 class="titulos">${carros.nomeCarrinho}</h5>
-                                    <p class="valor">R$ ${carros.valorCarrinho}</p>
+                                    <p class="valor">R$ <fmt:formatNumber value="${carros.valorCarrinho}" pattern="#.00" /></p>
                                 </div>
 
                                 <div class="quant">
