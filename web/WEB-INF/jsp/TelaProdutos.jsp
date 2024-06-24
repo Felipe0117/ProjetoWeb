@@ -4,11 +4,14 @@
     Author     : Senai
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="styles/TelaProdutos.css">
         <script src="https://kit.fontawesome.com/676974c9dc.js" crossorigin="anonymous"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -23,9 +26,10 @@
             <div class="itens"><button>Buscar</button></div>
             </form>
             <div class="bot" id="um"><a class="buttons" href="./ir_dados?id=${usuario.id_usuario}"><i class="fa-solid fa-user"></i></a></div>
-            <div class="bot"><a class="buttons" href="./ir_carrinho"><i class="fa-solid fa-cart-shopping"></i></a></div>
+            <div class="bot" id="dois"><a class="buttons" href="./ir_carrinho"><i class="fa-solid fa-cart-shopping"></i></a></div>
         </div>
-           <div class="menu2">
+            <div id="botao1" class="cats" ><button onclick="menuShow()"><i class="fa-solid fa-bars"></i></button></div>
+           <div class="menu2" id="modoMob">
            <div class="container container-categorias">
                <div class="ver">
                     <c:forEach items="${categoria}" var="mercadinho1" >
@@ -44,7 +48,7 @@
                     <img src="${produto.imagem}" class="card-img-top" alt="${produto.nome_produto}">
                     <div class="card-body">
                       <h5 class="card-title">${produto.nome_produto}</h5>
-                      <p class="card-text">R$ ${produto.valor}</p>
+                      <p class="card-text">R$ <fmt:formatNumber value="${produto.valor}" pattern="#.00" /></p>
                       <a href="./Produto?id=${produto.idProduto}" class="btn btn-primary" type="submit" value="comprar">Comprar</a>
                     </div>
                   </div>
@@ -70,4 +74,5 @@
         </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     </body>
+    <script src="./js/Responsividade.js"></script>
 </html>

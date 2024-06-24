@@ -1,4 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
@@ -21,9 +23,10 @@
             <div class="itens"><button>Buscar</button></div>
             </form>
             <div class="bot" id="um"><a class="buttons" href="./ir_dados?id=${usuario.id_usuario}"><i class="fa-solid fa-user"></i></a></div>
-            <div class="bot" id="dois"><a class="buttons" href="./ir_carrinho"><i class="fa-solid fa-cart-shopping"></i></a></div>                            
+            <div class="bot" id="dois"><a class="buttons" href="./ir_carrinho"><i class="fa-solid fa-cart-shopping"></i></a></div>            
         </div>
-           <div class="menu2">
+            <div class="cats" id="botao1"><button onclick="menuShow()"><i class="fa-solid fa-bars"></i></button></div>
+           <div class="menu2" id="modoMob">
            <div class="container container-categorias">
                <div class="ver">
                     <c:forEach items="${categoria}" var="mercadinho1" >
@@ -69,7 +72,7 @@
                     <div class="card-body">
                       <h5 class="card-title">${produto.nome_produto}</h5>
                       <br>
-                      <p class="card-text">R$ ${produto.valor}</p>
+                      <p class="card-text">R$ <fmt:formatNumber value="${produto.valor}" pattern="#.00" /></p>
                       
                       <a href="./Produto?id=${produto.idProduto}" class="btn btn-primary" type="submit" value="comprar">Comprar</a>
                     </div>
@@ -98,4 +101,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     </body>
+    <script src="./js/Responsividade.js"></script>
 </html>
