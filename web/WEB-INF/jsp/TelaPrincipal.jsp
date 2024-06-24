@@ -71,7 +71,7 @@
                     <img src="${produto.imagem}" class="card-img-top" alt="${produto.nome_produto}">
                     <div class="card-body">
                       <h5 class="card-title">${produto.nome_produto}</h5>
-                      <br>
+                      <br id="ebr">
                       <p class="card-text">R$ <fmt:formatNumber value="${produto.valor}" pattern="#.00" /></p>
                       
                       <a href="./Produto?id=${produto.idProduto}" class="btn btn-primary" type="submit" value="comprar">Comprar</a>

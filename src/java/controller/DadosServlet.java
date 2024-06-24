@@ -51,18 +51,20 @@ public class DadosServlet extends HttpServlet {
                 request.setAttribute("usuario", usuario);
             }
         }
-        int idUsuario = Integer.parseInt(request.getParameter("id"));
-        System.out.println(idUsuario+"servlet");
-        List<HistoricoDTO> historicos = historico.mostrarHistorico(idUsuario);
-        request.setAttribute("historicos", historicos);
+        
+            int id = Integer.parseInt(request.getParameter("id"));
+            System.out.println(id + "servlet");
+            List<HistoricoDTO> historicos = historico.mostrarHistorico(id);
+            request.setAttribute("historicos", historicos);
 
-        List<CategoriaDTO> mercadinho = mercadinhoDao.listarCategorias();
-        request.setAttribute("categoria", mercadinho);
+            List<CategoriaDTO> mercadinho = mercadinhoDao.listarCategorias();
+            request.setAttribute("categoria", mercadinho);
 
-        String nextPage = "/WEB-INF/jsp/TelaDados.jsp";
+            String nextPage = "/WEB-INF/jsp/TelaDados.jsp";
 
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
-        dispatcher.forward(request, response);
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+            dispatcher.forward(request, response);
+        
 
     }
 
