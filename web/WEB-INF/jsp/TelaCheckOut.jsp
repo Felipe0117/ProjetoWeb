@@ -5,6 +5,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="styles/TelaCheck-Out.css">
         <script src="https://kit.fontawesome.com/676974c9dc.js" crossorigin="anonymous"></script>
         <title>JSP Page</title>
@@ -79,11 +80,11 @@
                     <section class="opcao">                      
                             <div id="credito" class="content-div">
                                 <p>Número do Cartão:</p>
-                                <input name="cartao" type="text" id="cart"  minlength="19" pattern="([0-9]{4}).([0-9]{4}).([0-9]{4}).([0-9]{4})" value="cartao" required>
+                                <input name="cartao" type="text" id="cart"  minlength="19" pattern="([0-9]{4}).([0-9]{4}).([0-9]{4}).([0-9]{4})" required>
                                 <div class="org">
                                     <div class="cvcs">
                                         <p>CVC:</p>
-                                        <input name="cvc" id="cvc" type="number" id="cvc" pattern="([0-9]{3})" value="cvc" required>
+                                        <input name="cvc" id="cvc" type="number" pattern="([0-9]{3})" value="cvc" required>
                                     </div>
                                     <div class="val">
                                         <p>Data de Validade:</p>
@@ -95,7 +96,7 @@
                             </div>
                             <div id="debito" class="content-div">
                                 <p>Número do Cartão:</p>
-                                <input name="cartao" type="number" id="cartao" minlength="19" pattern="([0-9]{4}).([0-9]{4}).([0-9]{4}).([0-9]{4})" value="cartao2" required>
+                                <input name="cartao" type="text" id="cartao" minlength="19" pattern="([0-9]{4}).([0-9]{4}).([0-9]{4}).([0-9]{4})" required>
                                 <div class="org">
                                     <div class="cvcs" >
                                         <p>CVC:</p>
@@ -151,7 +152,7 @@
     </main>
     <footer>
         <div class="fim">
-            <p>© 2024, Game Time Store</p>
+            <p id="game">© 2024, Game Time Store</p>
             <p id="tel">Telefone: (43) 2730-9352</p>
         </div>            
     </footer>
