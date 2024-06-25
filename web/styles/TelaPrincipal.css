@@ -1,4 +1,4 @@
-/*@media screen and (min-width: 800px){
+@media screen and (min-width: 800px) and (max-height: 600px){
 body{
     width: 100vw;
     height: 100vh;
@@ -76,7 +76,7 @@ main{
     background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat;
-    max-width: 35%;
+    max-width: 60%;
     max-height: 85%;
     margin-left: 20%;
 }
@@ -155,16 +155,15 @@ footer{
 
 .meio .card-body{
     background-color: #D9D9D9;
-    height: 191.95px;
 }
 
 
 .meio .card{
     margin-bottom: 2vh;
-    left: 2vw;
+    left: 1vw;
+    right: 1vw;
     border-radius: 3px;
-    width: 10rem !important;
-    height: 351px;
+    width: 11.5rem !important;
 
 }
 
@@ -215,14 +214,15 @@ footer{
 
 .card-body p{
     color: black;
+    font-size: medium;
 }
 
 #botao1 button{
     display: none;
 }
-}*/
+}
 
-@media screen and (min-width: 768px){
+@media screen and (min-width: 900px){
 body{
     width: 100vw;
     height: 100vh;

@@ -20,8 +20,7 @@
                     <div class="endereco">
                         <c:forEach items="${enderecoAtual}" var="enderecosAtual">
                             <h2><i class="fa-solid fa-truck-fast"></i></i>Endereço</h2>
-                            <div class="dados_ender">       
-                                <span>usuario id: ${usuario.id_usuario}</span>
+                            <div class="dados_ender" id="dde">       
                                 <p>Rua</p>
                                 <input name="rua" type="text" id="rua" value="${enderecosAtual.rua != null ? enderecosAtual.rua : ''}" required>
                                 <p>Número</p>
@@ -92,11 +91,11 @@
                                     </div>
                                 </div>
                                 <p>Nome do Titular:</p>
-                                <input name="nome" type="text" id="nome" value="nome" required>
+                                <input name="nome" type="text" id="nome" required>
                             </div>
                             <div id="debito" class="content-div">
                                 <p>Número do Cartão:</p>
-                                <input name="cartao" type="text" id="cartao" minlength="19" pattern="([0-9]{4}).([0-9]{4}).([0-9]{4}).([0-9]{4})" required>
+                                <input name="cartao" type="text" id="cartao" minlength="19" maxlength="19" pattern="([0-9]{4}).([0-9]{4}).([0-9]{4}).([0-9]{4})" required>
                                 <div class="org">
                                     <div class="cvcs" >
                                         <p>CVC:</p>
@@ -108,11 +107,13 @@
                                     </div>
                                 </div>
                                 <p>Nome do Titular:</p>
-                                <input name="nome" type="text" id="nome" value="nome2" required>
+                                <input name="nome" type="text" id="nome2" required>
                             </div>
 
                             <div id="pix" class="content-div">
-                                <p>Conteúdo para Pix</p>
+                                <p>Nome do Titular:</p>
+                                <input name="nome" type="text" id="nome3" required>
+                                <div class="qr"><img src="./assets/Pix.jpeg"></div>
                             </div> 
                     </section>                        
                 </div>

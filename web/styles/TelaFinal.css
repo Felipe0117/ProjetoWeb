@@ -1,3 +1,58 @@
+@media screen and (min-width: 800px) and (max-height: 600px){
+    body{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #DCDCDC;
+}
+
+h1{
+    font-size: 50px;
+}
+
+main{
+    text-align: center;
+}
+
+.tudo{
+    margin-top: 13vh;
+}
+
+.botoes{
+    margin-left: 14vw;
+    display: flex;
+    width: 100%;
+    gap: 10%;
+    
+}
+
+.btn{
+    text-decoration: none;
+    background-color: black;
+    color: white;
+    border: none;
+    height: 10vh;
+    width: 17vw;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn:hover{
+    opacity: 60%;
+}
+
+.img{
+        margin-left: 38%;
+        background-image: url(./../assets/green.jpg);
+        width: 25vw; 
+        height: 40vh;
+        background-size: cover; 
+        background-position: center; 
+        background-repeat: no-repeat;
+}
+}
+@media screen and (min-width: 900px){
 body{
     height: 100%;
     width: 100%;
@@ -49,5 +104,60 @@ main{
         background-size: cover; 
         background-position: center; 
         background-repeat: no-repeat;
+}
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px){
+    body{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #DCDCDC;
+}
+    .botoes{
+    margin-left: 27vw;
+    display: grid;
+    gap: 10%;
+    }   
+    
+    h1{
+    font-size: 30px;
+}
+
+h2{
+    font-size: 16px;
+}
+
+main{
+    text-align: center;
+}
+
+.tudo{
+    margin-top: 8vh;
+}
+    
+    .btn{
+    text-decoration: none;
+    background-color: black;
+    color: white;
+    border: none;
+    height: 8vh;
+    width: 45vw;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.img{
+        margin-left: 30%;
+        background-image: url(./../assets/green.jpg);
+        width: 42vw; 
+        height: 40vh;
+        background-size: cover; 
+        background-position: center; 
+        background-repeat: no-repeat;
+}
+    
+
 }
 

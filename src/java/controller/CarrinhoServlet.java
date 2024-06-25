@@ -101,9 +101,11 @@ public class CarrinhoServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        PrintWriter tout = response.getWriter();
         String action = request.getServletPath();
         if (action.equals("/irCheckOut")) {
-            response.sendRedirect("./CheckOutServlet");
+             response.sendRedirect("./CheckOutServlet");
+                    
         }else if(action.equals("/ExcluirItem")){
             System.out.println("aqu0");
             int idCarrinho = Integer.parseInt(request.getParameter("idCarrinho"));

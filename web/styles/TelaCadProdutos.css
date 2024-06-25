@@ -44,5 +44,12 @@ button:hover{
     opacity: 60%;
     
 }
-
+@media screen and (max-width: 767px){
+    button{
+        margin-left: 28% !important;
+    width: 40vw;
+    
+}
+    
+}
 

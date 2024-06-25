@@ -61,7 +61,7 @@
                     </div>
                     <form action="ExcluirItem" method="post" enctype="multipart/form-data">
                         <div class="retirar">
-                        <button class="excluir" type="submit"  ><p>Excluir</p></button>
+                        <button class="excluir" type="submit"><p>Excluir</p></button>
                         </div>
                             <input type="hidden" name="idCarrinho" value="${carros.id_carrinho}">
                     </form>
@@ -70,11 +70,12 @@
         </div>
             <c:forEach items="${totalCarrinho}" var="totalCarrinhos">
             <div class="total">
-                <h2 class="palavra">Total: R$ ${totalCarrinhos.total}</h2>               
+                <h2 class="palavra">Total: R$ <fmt:formatNumber value="${totalCarrinhos.total}" pattern="#.00" /></h2>               
             </div>
             </c:forEach>
             <div class="CheckOut">
                 <form action="irCheckOut" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="idcarrinho" value="${carros.nomeCarrinho}" />
                     <button class="comprar" type="submit" class="btn btn-comprar">Finalizar Compra</button>
                 </form>
             </div>

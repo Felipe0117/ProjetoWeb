@@ -1,3 +1,4 @@
+@media screen and (min-width: 768px){
 body{
     margin: 0;
     padding: 0;
@@ -43,4 +44,54 @@ body{
 
 .container button:hover{
     opacity: 60%;
+}
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px){
+    body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #272727;
+}
+
+.container{
+    margin-top: 10vh;
+    text-align: center;
+    border: 1px solid rgb(212, 212, 212);
+    overflow: hidden;
+    width: 80vw;
+    padding: 20px;
+    box-shadow: 0 7px 10px 0 black;
+    border-radius: 20px;
+    background-color: lightgray;
+    margin-bottom: 20px;
+    
+}
+
+.teste input{
+    height: 25px;
+    width: 60vw;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+.container button{
+    color: white;
+    cursor: pointer;
+    background-color: black;
+    width: 25vw;
+    height: 7vh;
+    border-radius: 10px;
+    border: 2px solid black;
+
+}
+
+.container button:hover{
+    opacity: 60%;
+}
 }

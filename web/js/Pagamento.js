@@ -41,4 +41,29 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     });
+    
+    document.getElementById("botao1").addEventListener("click", function(event) {
+
+    const creditoInputs = document.querySelectorAll("#credito input");
+    const debitoInputs = document.querySelectorAll("#debito input");
+    const pixInputs = document.querySelectorAll("#pix input");
+    const enderecoInputs = document.querySelectorAll("#dde input");
+
+    
+    const saoInputsPreenchidos = (inputs) => {//Converte a lista em um array e verifica se todos os inputs têm valor
+        return Array.from(inputs).every(input => input.value.trim() !== '');
+    };
+
+    // Verificar se todos os inputs estão preenchidos
+    const creditoPreenchido = saoInputsPreenchidos(creditoInputs);
+    const debitoPreenchido = saoInputsPreenchidos(debitoInputs);
+    const pixPreenchido = saoInputsPreenchidos(pixInputs);
+    const enderecoPreenchido = saoInputsPreenchidos(enderecoInputs);
+
+    
+    if (!creditoPreenchido && !debitoPreenchido && !pixPreenchido){// Se os inputs não estão preenchidos, barre o usuário
+        event.preventDefault();
+        alert("Por favor, preencha todos os campos");
+    }
+});
 

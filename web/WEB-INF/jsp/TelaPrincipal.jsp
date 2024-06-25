@@ -19,7 +19,7 @@
         <div class="menu1">
             <div class="logo"><a href="./Home"><img src="./assets/game time.jpg" class="d-block w-100" alt="..."></a></div>
             <form class="d-flex" action="buscar-produtos" method="get">
-                <div class="pesquisa"><i class="fa-solid fa-magnifying-glass"></i><input type="text" id="taskPesquisa" name="busca" placeholder="Pesquisa"></div>
+                <div class="pesquisa"><i class="fa-solid fa-magnifying-glass"></i><input type="text" id="taskPesquisa" name="busca" placeholder="Pesquisa" required></div>
             <div class="itens"><button>Buscar</button></div>
             </form>
             <div class="bot" id="um"><a class="buttons" href="./ir_dados?id=${usuario.id_usuario}"><i class="fa-solid fa-user"></i></a></div>
