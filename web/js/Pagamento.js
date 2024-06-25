@@ -1,12 +1,12 @@
 const CepInput = (event) => {
-    let input = event.target; // Pega o que esta no input em que está o onkeyup="CepMascara(event)"
-    input.value = CepMascara(input.value); // Aplica a CepMascara ao valor do campo de entrada
+    let input = event.target; // Pega o que esta no input
+    input.value = CepMascara(input.value); // Aplica a CepMascara ao valor de entrada
 };
 
 
 
 const CepMascara = (value) => {
-    if (!value) return ""; // Retorna uma string vazia se o valor for nulo ou indefinido
+    if (!value) return ""; // Retorna uma string vazia se o valor for nulo ou vazio
     value = value.replace(/\D/g, ""); // Remove todos os caracteres não numéricos
     value = value.replace(/(\d{5})(\d{1,3})$/, "$1-$2"); // Insere o traço após os cinco digitos(numero)
     return value; // Retorna o valor formatado com a máscara de CEP

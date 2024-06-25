@@ -112,6 +112,7 @@ public class UsuariosDAO {
                 objUsuario.setUsuario(rs.getString("usuario"));
                 objUsuario.setSenha(rs.getString("senha"));
                 objUsuario.setTelefone(rs.getString("telefone"));
+                objUsuario.setData_nascimento(rs.getDate("data_nascimento"));
                 objUsuario.setCpf(rs.getString("cpf"));
 
             }

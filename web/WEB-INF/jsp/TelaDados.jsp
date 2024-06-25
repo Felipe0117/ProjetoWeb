@@ -87,8 +87,8 @@
                 </div>                    
             </section>
                 <div class="bota">
-                    <div><a id="btn1" href="./Home">Sair do site</a></div>
-                    <div><a id="btn2" href="./Home">Menu do Admin</a></div>
+                    <div><a id="btn1" href="./Login">Sair do site</a></div>
+                    <div><a id="btn2" href="./Login">Menu do Admin</a></div>
                 </div>
         </main>
         <footer>
